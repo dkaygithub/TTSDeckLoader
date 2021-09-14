@@ -1,0 +1,149 @@
+require("CardMetadata")
+
+local tagTargetGuid = ""
+local verifyTargetGuid = ""
+local moveTargetGuid = ""
+local allCardsBagGuid = ""
+
+function allCardsGuidChanged(player, value)
+  allCardsBagGuid = value
+end
+
+function moveTargetGuidChanged(player, value)
+  moveTargetGuid = value
+end
+
+function verifyTargetGuidChanged(player, value)
+  verifyTargetGuid = value
+end
+
+function tagTargetGuidChanged(player, value)
+  tagTargetGuid = value
+end
+
+function tagCards()
+  local tagTarget = getObjectFromGUID(tagTargetGuid)
+  if (tagTarget.name == "Card") then
+    tagSingleCard()
+  elseif (tagTarget.name == "Bag" or tagTarget.name == "Deck") then
+    startLuaCoroutine(self, "tagContainer")
+  else
+    broadcastToAll("Tag GUID does not point to a card, deck, or bag")
+    return
+  end
+end
+
+function tagSingleCard()
+  local targetCard = getObjectFromGUID(tagTargetGuid)
+  local goodPosition = Vector(10, 1, 0)
+  local badPosition = Vector(10, 1, 6)
+  local name = targetCard.getName().."|"
+  if (targetCard.getDescription() ~= nil) then
+    name = name..targetCard.getDescription()
+  end
+  local cardJson = allCards[name]
+  if (cardJson == nil) then
+    name = targetCard.getName().."|"
+  end
+  cardJson = allCards[name]
+  if (cardJson == nil) then
+    log("Could not find data for "..name);
+    targetCard.setPosition(badPosition)
+  else
+    targetCard.setGMNotes(cardJson)
+    targetCard.setPosition(goodPosition)
+  end
+end
+
+function tagContainer()
+  local tagTarget = getObjectFromGUID(tagTargetGuid)
+  local goodPosition = Vector(10, 1, 0)
+  local badPosition = Vector(10, 1, 6)
+  local tempPosition = Vector(20, 1, 0)
+  local cardsProcessed = 0
+  while (tagTarget.getQuantity() > 0) do
+    local takenCard = tagTarget.takeObject({
+      position = tempPosition,
+    })
+    local name = takenCard.getName().."|"
+    if (takenCard.getDescription() ~= nil) then
+      name = name..takenCard.getDescription()
+    end
+    local cardJson = allCards[name]
+    if (cardJson == nil) then
+      name = takenCard.getName().."|"
+    end
+    cardJson = allCards[name]
+    if (cardJson == nil) then
+      log("Could not find data for "..name);
+      takenCard.setPosition(badPosition)
+    else
+      takenCard.setGMNotes(cardJson)
+      takenCard.setPosition(goodPosition)
+    end
+    coroutine.yield(0)
+  end
+  return 1
+end
+
+function verifyCards()
+  local verifyTarget = getObjectFromGUID(verifyTargetGuid)
+  if (verifyTarget.name == "Card") then
+    verifySingleCard()
+  elseif (verifyTarget.name == "Bag" or verifyTarget.name == "Deck") then
+    startLuaCoroutine(self, "verifyContainer")
+  else
+    log("Verification target GUID does not point to a card, deck, or bag")
+    return
+  end
+end
+
+function verifySingleCard()
+  local verifyTarget = getObjectFromGUID(verifyTargetGuid)
+  if (verifyTarget.getGMNotes() == nil or verifyTarget.getGMNotes() == "") then
+    log(verifyTarget.getName().." has no metadata")
+  else
+    local metadata = JSON.decode(verifyTarget.getGMNotes())
+    if (metadata.id == nil or metadata.id == "") then
+      log(verifyTarget.getName().." has no ID set, probable bad metadata")
+    end
+  end
+end
+
+function verifyContainer()
+  local verifyTarget = getObjectFromGUID(verifyTargetGuid)
+  local checkCount = 0
+  local failCount = 0
+  for _, cardData in ipairs(verifyTarget.getData().ContainedObjects) do
+    local cardName = cardData.Nickname
+    if (cardData.GMNotes == nil or cardData.GMNotes == "") then
+      log(cardName.." has no metadata")
+      failCount = failCount + 1
+    else
+      local metadata = JSON.decode(cardData.GMNotes)
+      if (metadata.id == nil or metadata.id == "") then
+        log(cardName.." has no ID set, probable bad metadata")
+        failCount = failCount + 1
+      end
+    end
+    checkCount = checkCount + 1
+    coroutine.yield(0)
+  end
+  log("Finished checking "..checkCount.." cards, "..failCount.." card(s) had problems")
+  return 1
+end
+
+function moveToAllCardsBag()
+  startLuaCoroutine(self, "moveCardsToBag")
+end
+
+function moveCardsToBag()
+  local allCardsBag = getObjectFromGUID(allCardsBagGuid)
+  local moveFrom = getObjectFromGUID(moveTargetGuid)
+  while (moveFrom.getQuantity() > 0) do
+    allCardsBag.putObject(moveFrom.takeObject());
+    coroutine.yield(0)
+  end
+
+  return 1
+end
