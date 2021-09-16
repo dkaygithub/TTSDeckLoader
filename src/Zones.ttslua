@@ -1,0 +1,88 @@
+-- Sets up and returns coordinates for all possible spawn zones.  Because Lua
+-- assigns tables by reference, and there is no built-in function to copy a
+-- table this is relatively brute force.
+--
+-- Positions are all relative to the player mat, and most are consistent.  The
+-- exception are the SetAside# zones, which are placed to the left of the mat
+-- for White/Green, and the right of the mat for Orange/Red.
+do
+  local allZones = { }
+
+  local commonZones = { }
+  commonZones["Investigator"] = {-0.7833852, 0, 0.0001343352}
+  commonZones["Minicard"] = {-0.7833852, 0, -1.187242}
+  commonZones["Deck"] = {-1.414127, 0, -0.006668129}
+  commonZones["Discard"] = {-1.422189,0,0.643440}
+  commonZones["Ally"] = {-0.236577,0,0.023543}
+  commonZones["Body"] = {-0.257249,0,0.553170}
+  commonZones["Hand1"] = {0.600493,0,0.037291}
+  commonZones["Hand2"] = {0.206867,0,0.025540}
+  commonZones["Arcane1"] = {0.585817,0,0.567969}
+  commonZones["Arcane2"] = {0.197267,0,0.562296}
+  commonZones["Tarot"] = {0.980616,0,0.047756}
+  commonZones["Accessory"] = {0.976689,0,0.569344}
+  commonZones["BlankTop"] = {1.364696,0,0.062552}
+  commonZones["BlankBottom"] = {1.349999,0,0.585419}
+  commonZones["Threat1"] = {-0.835423,0,-0.633271}
+  commonZones["Threat2"] = {-0.384615,0,-0.633493}
+  commonZones["Threat3"] = {0.071090,0,-0.633717}
+  commonZones["Threat4"] = {0.520816,0,-0.633936}
+
+  allZones["White"] = { }
+  allZones["White"]["Investigator"] = commonZones["Investigator"]
+  allZones["White"]["Minicard"] = commonZones["Minicard"]
+  allZones["White"]["Deck"] = commonZones["Deck"]
+  allZones["White"]["Discard"] = commonZones["Discard"]
+  allZones["White"]["Ally"] = commonZones["Ally"]
+  allZones["White"]["Body"] = commonZones["Body"]
+  allZones["White"]["Hand1"] = commonZones["Hand1"]
+  allZones["White"]["Hand2"] = commonZones["Hand2"]
+  allZones["White"]["Arcane1"] = commonZones["Arcane1"]
+  allZones["White"]["Arcane2"] = commonZones["Arcane2"]
+  allZones["White"]["Tarot"] = commonZones["Tarot"]
+  allZones["White"]["Accessory"] = commonZones["Accessory"]
+  allZones["White"]["BlankTop"] = commonZones["BlankTop"]
+  allZones["White"]["BlankBottom"] = commonZones["BlankBottom"]
+  allZones["White"]["Threat1"] = commonZones["Threat1"]
+  allZones["White"]["Threat2"] = commonZones["Threat2"]
+  allZones["White"]["Threat3"] = commonZones["Threat3"]
+  allZones["White"]["Threat4"] = commonZones["Threat4"]
+  allZones["White"]["SetAside1"] = {2.004500,0,-0.520315}
+  allZones["White"]["SetAside2"] = {2.004500,0,0.042552}
+  allZones["White"]["SetAside3"] = {2.004500,0,0.605419}
+  allZones["White"]["SetAside4"] = {2.434500,0,-0.520315}
+  allZones["White"]["SetAside5"] = {2.434500,0,0.042552}
+  allZones["White"]["SetAside6"] = {2.434500,0,0.605419}
+  allZones["Orange"] = { }
+  allZones["Orange"]["Investigator"] = commonZones["Investigator"]
+  allZones["Orange"]["Minicard"] = commonZones["Minicard"]
+  allZones["Orange"]["Deck"] = commonZones["Deck"]
+  allZones["Orange"]["Discard"] = commonZones["Discard"]
+  allZones["Orange"]["Ally"] = commonZones["Ally"]
+  allZones["Orange"]["Body"] = commonZones["Body"]
+  allZones["Orange"]["Hand1"] = commonZones["Hand1"]
+  allZones["Orange"]["Hand2"] = commonZones["Hand2"]
+  allZones["Orange"]["Arcane1"] = commonZones["Arcane1"]
+  allZones["Orange"]["Arcane2"] = commonZones["Arcane2"]
+  allZones["Orange"]["Tarot"] = commonZones["Tarot"]
+  allZones["Orange"]["Accessory"] = commonZones["Accessory"]
+  allZones["Orange"]["BlankTop"] = commonZones["BlankTop"]
+  allZones["Orange"]["BlankBottom"] = commonZones["BlankBottom"]
+  allZones["Orange"]["Threat1"] = commonZones["Threat1"]
+  allZones["Orange"]["Threat2"] = commonZones["Threat2"]
+  allZones["Orange"]["Threat3"] = commonZones["Threat3"]
+  allZones["Orange"]["Threat4"] = commonZones["Threat4"]
+  allZones["Orange"]["SetAside1"] = {-2.004500,0,-0.520315}
+  allZones["Orange"]["SetAside2"] = {-2.004500,0,0.042552}
+  allZones["Orange"]["SetAside3"] = {-2.004500,0,0.605419}
+  allZones["Orange"]["SetAside4"] = {-2.434500,0,-0.520315}
+  allZones["Orange"]["SetAside5"] = {-2.434500,0,0.042552}
+  allZones["Orange"]["SetAside6"] = {-2.434500,0,0.605419}
+
+  -- Green positions are the same as White, and Red the same as orange, so we
+  -- can just point these at the White/Orange definitions
+  allZones["Red"] = allZones["Orange"]
+  allZones["Green"] = allZones["White"]
+
+  return allZones
+end

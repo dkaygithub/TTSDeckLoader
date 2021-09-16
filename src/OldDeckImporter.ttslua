@@ -1,0 +1,599 @@
+--[[ Lua code. See documentation: https://api.tabletopsimulator.com/ --]]
+
+local zones = require("Zones")
+
+local RANDOM_WEAKNESS_ID = "01000"
+
+local INPUT_FIELD_HEIGHT = 340
+local INPUT_FIELD_WIDTH = 1500
+
+local redDeckId
+local orangeDeckId
+local whiteDeckId
+local greenDeckId
+local privateDeck
+local loadNewestDeck
+local loadInvestigators
+local loadingColor = ""
+
+local deckList = { }
+local tabooID = 0
+
+local playerMatGuids = { }
+playerMatGuids["Red"] = "0840d5"
+playerMatGuids["Orange"] = "bd0ff4"
+playerMatGuids["White"] = "8b081b"
+playerMatGuids["Green"] = "383d8b"
+
+local investigatorBagGuids = {
+  "5fe24e", -- Promo Investigators
+  "35fb9c", -- Starter Deck Investigators
+  "10bd18", -- Innsmouth Conspiracy
+  "a34f34", -- Dream Eaters
+  "0dcbe8", -- Circle Undone
+  "03b888", -- Forgotten Age
+  "899c3a", -- Path to Carcosa
+  "5889dd", -- Dunwich Legacy
+  "2585f4" -- Core
+}
+
+-- Positions to spawn the various card types, relative to a player mat.
+-- Y values are provided by the loader.
+local matSpawnPositions = {
+  permanent = {1.364725, 0, 0.06269497},
+  investigator = {-0.7833852, 0, 0.0001343352},
+  miniCard = {-0.7833852, 0, -1.187242},
+  deck = {-1.414127, 0, -0.006668129},
+}
+
+--[[ The onLoad event is called after the game save finishes loading. --]]
+function onLoad(script_state)
+  resetDeckLoad()
+  -- Setup...
+  publicDeckURL="https://arkhamdb.com/api/public/decklist/"
+  privateDeckURL="https://arkhamdb.com/api/public/deck/"
+  cardURL="https://arkhamdb.com/api/public/card/"
+  tabooListURL="https://arkhamdb.com/api/public/taboos/"
+  subnameCards={{name="Randolph Carter",xp=0},{name="Directive",xp=0},{name="Dream Diary",xp=3},{name="Relic of Ages",xp=0},{name="The Necronomicon",xp=0},{name="Archaic Glyphs",xp=3},{name="Strange Solution",xp=4},{name="Forbidden Tome",xp=3},{name="Relic of Ages",xp=0}, {name="Ancient Stone",xp=4}, {"Dream Diary",xp=0},{name="Empower Self",xp=2}}
+  extraPermanents={["Duke"]=true,["Sophie"]=true,["Gate Box"]=true,["Dark Insight"]=true}
+  multiClassCards={{name=".45 Thompson",xp=3},{name="Scroll of Secrets",xp=3},{name="Tennessee Sour Mash",xp=3},{name="Enchanted Blade",xp=3},{name="Grisly Totem",xp=3}}
+  returningCards={{name="On Your Own"}}
+  advancedSignatures={{name="Daisy's Tote Bag"},{name="The Necronomicon"},{name="On the Lam"},{name="Hospital Debts"},{name="Dark Memory"},{name="Heirloom of Hyperborea"},{name="Roland's .38 Special"},{name="Cover Up"}}
+  bondedCardsOneThree={{name="Hallowed Mirror",bondedName="Soothing Melody",bondedCode=05314},{name="Occult Lexicon",bondedName="Blood-Rite",bondedCode=05317},{name="The Hungering Blade",bondedName="Bloodlust",bondedCode=06019},{name="Nightmare Bauble",bondedName="Dream Parasite",bondedCode=06331},{name="Miss Doyle",bondedName="Hope",bondedCode=06031,bondedNameSecond="Zeal",bondedCodeSecond=06032,bondedNameThird="Augur",bondedCodeThird=06033}}
+  bondedCardsBoolean = {{name="Gate Box",bondedName="Dream-Gate",bondedCode="06015a",bondCount=1},{name="Crystallizer of Dreams",bondedName="Guardian of the Crystallizer",bondedCode=06025,bondCount=2},{name="Dream Diary",bondedName="Essence of the Dream",bondedCode=06113,bondCount=1},{name="Empty Vessel",bondedName="Wish Eater",bondedCode=06277,bondCount=1},{name="Segment of Onyx",bondedName="Pendant of the Queen",bondedCode=06022,bondCount=1},{name="Stargazing",bondedName="The Stars Are Right",bondedCode=06028,bondCount=2},{name="Summoned Hound",bondedName="Unbound Beast",bondedCode=06283,bondCount=2}}
+  privateDeck = true
+
+  local state = JSON.decode(script_state)
+  if (state ~= nil) then
+    redDeckId = state.redDeck
+    orangeDeckId = state.orangeDeck
+    whiteDeckId = state.whiteDeck
+    greenDeckId = state.greenDeck
+    privateDeck = state.private
+    loadNewestDeck = state.loadNewest
+    loadInvestigators = state.investigators
+  else
+    redDeckId = ""
+    orangeDeckId = ""
+    whiteDeckId = ""
+    greenDeckId = ""
+    privateDeck = true
+    loadNewestDeck = true
+    loadInvestigators = true
+  end
+
+  -- Toggle button updates rely on the order fields are added to determine the
+  -- index, do not reorder these without updating the various event methods
+  makePublicPrivateToggle()
+  makeLoadUpgradedToggle()
+  makeLoadInvestigatorsToggle()
+  makeBuildButton()
+  makeMultiLoaderFields()
+
+  all_cards_bag = getObjectFromGUID("15bb07")
+
+  -- Get current taboolist
+  tabooList = {}
+  WebRequest.get(tabooListURL, self, 'tabooListCallback')
+end
+
+-- Saves the object state to JSON when TTS requests it
+function onSave()
+  local state = {
+    redDeck = redDeckId,
+    orangeDeck = orangeDeckId,
+    whiteDeck = whiteDeckId,
+    greenDeck = greenDeckId,
+    private = privateDeck,
+    loadNewest = loadNewestDeck,
+    investigators = loadInvestigators,
+  }
+  return JSON.encode(state)
+end
+
+function resetDeckLoad()
+  deckList = {}
+  tabooID = 0
+end
+
+function multiLoad()
+  loadingColor = ""
+  if (redDeckId == "" and orangeDeckId == "" and whiteDeckId == "" and greenDeckId == "") then
+    broadcastToAll("At least one Deck ID required", {0.5,0.5,0.5})
+    return
+  end
+  loadDeckForNextColor()
+end
+
+function getLoadingDeckId()
+  if (loadingColor == "Red") then
+    return redDeckId
+  elseif (loadingColor == "Orange") then
+    return orangeDeckId
+  elseif (loadingColor == "White") then
+    return whiteDeckId
+  elseif (loadingColor == "Green") then
+    return greenDeckId
+  else
+    return ""
+  end
+end
+
+function loadDeckForNextColor()
+  if (loadingColor == "Done") then
+    return
+  end
+  if (loadingColor == "") then
+    loadingColor = "Red"
+  elseif (loadingColor == "Red") then
+    loadingColor = "Orange"
+  elseif (loadingColor == "Orange") then
+    loadingColor = "White"
+  elseif (loadingColor == "White") then
+    loadingColor = "Green"
+  elseif (loadingColor == "Green") then
+    loadingColor = "Done"
+  end
+  local colorDeckId = getLoadingDeckId()
+
+  if (colorDeckId ~= "") then
+    resetDeckLoad()
+    loadDeckFromAdb(colorDeckId)
+  else
+    loadDeckForNextColor()
+  end
+end
+
+-- Previously this was "spawnZone"
+function loadDeckFromAdb(load_id)
+  if load_id == nil then
+     broadcastToAll("Deck ID required", {0.5,0.5,0.5})
+     return 1
+  end
+
+  deckPos = self.positionToWorld({0.285,1.5,0.48})
+  permPos = self.positionToWorld({-0.285,1.5,0.48})
+
+  -- Get deck from ArkhamDB..
+  local deckURL
+  if privateDeck then
+    deckURL = privateDeckURL
+  else
+    deckURL = publicDeckURL
+  end
+
+  WebRequest.get(deckURL .. load_id, self, 'deckReadCallback')
+end
+
+-- Process a loaded deck
+function deckReadCallback(req)
+  -- Result check..
+  local jsonDeckRes
+  if (req.is_done and not req.is_error) then
+    if (string.find(req.text, "<!DOCTYPE html>")) then
+      broadcastToAll("Private deck "..getLoadingDeckId().." is not shared", {0.5,0.5,0.5})
+      return
+    end
+    jsonDeckRes = JSON.decode(req.text)
+  else
+    print (req.error)
+    return
+  end
+  if (jsonDeckRes == nil) then
+    broadcastToAll("Deck not found!", {0.5,0.5,0.5})
+    return
+  end
+  if (loadNewestDeck and jsonDeckRes.next_deck ~= nil and jsonDeckRes.next_deck ~= "") then
+    loadDeckFromAdb(jsonDeckRes.next_deck)
+    return
+  end
+  print("Found decklist: "..jsonDeckRes.name)
+  -- Count number of cards in decklist
+  numSlots=0
+  for cardid,number in pairs(jsonDeckRes.slots) do
+    numSlots = numSlots + 1
+  end
+
+  -- Check for taboos
+  tabooID = jsonDeckRes.taboo_id
+  if tabooID then
+    print("Using List of Taboos from "..tabooList[tabooID].date..".")
+  end
+  local tabooIdList = { }
+  if tabooID then
+    for k,v in pairs(tabooList[tabooID].cards) do
+      tabooIdList[v.code] = true
+    end
+  end
+
+  -- Save card id and count in table for fast lookup
+  for cardID,number in pairs(jsonDeckRes.slots) do
+    local row = {}
+    local cardKey = cardID
+    if (tabooIdList[cardKey]) then
+      cardKey = cardKey.."-t"
+    end
+    deckList[cardKey] = number
+  end
+
+  if (loadInvestigators) then
+    -- Set investigator and account for parallel card names
+    local investigatorId = jsonDeckRes.investigator_code
+    local row = {}
+    deckList[investigatorId.."-m"] = 1
+    meta = JSON.decode(jsonDeckRes.meta)
+    row = {}
+    local parallelFront = meta ~= nil and meta.alternate_front ~= nil and meta.alternate_front ~= ""
+    local parallelBack = meta ~= nil and meta.alternate_back ~= nil  and meta.alternate_back ~= ""
+    if (parallelFront and parallelBack) then
+      investigatorId = investigatorId.."-p"
+    elseif (parallelFront) then
+      investigatorId = investigatorId.."-pf"
+    elseif (parallelBack) then
+      investigatorId = investigatorId.."-pb"
+    end
+    deckList[investigatorId] = 1
+  end
+  createDeck()
+end
+
+-- Builds a deck by iterating the all cards bag and matching any data in the
+-- local variables describing the deck
+function createDeck()
+  -- Iterate all cards in the all cards bag, spawning those that match any in
+  -- the deck
+  local bondedCards = { }
+  local startTime = os.clock()
+  local yPos = 2
+  checkRandomWeakness()
+  for cardId, cardCount in pairs(deckList) do
+    local card = all_cards_bag.call("getCardById", { id = cardId })
+    if (card ~= nil) then
+      local cardPos = getCardPosition(loadingColor, card.metadata)
+      cardPos.y = yPos
+      for i = 1, cardCount do
+        spawnObjectData({
+          data = card.data,
+          position = cardPos,
+          rotation = getCardRotation(loadingColor, card.metadata)})
+        cardPos.y = cardPos.y + 0.25
+      end
+      print('Added '..cardCount .. ' of ' .. card.data.Nickname)
+      deckList[cardId] = 0
+      if (card.metadata.bonded ~= nil) then
+        for _, bond in ipairs(card.metadata.bonded) do
+          bondedCards[bond.id] = bond.count
+        end
+      end
+    end
+  end
+  for cardId, cardCount in pairs(bondedCards) do
+    local card = all_cards_bag.call("getCardById", { id = cardId })
+    if (card ~= nil) then
+      local cardPos = getCardPosition(loadingColor, card.metadata)
+      cardPos.y = yPos
+      for i = 1, cardCount do
+        spawnObjectData({
+          data = card.data,
+          position = cardPos,
+          rotation = getCardRotation(loadingColor, card.metadata)})
+        cardPos.y = cardPos.y + 0.25
+      end
+      print('Added '..cardCount .. ' of ' .. card.data.Nickname)
+      bondedCards[cardId] = 0
+    end
+  end
+
+  -- TODO: Replace with a call to ADB to get the card names
+  local fails = "Could not find cards with ID "
+  local missedCards = false
+  for cardId, remainingCount in pairs(deckList) do
+    if (remainingCount > 0) then
+      if (missedCards) then
+        fails = fails..", "
+      else
+        missedCards = true
+      end
+      fails = fails..cardId
+    end
+  end
+  for cardId, remainingCount in pairs(bondedCards) do
+    if (remainingCount > 0) then
+      if (missedCards) then
+        fails = fails..", "
+      else
+        missedCards = true
+      end
+      fails = fails..cardId
+    end
+  end
+  if (missedCards) then
+    fails = fails..". Please check ArkhamDB to see which cards are missing."
+    broadcastToAll(fails, {0.5,0.5,0.5})
+  end
+  -- Move to the next deck
+  loadDeckForNextColor()
+end
+
+-- Checks to see if the decklist includes the random weakness ID.  If it does,
+-- removes it from the deck and replaces it with the ID of a random basic
+-- weakness provided by the all cards bag
+function checkRandomWeakness()
+  local hasRandomWeakness = false
+  for cardId, cardCount in pairs(deckList) do
+    if (cardId == RANDOM_WEAKNESS_ID) then
+      hasRandomWeakness = true
+      break
+    end
+  end
+  if (hasRandomWeakness) then
+    local weaknessId = all_cards_bag.call("getRandomWeaknessId")
+    deckList[weaknessId] = 1
+    deckList[RANDOM_WEAKNESS_ID] = nil
+    broadcastToAll("Random basic weakness added to deck")
+  end
+end
+
+function getCardPosition(playerColor, cardMetadata)
+  if (cardMetadata.type == "Investigator") then
+    return getZonePosition(playerColor, "Investigator")
+  elseif (cardMetadata.type == "Minicard") then
+    return getZonePosition(playerColor, "Minicard")
+  elseif (cardMetadata.permanent) then
+    return getZonePosition(playerColor, "SetAside1")
+  elseif (cardMetadata.bonded_to ~= nil) then
+    return getZonePosition(playerColor, "SetAside2")
+  else
+    return getZonePosition(playerColor, "Deck")
+  end
+end
+
+function getZonePosition(playerColor, zoneName)
+  return getObjectFromGUID(playerMatGuids[playerColor]).positionToWorld(zones[playerColor][zoneName])
+end
+
+-- Return the rotation for deck and permanent cards for each player
+function getCardRotation(playerColor, cardMetadata)
+  local deckRotation = getObjectFromGUID(playerMatGuids[playerColor]).getRotation()
+
+  if (cardMetadata.type == "Investigator") then
+    deckRotation = deckRotation + Vector(0, 270, 0)
+  elseif (cardMetadata.type ~= "Minicard" and not cardMetadata.permanent and cardMetadata.bonded_to == nil) then
+    deckRotation = deckRotation + Vector(0, 0, 180)
+  end
+
+  return deckRotation
+end
+
+-- Update the stored deck list to apply any necessary taboo list changes
+function tabooListCallback(req)
+  -- Result check..
+  if req.is_done and not req.is_error
+  then
+    -- Find unicode before using JSON.decode since it doesnt handle hex UTF-16
+    local tmpText = string.gsub(req.text,"\\u(%w%w%w%w)", convertHexToDec)
+    jsonTabooRes = JSON.decode(tmpText)
+  else
+    print(req.error)
+    return
+  end
+  for k,v in pairs(jsonTabooRes) do
+    local row = {}
+    row.date = v.date_start
+    row.cards = JSON.decode(v.cards)
+    tabooList[v.id] = row
+  end
+end
+
+-- Create the four deck ID entry fields
+function makeMultiLoaderFields()
+  local input_parameters = {}
+  -- Parameters common to all entry fields
+  input_parameters.function_owner = self
+  input_parameters.scale = {0.1,0.1,0.1}
+  input_parameters.width = INPUT_FIELD_WIDTH
+  input_parameters.height = INPUT_FIELD_HEIGHT
+  input_parameters.font_size = 320
+  input_parameters.tooltip = "*****PLEASE USE AN UNPUBLISHED DECK IF JUST FOR TTS TO AVOID FLOODING ARKHAMDB PUBLISHED DECK LISTS!*****\nInput deck ID from ArkhamDB URL of the deck\nExample: For the URL 'https://arkhamdb.com/decklist/view/101/knowledge-overwhelming-solo-deck-1.0', you should input '101'"
+  input_parameters.alignment = 3 -- (1 = Automatic, 2 = Left, 3 = Center, 4 = Right, 5 = Justified) –Optional
+  input_parameters.color = {0.9,0.7,0.5}
+  input_parameters.font_color = {0, 0, 0}
+  input_parameters.validation = 2
+
+  -- Green
+  input_parameters.input_function = "greenDeckChanged"
+  input_parameters.position = {-0.166,0.1,0.385}
+  input_parameters.value=greenDeckId
+  self.createInput(input_parameters)
+  -- Red
+  input_parameters.input_function = "redDeckChanged"
+  input_parameters.position = {0.171,0.1,0.385}
+  input_parameters.value=redDeckId
+  self.createInput(input_parameters)
+  -- White
+  input_parameters.input_function = "whiteDeckChanged"
+  input_parameters.position = {-0.166,0.1,0.474}
+  input_parameters.value=whiteDeckId
+  self.createInput(input_parameters)
+  -- Orange
+  input_parameters.input_function = "orangeDeckChanged"
+  input_parameters.position = {0.171,0.1,0.474}
+  input_parameters.value=orangeDeckId
+  self.createInput(input_parameters)
+end
+
+-- Create the Build All button.  This is a transparent button which covers the
+-- Build All portion of the background graphic
+function makeBuildButton()
+  local button_parameters = {}
+  button_parameters.click_function = "multiLoad"
+  button_parameters.function_owner = self
+  button_parameters.position =  {0,0.1,0.71}
+  button_parameters.width = 320
+  button_parameters.height = 30
+  button_parameters.color = {0, 0, 0, 0}
+  button_parameters.tooltip = "Click to build all four decks!"
+  self.createButton(button_parameters)
+end
+
+-- Event handler for deck ID change
+function redDeckChanged(objectInputTyped, playerColorTyped, input_value, selected)
+  redDeckId = input_value
+end
+
+-- Event handler for deck ID change
+function orangeDeckChanged(objectInputTyped, playerColorTyped, input_value, selected)
+  orangeDeckId = input_value
+end
+
+-- Event handler for deck ID change
+function whiteDeckChanged(objectInputTyped, playerColorTyped, input_value, selected)
+  whiteDeckId = input_value
+end
+
+-- Event handler for deck ID change
+function greenDeckChanged(objectInputTyped, playerColorTyped, input_value, selected)
+  greenDeckId = input_value
+end
+
+-- Creates the Public/Private toggle button
+function makePublicPrivateToggle()
+  local checkbox_parameters = {}
+  checkbox_parameters.click_function = "publicPrivateChanged"
+  checkbox_parameters.function_owner = self
+  checkbox_parameters.position = {0.25,0.1,-0.102}
+  checkbox_parameters.width = INPUT_FIELD_WIDTH
+  checkbox_parameters.height = INPUT_FIELD_HEIGHT
+  checkbox_parameters.tooltip = "Click to toggle Private/Published deck ID"
+  if (privateDeck) then
+    checkbox_parameters.label = "Private"
+  else
+    checkbox_parameters.label = "Published"
+  end
+  checkbox_parameters.font_size = 240
+  checkbox_parameters.scale = {0.1,0.1,0.1}
+  checkbox_parameters.color = {0.9,0.7,0.5}
+  checkbox_parameters.hover_color = {0.4,0.6,0.8}
+  self.createButton(checkbox_parameters)
+end
+
+-- Creates the Load Upgraded Deck toggle button
+function makeLoadUpgradedToggle()
+  local checkbox_parameters = {}
+  checkbox_parameters.click_function = "loadUpgradedChanged"
+  checkbox_parameters.function_owner = self
+  checkbox_parameters.position = {0.25,0.1,-0.01}
+  checkbox_parameters.width = INPUT_FIELD_WIDTH
+  checkbox_parameters.height = INPUT_FIELD_HEIGHT
+  checkbox_parameters.tooltip = "Load newest upgrade, or exact deck"
+  if (loadNewestDeck) then
+    checkbox_parameters.label = "Upgraded"
+  else
+    checkbox_parameters.label = "Specific"
+  end
+  checkbox_parameters.font_size = 240
+  checkbox_parameters.scale = {0.1,0.1,0.1}
+  checkbox_parameters.color = {0.9,0.7,0.5}
+  checkbox_parameters.hover_color = {0.4,0.6,0.8}
+  self.createButton(checkbox_parameters)
+end
+
+-- Creates the Load Investigator Cards toggle button
+function makeLoadInvestigatorsToggle()
+  local checkbox_parameters = {}
+  checkbox_parameters.click_function = "loadInvestigatorsChanged"
+  checkbox_parameters.function_owner = self
+  checkbox_parameters.position = {0.25,0.1,0.081}
+  checkbox_parameters.width = INPUT_FIELD_WIDTH
+  checkbox_parameters.height = INPUT_FIELD_HEIGHT
+  checkbox_parameters.tooltip = "Spawn investigator cards?"
+  if (loadInvestigators) then
+    checkbox_parameters.label = "Yes"
+  else
+    checkbox_parameters.label = "No"
+  end
+  checkbox_parameters.font_size = 240
+  checkbox_parameters.scale = {0.1,0.1,0.1}
+  checkbox_parameters.color = {0.9,0.7,0.5}
+  checkbox_parameters.hover_color = {0.4,0.6,0.8}
+  self.createButton(checkbox_parameters)
+end
+
+-- Event handler for the Public/Private toggle.  Changes the local value and the
+-- labels to toggle the button
+function publicPrivateChanged()
+  -- getButtons() returns a 1-indexed list, but editButton uses parameters.index
+  -- which is 0-indexed
+  local button = self.getButtons()[1]
+  local button_parameters = {}
+  button_parameters.index = 0
+  if (button.label == "Private") then
+    button_parameters.label = "Published"
+    privateDeck = false
+  elseif (button.label == "Published") then
+    button_parameters.label = "Private"
+    privateDeck = true
+  end
+  self.editButton(button_parameters)
+end
+
+-- Event handler for the Upgraded toggle.  Changes the local value and the
+-- labels to toggle the button
+function loadUpgradedChanged()
+  -- getButtons() returns a 1-indexed list, but editButton uses parameters.index
+  -- which is 0-indexed
+  local button = self.getButtons()[2]
+  local button_parameters = {}
+  button_parameters.index = 1
+  if (button.label == "Upgraded") then
+    button_parameters.label = "Specific"
+    loadNewestDeck = false
+  elseif (button.label == "Specific") then
+    button_parameters.label = "Upgraded"
+    loadNewestDeck = true
+  end
+  self.editButton(button_parameters)
+end
+
+-- Event handler for the load investigator cards toggle.  Changes the local
+-- value and the labels to toggle the button
+function loadInvestigatorsChanged()
+  -- getButtons() returns a 1-indexed list, but editButton uses parameters.index
+  -- which is 0-indexed
+  local button = self.getButtons()[3]
+  local button_parameters = {}
+  button_parameters.index = 2
+  if (button.label == "Yes") then
+    button_parameters.label = "No"
+    loadInvestigators = false
+  elseif (button.label == "No") then
+    button_parameters.label = "Yes"
+    loadInvestigators = true
+  end
+  self.editButton(button_parameters)
+end
+
+-- Function to convert utf-16 hex to actual character since JSON.decode doesn't seem to handle utf-16 hex very well..
+function convertHexToDec(a)
+  return string.char(tonumber(a,16))
+end

@@ -1,0 +1,153 @@
+local cardIdIndex = { }
+
+local classAndLevelIndex = { }
+classAndLevelIndex["Guardian-upgrade"] = { }
+classAndLevelIndex["Seeker-upgrade"] = { }
+classAndLevelIndex["Mystic-upgrade"] = { }
+classAndLevelIndex["Survivor-upgrade"] = { }
+classAndLevelIndex["Rogue-upgrade"] = { }
+classAndLevelIndex["Neutral-upgrade"] = { }
+classAndLevelIndex["Guardian-level0"] = { }
+classAndLevelIndex["Seeker-level0"] = { }
+classAndLevelIndex["Mystic-level0"] = { }
+classAndLevelIndex["Survivor-level0"] = { }
+classAndLevelIndex["Rogue-level0"] = { }
+classAndLevelIndex["Neutral-level0"] = { }
+
+local basicWeaknessList = { }
+
+local indexingDone = false
+local allowRemoval = false
+
+function onLoad()
+  Wait.frames(startBuild, 300)
+end
+
+function startBuild()
+  startLuaCoroutine(self, "buildIndex")
+end
+
+function onObjectLeaveContainer(container, object)
+  if (container == self and not allowRemoval) then
+    broadcastToAll(
+        "Removing cards from the All Player Cards bag may break some functions.  Please replace the card.",
+        {0.9, 0.2, 0.2}
+    )
+  end
+end
+
+function setAllowCardRemoval()
+  allowRemoval = true
+end
+
+function buildIndex()
+  indexingDone = false
+  if (self.getData().ContainedObjects == nil) then
+    return 1
+  end
+  for i,cardData in ipairs(self.getData().ContainedObjects) do
+    local cardMetadata = JSON.decode(cardData.GMNotes)
+    if (cardMetadata ~= nil) then
+      addCardToIndex(cardData, cardMetadata)
+    end
+    if (cardMetadata.weakness and cardMetadata.basicWeaknessCount ~= nil) then
+      for i = 1, cardMetadata.basicWeaknessCount do
+        table.insert(basicWeaknessList, cardMetadata.id)
+      end
+    end
+    if (i % 20 == 0) then
+      coroutine.yield(0)
+    end
+  end
+  for _, indexTable in pairs(classAndLevelIndex) do
+    table.sort(indexTable, cardComparator)
+  end
+  indexingDone = true
+  return 1
+end
+
+function addCardToIndex(cardData, cardMetadata)
+  cardIdIndex[cardMetadata.id] = { data = cardData, metadata = cardMetadata }
+  local isGuardian = false
+  local isSeeker = false
+  local isMystic = false
+  local isRogue = false
+  local isSurvivor = false
+  local isNeutral = false
+  local upgradeKey
+  if (cardMetadata.class == nil or cardMetadata.level == nil) then
+    -- If either class or level is missing, don't add this card to those indexes
+    return
+  end
+
+  isGuardian = string.match(cardMetadata.class, "Guardian")
+  isSeeker = string.match(cardMetadata.class, "Seeker")
+  isMystic = string.match(cardMetadata.class, "Mystic")
+  isRogue = string.match(cardMetadata.class, "Rogue")
+  isSurvivor = string.match(cardMetadata.class, "Survivor")
+  isNeutral = string.match(cardMetadata.class, "Neutral")
+  if (cardMetadata.level > 0) then
+    upgradeKey = "-upgrade"
+  else
+    upgradeKey = "-level0"
+  end
+  if (isGuardian) then
+    table.insert(classAndLevelIndex["Guardian"..upgradeKey], { data = cardData, metadata = cardMetadata })
+  end
+  if (isSeeker) then
+    table.insert(classAndLevelIndex["Seeker"..upgradeKey], { data = cardData, metadata = cardMetadata })
+  end
+  if (isMystic) then
+    table.insert(classAndLevelIndex["Mystic"..upgradeKey], { data = cardData, metadata = cardMetadata })
+  end
+  if (isRogue) then
+    table.insert(classAndLevelIndex["Rogue"..upgradeKey], { data = cardData, metadata = cardMetadata })
+  end
+  if (isSurvivor) then
+    table.insert(classAndLevelIndex["Survivor"..upgradeKey], { data = cardData, metadata = cardMetadata })
+  end
+  if (isNeutral) then
+    table.insert(classAndLevelIndex["Neutral"..upgradeKey], { data = cardData, metadata = cardMetadata })
+  end
+end
+
+function cardComparator(card1, card2)
+  if (card1.data.Nickname ~= card2.data.Nickname) then
+    return card1.data.Nickname < card2.data.Nickname
+  end
+  if (card1.metadata.level ~= card2.metadata.level) then
+    return card1.metadata.level < card2.metadata.level
+  end
+  return card1.data.Description < card2.data.Description
+end
+
+function getCardById(params)
+  if (not indexingDone) then
+    broadcastToAll("Still loading player cards, please try again in a few seconds", {0.9, 0.2, 0.2})
+    return nil
+  end
+  return cardIdIndex[params.id]
+end
+
+function getCardByClassAndLevel(params)
+  if (not indexingDone) then
+    broadcastToAll("Still loading player cards, please try again in a few seconds", {0.9, 0.2, 0.2})
+    return nil
+  end
+  local upgradeKey
+  if (params.upgraded) then
+    upgradeKey = "-upgrade"
+  else
+    upgradeKey = "-level0"
+  end
+  return classAndLevelIndex[params.class..upgradeKey];
+end
+
+-- Gets a random basic weakness from the bag.  Once a given
+function getRandomWeaknessId()
+  local pickedIndex = math.random(#basicWeaknessList)
+  local weaknessId = basicWeaknessList[pickedIndex]
+  table.remove(basicWeaknessList, pickedIndex)
+
+  return weaknessId
+end
