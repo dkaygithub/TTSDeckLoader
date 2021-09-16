@@ -1,5 +1,4 @@
 allCards = { }
-
 allCards["Daniela Reyes|The Mechanic"] = [[{
   "id": "08001",
   "type": "Investigator",
@@ -1557,7 +1556,8 @@ allCards["Arm Injury|"] = [[{
   "class": "Neutral",
   "traits": "Injury.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 1
 }]]
 allCards["Leg Injury|"] = [[{
   "id": "08131",
@@ -1565,7 +1565,8 @@ allCards["Leg Injury|"] = [[{
   "class": "Neutral",
   "traits": "Injury.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 1
 }]]
 allCards["Panic|"] = [[{
   "id": "08132",
@@ -1573,7 +1574,8 @@ allCards["Panic|"] = [[{
   "class": "Neutral",
   "traits": "Madness.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 1
 }]]
 allCards["Stupor|"] = [[{
   "id": "08133",
@@ -1581,7 +1583,8 @@ allCards["Stupor|"] = [[{
   "class": "Neutral",
   "traits": "Madness.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 1
 }]]
 allCards["Roland Banks|The Fed"] = [[{
   "id": "01001",
@@ -3652,7 +3655,8 @@ allCards["Amnesia|"] = [[{
   "class": "Neutral",
   "traits": "Madness.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 2
 }]]
 allCards["01096"] = [[{
   "id": "01096",
@@ -3660,7 +3664,8 @@ allCards["01096"] = [[{
   "class": "Neutral",
   "traits": "Madness.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 2
 }]]
 allCards["Paranoia|"] = [[{
   "id": "01097",
@@ -3668,7 +3673,8 @@ allCards["Paranoia|"] = [[{
   "class": "Neutral",
   "traits": "Madness.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 2
 }]]
 allCards["01097"] = [[{
   "id": "01097",
@@ -3676,7 +3682,8 @@ allCards["01097"] = [[{
   "class": "Neutral",
   "traits": "Madness.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 2
 }]]
 allCards["Haunted|"] = [[{
   "id": "01098",
@@ -3684,7 +3691,8 @@ allCards["Haunted|"] = [[{
   "class": "Neutral",
   "traits": "Curse.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 1
 }]]
 allCards["01098"] = [[{
   "id": "01098",
@@ -3692,7 +3700,8 @@ allCards["01098"] = [[{
   "class": "Neutral",
   "traits": "Curse.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 1
 }]]
 allCards["Psychosis|"] = [[{
   "id": "01099",
@@ -3700,7 +3709,8 @@ allCards["Psychosis|"] = [[{
   "class": "Neutral",
   "traits": "Madness.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 1
 }]]
 allCards["01099"] = [[{
   "id": "01099",
@@ -3708,7 +3718,8 @@ allCards["01099"] = [[{
   "class": "Neutral",
   "traits": "Madness.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 1
 }]]
 allCards["Hypochondria|"] = [[{
   "id": "01100",
@@ -3716,7 +3727,8 @@ allCards["Hypochondria|"] = [[{
   "class": "Neutral",
   "traits": "Madness.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 1
 }]]
 allCards["01100"] = [[{
   "id": "01100",
@@ -3724,7 +3736,8 @@ allCards["01100"] = [[{
   "class": "Neutral",
   "traits": "Madness.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 1
 }]]
 allCards["Mob Enforcer|"] = [[{
   "id": "01101",
@@ -3732,7 +3745,8 @@ allCards["Mob Enforcer|"] = [[{
   "class": "Neutral",
   "traits": "Humanoid. Criminal.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 1
 }]]
 allCards["01101"] = [[{
   "id": "01101",
@@ -3740,7 +3754,8 @@ allCards["01101"] = [[{
   "class": "Neutral",
   "traits": "Humanoid. Criminal.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 1
 }]]
 allCards["Silver Twilight Acolyte|"] = [[{
   "id": "01102",
@@ -3748,7 +3763,8 @@ allCards["Silver Twilight Acolyte|"] = [[{
   "class": "Neutral",
   "traits": "Humanoid. Cultist. Silver Twilight.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 1
 }]]
 allCards["01102"] = [[{
   "id": "01102",
@@ -3756,7 +3772,8 @@ allCards["01102"] = [[{
   "class": "Neutral",
   "traits": "Humanoid. Cultist. Silver Twilight.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 1
 }]]
 allCards["Stubborn Detective|"] = [[{
   "id": "01103",
@@ -3764,7 +3781,8 @@ allCards["Stubborn Detective|"] = [[{
   "class": "Neutral",
   "traits": "Humanoid. Detective.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 1
 }]]
 allCards["01103"] = [[{
   "id": "01103",
@@ -3772,7 +3790,8 @@ allCards["01103"] = [[{
   "class": "Neutral",
   "traits": "Humanoid. Detective.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 1
 }]]
 allCards["Lita Chantler|The Zealot"] = [[{
   "id": "01117",
@@ -4946,7 +4965,8 @@ allCards["Indebted|"] = [[{
   "class": "Neutral",
   "traits": "Flaw.",
   "permanent": true,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 2
 }]]
 allCards["02037"] = [[{
   "id": "02037",
@@ -4954,7 +4974,8 @@ allCards["02037"] = [[{
   "class": "Neutral",
   "traits": "Flaw.",
   "permanent": true,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 2
 }]]
 allCards["Internal Injury|"] = [[{
   "id": "02038",
@@ -4962,7 +4983,8 @@ allCards["Internal Injury|"] = [[{
   "class": "Neutral",
   "traits": "Injury.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 2
 }]]
 allCards["02038"] = [[{
   "id": "02038",
@@ -4970,7 +4992,8 @@ allCards["02038"] = [[{
   "class": "Neutral",
   "traits": "Injury.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 2
 }]]
 allCards["Chronophobia|"] = [[{
   "id": "02039",
@@ -4978,7 +5001,8 @@ allCards["Chronophobia|"] = [[{
   "class": "Neutral",
   "traits": "Madness.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 2
 }]]
 allCards["02039"] = [[{
   "id": "02039",
@@ -4986,7 +5010,8 @@ allCards["02039"] = [[{
   "class": "Neutral",
   "traits": "Madness.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 2
 }]]
 allCards["Dr. Henry Armitage|The Head Librarian"] = [[{
   "id": "02040",
@@ -6366,7 +6391,7 @@ allCards["02260"] = [[{
   "permanent": false,
   "weakness": false
 }]]
-allCards["\"I've had worseï¿½\" (4)|"] = [[{
+allCards["\"I've had worse…\" (4)|"] = [[{
   "id": "02261",
   "type": "Event",
   "class": "Guardian",
@@ -7883,7 +7908,8 @@ allCards["Overzealous|"] = [[{
   "class": "Neutral",
   "traits": "Flaw.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 2
 }]]
 allCards["03040"] = [[{
   "id": "03040",
@@ -7891,7 +7917,8 @@ allCards["03040"] = [[{
   "class": "Neutral",
   "traits": "Flaw.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 2
 }]]
 allCards["Drawing the Sign|"] = [[{
   "id": "03041",
@@ -7899,7 +7926,8 @@ allCards["Drawing the Sign|"] = [[{
   "class": "Neutral",
   "traits": "Pact. Madness.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 1
 }]]
 allCards["03041"] = [[{
   "id": "03041",
@@ -7907,7 +7935,8 @@ allCards["03041"] = [[{
   "class": "Neutral",
   "traits": "Pact. Madness.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 1
 }]]
 allCards["The Thing That Follows|"] = [[{
   "id": "03042",
@@ -7915,7 +7944,8 @@ allCards["The Thing That Follows|"] = [[{
   "class": "Neutral",
   "traits": "Monster. Curse.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 1
 }]]
 allCards["03042"] = [[{
   "id": "03042",
@@ -7923,7 +7953,8 @@ allCards["03042"] = [[{
   "class": "Neutral",
   "traits": "Monster. Curse.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 1
 }]]
 allCards["The Man in the Pallid Mask|"] = [[{
   "id": "03059",
@@ -10712,7 +10743,8 @@ allCards["Dark Pact|"] = [[{
   "class": "Neutral",
   "traits": "Pact.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 1
 }]]
 allCards["04038"] = [[{
   "id": "04038",
@@ -10720,7 +10752,8 @@ allCards["04038"] = [[{
   "class": "Neutral",
   "traits": "Pact.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 1
 }]]
 allCards["The Price of Failure|"] = [[{
   "id": "04039",
@@ -10744,7 +10777,8 @@ allCards["Doomed|"] = [[{
   "class": "Neutral",
   "traits": "Curse.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 1
 }]]
 allCards["04040"] = [[{
   "id": "04040",
@@ -10752,7 +10786,8 @@ allCards["04040"] = [[{
   "class": "Neutral",
   "traits": "Curse.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 1
 }]]
 allCards["Accursed Fate|"] = [[{
   "id": "04041",
@@ -10810,7 +10845,7 @@ allCards["Alejandro Vela|"] = [[{
   "permanent": false,
   "weakness": false
 }]]
-allCards["Relic of Ages|ï¿½A Device, of Some Sort"] = [[{
+allCards["Relic of Ages|…A Device, of Some Sort"] = [[{
   "id": "04061",
   "type": "Asset",
   "class": "Neutral",
@@ -12312,7 +12347,7 @@ allCards["04268"] = [[{
     "count": 5
   }
 }]]
-allCards["Coup de Grï¿½ce|"] = [[{
+allCards["Coup de Grâce|"] = [[{
   "id": "04269",
   "type": "Event",
   "class": "Rogue",
@@ -13111,7 +13146,8 @@ allCards["Through the Gates|"] = [[{
   "class": "Neutral",
   "traits": "Pact. Mystery.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 2
 }]]
 allCards["51011"] = [[{
   "id": "51011",
@@ -13119,7 +13155,8 @@ allCards["51011"] = [[{
   "class": "Neutral",
   "traits": "Pact. Mystery.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 2
 }]]
 allCards["Engineer|"] = [[{
   "id": "51031",
@@ -13812,7 +13849,7 @@ allCards["05026"] = [[{
   "permanent": false,
   "weakness": false
 }]]
-allCards["Death ï¿½ XIII (1)|Free from the Past"] = [[{
+allCards["Death • XIII (1)|Free from the Past"] = [[{
   "id": "05027",
   "type": "Asset",
   "class": "Seeker",
@@ -13830,7 +13867,7 @@ allCards["05027"] = [[{
   "permanent": false,
   "weakness": false
 }]]
-allCards["Death ï¿½ XIII (1)|"] = [[{
+allCards["Death • XIII (1)|"] = [[{
   "id": "05027",
   "type": "Asset",
   "class": "Seeker",
@@ -13893,7 +13930,7 @@ allCards["05030"] = [[{
   "permanent": false,
   "weakness": false
 }]]
-allCards["The Moon ï¿½ XVIII (1)|Message from Your Inner Self"] = [[{
+allCards["The Moon • XVIII (1)|Message from Your Inner Self"] = [[{
   "id": "05031",
   "type": "Asset",
   "class": "Rogue",
@@ -13911,7 +13948,7 @@ allCards["05031"] = [[{
   "permanent": false,
   "weakness": false
 }]]
-allCards["The Moon ï¿½ XVIII (1)|"] = [[{
+allCards["The Moon • XVIII (1)|"] = [[{
   "id": "05031",
   "type": "Asset",
   "class": "Rogue",
@@ -14115,7 +14152,8 @@ allCards["The 13th Vision|"] = [[{
   "class": "Neutral",
   "traits": "Omen.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 2
 }]]
 allCards["05041"] = [[{
   "id": "05041",
@@ -14123,15 +14161,17 @@ allCards["05041"] = [[{
   "class": "Neutral",
   "traits": "Omen.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 2
 }]]
-allCards["The Tower ï¿½ XVI|Circumstances Beyond Your Control"] = [[{
+allCards["The Tower • XVI|Circumstances Beyond Your Control"] = [[{
   "id": "05042",
   "type": "Asset",
   "class": "Neutral",
   "traits": "Omen. Tarot.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 2
 }]]
 allCards["05042"] = [[{
   "id": "05042",
@@ -14139,15 +14179,17 @@ allCards["05042"] = [[{
   "class": "Neutral",
   "traits": "Omen. Tarot.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 2
 }]]
-allCards["The Tower ï¿½ XVI|"] = [[{
+allCards["The Tower • XVI|"] = [[{
   "id": "05042",
   "type": "Asset",
   "class": "Neutral",
   "traits": "Omen. Tarot.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 2
 }]]
 allCards["Gavriella Mizrah|Private Security"] = [[{
   "id": "05046",
@@ -15119,7 +15161,7 @@ allCards["05195"] = [[{
   "permanent": false,
   "weakness": false
 }]]
-allCards["The Council's Coffer (2)|Whatï¿½s in the Box?"] = [[{
+allCards["The Council's Coffer (2)|What’s in the Box?"] = [[{
   "id": "05196",
   "type": "Asset",
   "class": "Neutral",
@@ -15781,7 +15823,7 @@ allCards["05314"] = [[{
   ],
   "weakness": false
 }]]
-allCards["\"I've had worseï¿½\" (2)|"] = [[{
+allCards["\"I've had worse…\" (2)|"] = [[{
   "id": "05315",
   "type": "Event",
   "class": "Guardian",
@@ -16225,7 +16267,8 @@ allCards["Unspeakable Oath (Bloodthirst)|"] = [[{
   "class": "Neutral",
   "traits": "Madness. Pact.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 1
 }]]
 allCards["52011"] = [[{
   "id": "52011",
@@ -16233,7 +16276,8 @@ allCards["52011"] = [[{
   "class": "Neutral",
   "traits": "Madness. Pact.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 1
 }]]
 allCards["Unspeakable Oath (Curiosity)|"] = [[{
   "id": "52012",
@@ -16241,7 +16285,8 @@ allCards["Unspeakable Oath (Curiosity)|"] = [[{
   "class": "Neutral",
   "traits": "Madness. Pact.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 1
 }]]
 allCards["52012"] = [[{
   "id": "52012",
@@ -16249,7 +16294,8 @@ allCards["52012"] = [[{
   "class": "Neutral",
   "traits": "Madness. Pact.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 1
 }]]
 allCards["Unspeakable Oath (Cowardice)|"] = [[{
   "id": "52013",
@@ -16257,7 +16303,8 @@ allCards["Unspeakable Oath (Cowardice)|"] = [[{
   "class": "Neutral",
   "traits": "Madness. Pact.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 1
 }]]
 allCards["52013"] = [[{
   "id": "52013",
@@ -16265,7 +16312,8 @@ allCards["52013"] = [[{
   "class": "Neutral",
   "traits": "Madness. Pact.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 1
 }]]
 allCards["Dianne Devine|Hiding an Oath Unspoken"] = [[{
   "id": "52025",
@@ -16295,7 +16343,6 @@ allCards["Party Guest|"] = [[{
   "id": "52026",
   "type": "Asset",
   "class": "Neutral",
-,
   "permanent": false,
   "weakness": false
 }]]
@@ -16303,7 +16350,6 @@ allCards["52026"] = [[{
   "id": "52026",
   "type": "Asset",
   "class": "Neutral",
-,
   "permanent": false,
   "weakness": false
 }]]
@@ -16809,7 +16855,7 @@ allCards["06017"] = [[{
   "permanent": false,
   "weakness": true
 }]]
-allCards["The Hungering Blade (1)|Calamitous Blade of Celephaï¿½s"] = [[{
+allCards["The Hungering Blade (1)|Calamitous Blade of Celephaïs"] = [[{
   "id": "06018",
   "type": "Asset",
   "class": "Guardian",
@@ -17362,7 +17408,8 @@ allCards["Self-Centered|"] = [[{
   "class": "Neutral",
   "traits": "Flaw.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 1
 }]]
 allCards["06035"] = [[{
   "id": "06035",
@@ -17370,7 +17417,8 @@ allCards["06035"] = [[{
   "class": "Neutral",
   "traits": "Flaw.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 1
 }]]
 allCards["Kleptomania|"] = [[{
   "id": "06036",
@@ -17378,7 +17426,8 @@ allCards["Kleptomania|"] = [[{
   "class": "Neutral",
   "traits": "Madness. Talent.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 1
 }]]
 allCards["06036"] = [[{
   "id": "06036",
@@ -17386,7 +17435,8 @@ allCards["06036"] = [[{
   "class": "Neutral",
   "traits": "Madness. Talent.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 1
 }]]
 allCards["Narcolepsy|"] = [[{
   "id": "06037",
@@ -17394,7 +17444,8 @@ allCards["Narcolepsy|"] = [[{
   "class": "Neutral",
   "traits": "Madness.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 1
 }]]
 allCards["06037"] = [[{
   "id": "06037",
@@ -17402,7 +17453,8 @@ allCards["06037"] = [[{
   "class": "Neutral",
   "traits": "Madness.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 1
 }]]
 allCards["Your Worst Nightmare|"] = [[{
   "id": "06038",
@@ -17410,7 +17462,8 @@ allCards["Your Worst Nightmare|"] = [[{
   "class": "Neutral",
   "traits": "Monster.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 1
 }]]
 allCards["06038"] = [[{
   "id": "06038",
@@ -17418,7 +17471,8 @@ allCards["06038"] = [[{
   "class": "Neutral",
   "traits": "Monster.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 1
 }]]
 allCards["Randolph Carter|Expert Dreamer"] = [[{
   "id": "06059",
@@ -19561,7 +19615,6 @@ allCards["The Military's Plan|"] = [[{
   "id": "85028",
   "type": "Asset",
   "class": "Neutral",
-,
   "permanent": false,
   "weakness": false
 }]]
@@ -19569,7 +19622,6 @@ allCards["85028"] = [[{
   "id": "85028",
   "type": "Asset",
   "class": "Neutral",
-,
   "permanent": false,
   "weakness": false
 }]]
@@ -20016,7 +20068,8 @@ allCards["Dendromorphosis|\"Natural\" Transformation"] = [[{
   "class": "Neutral",
   "traits": "Curse. Flora.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 1
 }]]
 allCards["53012"] = [[{
   "id": "53012",
@@ -20024,7 +20077,8 @@ allCards["53012"] = [[{
   "class": "Neutral",
   "traits": "Curse. Flora.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 1
 }]]
 allCards["Dendromorphosis|"] = [[{
   "id": "53012",
@@ -20032,7 +20086,8 @@ allCards["Dendromorphosis|"] = [[{
   "class": "Neutral",
   "traits": "Curse. Flora.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 1
 }]]
 allCards["Offer You Cannot Refuse|"] = [[{
   "id": "53013",
@@ -20040,7 +20095,8 @@ allCards["Offer You Cannot Refuse|"] = [[{
   "class": "Neutral",
   "traits": "Pact.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 1
 }]]
 allCards["53013"] = [[{
   "id": "53013",
@@ -20048,7 +20104,8 @@ allCards["53013"] = [[{
   "class": "Neutral",
   "traits": "Pact.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 1
 }]]
 allCards["Fine Print|"] = [[{
   "id": "53014",
@@ -20228,7 +20285,8 @@ allCards["Self-Destructive|"] = [[{
   "class": "Neutral",
   "traits": "Flaw.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 1
 }]]
 allCards["60104"] = [[{
   "id": "60104",
@@ -20236,7 +20294,8 @@ allCards["60104"] = [[{
   "class": "Neutral",
   "traits": "Flaw.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 1
 }]]
 allCards["Boxing Gloves|"] = [[{
   "id": "60105",
@@ -20808,7 +20867,8 @@ allCards["Obsessive|"] = [[{
   "class": "Neutral",
   "traits": "Flaw.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 1
 }]]
 allCards["60204"] = [[{
   "id": "60204",
@@ -20816,7 +20876,8 @@ allCards["60204"] = [[{
   "class": "Neutral",
   "traits": "Flaw.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 1
 }]]
 allCards["Arcane Enlightenment|"] = [[{
   "id": "60205",
@@ -21488,7 +21549,8 @@ allCards["Reckless|"] = [[{
   "class": "Neutral",
   "traits": "Flaw.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 1
 }]]
 allCards["60304"] = [[{
   "id": "60304",
@@ -21496,7 +21558,8 @@ allCards["60304"] = [[{
   "class": "Neutral",
   "traits": "Flaw.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 1
 }]]
 allCards["Lockpicks|"] = [[{
   "id": "60305",
@@ -22034,7 +22097,8 @@ allCards["Nihilism|"] = [[{
   "class": "Neutral",
   "traits": "Madness.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 1
 }]]
 allCards["60404"] = [[{
   "id": "60404",
@@ -22042,7 +22106,8 @@ allCards["60404"] = [[{
   "class": "Neutral",
   "traits": "Madness.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 1
 }]]
 allCards["Scrying Mirror|"] = [[{
   "id": "60406",
@@ -22660,7 +22725,8 @@ allCards["Atychiphobia|"] = [[{
   "class": "Neutral",
   "traits": "Madness.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 1
 }]]
 allCards["60504"] = [[{
   "id": "60504",
@@ -22668,7 +22734,8 @@ allCards["60504"] = [[{
   "class": "Neutral",
   "traits": "Madness.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 1
 }]]
 allCards[".18 Derringer|"] = [[{
   "id": "60505",
@@ -23098,7 +23165,7 @@ allCards["60530"] = [[{
   "permanent": true,
   "weakness": false
 }]]
-allCards["Dï¿½jï¿½ Vu (5)|"] = [[{
+allCards["Déjà Vu (5)|"] = [[{
   "id": "60531",
   "type": "Asset",
   "class": "Survivor",
@@ -23945,7 +24012,8 @@ allCards["Accursed Follower|"] = [[{
   "class": "Neutral",
   "traits": "Humanoid. Cultist. Cursed.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 2
 }]]
 allCards["07038"] = [[{
   "id": "07038",
@@ -23953,7 +24021,8 @@ allCards["07038"] = [[{
   "class": "Neutral",
   "traits": "Humanoid. Cultist. Cursed.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 2
 }]]
 allCards["Dread Curse|"] = [[{
   "id": "07039",
@@ -23961,7 +24030,8 @@ allCards["Dread Curse|"] = [[{
   "class": "Neutral",
   "traits": "Curse.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 2
 }]]
 allCards["07039"] = [[{
   "id": "07039",
@@ -23969,7 +24039,8 @@ allCards["07039"] = [[{
   "class": "Neutral",
   "traits": "Curse.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 2
 }]]
 allCards["Day of Reckoning|"] = [[{
   "id": "07040",
@@ -23977,7 +24048,8 @@ allCards["Day of Reckoning|"] = [[{
   "class": "Neutral",
   "traits": "Endtimes.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 1
 }]]
 allCards["07040"] = [[{
   "id": "07040",
@@ -23985,7 +24057,8 @@ allCards["07040"] = [[{
   "class": "Neutral",
   "traits": "Endtimes.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 1
 }]]
 allCards["Thomas Dawson|Soldier in a New War"] = [[{
   "id": "07062",
@@ -24885,7 +24958,7 @@ allCards["Cryptic Grimoire (4)|"] = [[{
   "permanent": false,
   "weakness": false
 }]]
-allCards["Rï¿½astrad (1)|"] = [[{
+allCards["Ríastrad (1)|"] = [[{
   "id": "07193",
   "type": "Event",
   "class": "Rogue",
@@ -25983,7 +26056,7 @@ allCards["90031"] = [[{
   "permanent": false,
   "weakness": true
 }]]
-allCards["The Star ï¿½ XVII (3)|You Have Been Chosen"] = [[{
+allCards["The Star • XVII (3)|You Have Been Chosen"] = [[{
   "id": "54001",
   "type": "Asset",
   "class": "Guardian",
@@ -26001,7 +26074,7 @@ allCards["54001"] = [[{
   "permanent": false,
   "weakness": false
 }]]
-allCards["The Star ï¿½ XVII (3)|"] = [[{
+allCards["The Star • XVII (3)|"] = [[{
   "id": "54001",
   "type": "Asset",
   "class": "Guardian",
@@ -26040,7 +26113,7 @@ allCards["54002"] = [[{
     }
   ]
 }]]
-allCards["The World ï¿½ XXI (3)|The Journey is Complete"] = [[{
+allCards["The World • XXI (3)|The Journey is Complete"] = [[{
   "id": "54003",
   "type": "Asset",
   "class": "Seeker",
@@ -26058,7 +26131,7 @@ allCards["54003"] = [[{
   "permanent": false,
   "weakness": false
 }]]
-allCards["The World ï¿½ XXI (3)|"] = [[{
+allCards["The World • XXI (3)|"] = [[{
   "id": "54003",
   "type": "Asset",
   "class": "Seeker",
@@ -26142,7 +26215,7 @@ allCards["54006"] = [[{
   "permanent": false,
   "weakness": false
 }]]
-allCards["The Hierophant ï¿½ V (3)|Your True Master Awaits"] = [[{
+allCards["The Hierophant • V (3)|Your True Master Awaits"] = [[{
   "id": "54007",
   "type": "Asset",
   "class": "Mystic",
@@ -26160,7 +26233,7 @@ allCards["54007"] = [[{
   "permanent": false,
   "weakness": false
 }]]
-allCards["The Hierophant ï¿½ V (3)|"] = [[{
+allCards["The Hierophant • V (3)|"] = [[{
   "id": "54007",
   "type": "Asset",
   "class": "Mystic",
@@ -26232,7 +26305,7 @@ allCards["54010"] = [[{
   "permanent": false,
   "weakness": false
 }]]
-allCards["The Fool ï¿½ 0 (3)|Unlimited Potential"] = [[{
+allCards["The Fool • 0 (3)|Unlimited Potential"] = [[{
   "id": "54011",
   "type": "Asset",
   "class": "Neutral",
@@ -26250,7 +26323,7 @@ allCards["54011"] = [[{
   "permanent": false,
   "weakness": false
 }]]
-allCards["The Fool ï¿½ 0 (3)|"] = [[{
+allCards["The Fool • 0 (3)|"] = [[{
   "id": "54011",
   "type": "Asset",
   "class": "Neutral",
@@ -26301,7 +26374,8 @@ allCards["Damned|"] = [[{
   "class": "Neutral",
   "traits": "Curse. Omen.",
   "permanent": true,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 1
 }]]
 allCards["54014"] = [[{
   "id": "54014",
@@ -26309,15 +26383,17 @@ allCards["54014"] = [[{
   "class": "Neutral",
   "traits": "Curse. Omen.",
   "permanent": true,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 1
 }]]
-allCards["The Devil ï¿½ XV|Your Shadow Hungers"] = [[{
+allCards["The Devil • XV|Your Shadow Hungers"] = [[{
   "id": "54015",
   "type": "Asset",
   "class": "Neutral",
   "traits": "Omen. Tarot.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 2
 }]]
 allCards["54015"] = [[{
   "id": "54015",
@@ -26325,15 +26401,17 @@ allCards["54015"] = [[{
   "class": "Neutral",
   "traits": "Omen. Tarot.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 2
 }]]
-allCards["The Devil ï¿½ XV|"] = [[{
+allCards["The Devil • XV|"] = [[{
   "id": "54015",
   "type": "Asset",
   "class": "Neutral",
   "traits": "Omen. Tarot.",
   "permanent": false,
-  "weakness": true
+  "weakness": true,
+  "basicWeaknessCount": 2
 }]]
 allCards["Erynn MacAoidh|Devoted Enchantress"] = [[{
   "id": "54041",

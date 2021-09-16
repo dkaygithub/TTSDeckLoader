@@ -230,6 +230,5 @@ function greenDeckChanged(objectInputTyped, playerColorTyped, input_value, selec
 end
 
 function loadDecks()
-  log("check")
   log(getUiState())
 end
