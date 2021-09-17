@@ -29,7 +29,7 @@
   <b>Card:</b> That specific card will be tagged based on its name/description
   <b>Bag/Deck:</b> All cards in the container will be tagged
 
-  Tagged cards will be moved to just above the playmat.  Cards which cannot be tagged will be placed in a separate pile.
+  Tagged cards will be moved to just below this helper.  Cards which cannot be tagged will be placed in a separate pile.
   </Text>
   <Text
   offsetXY="-110 -350"

@@ -223,7 +223,7 @@ allCards["Discipline|Quiescence of Thought"] = [[{
   "permanent": true,
   "weakness": false
 }]]
-allCards["Discipline|Prescience of Faith"] = [[{
+allCards["Discipline|Prescience of Fate"] = [[{
   "id": "08013a",
   "type": "Asset",
   "class": "Neutral",
@@ -6391,7 +6391,7 @@ allCards["02260"] = [[{
   "permanent": false,
   "weakness": false
 }]]
-allCards["\"I've had worse…\" (4)|"] = [[{
+allCards["\"I've had worseï¿½\" (4)|"] = [[{
   "id": "02261",
   "type": "Event",
   "class": "Guardian",
@@ -10845,7 +10845,7 @@ allCards["Alejandro Vela|"] = [[{
   "permanent": false,
   "weakness": false
 }]]
-allCards["Relic of Ages|…A Device, of Some Sort"] = [[{
+allCards["Relic of Ages|ï¿½A Device, of Some Sort"] = [[{
   "id": "04061",
   "type": "Asset",
   "class": "Neutral",
@@ -12347,7 +12347,7 @@ allCards["04268"] = [[{
     "count": 5
   }
 }]]
-allCards["Coup de Grâce|"] = [[{
+allCards["Coup de Grï¿½ce|"] = [[{
   "id": "04269",
   "type": "Event",
   "class": "Rogue",
@@ -13849,7 +13849,7 @@ allCards["05026"] = [[{
   "permanent": false,
   "weakness": false
 }]]
-allCards["Death • XIII (1)|Free from the Past"] = [[{
+allCards["Death ï¿½ XIII (1)|Free from the Past"] = [[{
   "id": "05027",
   "type": "Asset",
   "class": "Seeker",
@@ -13867,7 +13867,7 @@ allCards["05027"] = [[{
   "permanent": false,
   "weakness": false
 }]]
-allCards["Death • XIII (1)|"] = [[{
+allCards["Death ï¿½ XIII (1)|"] = [[{
   "id": "05027",
   "type": "Asset",
   "class": "Seeker",
@@ -13930,7 +13930,7 @@ allCards["05030"] = [[{
   "permanent": false,
   "weakness": false
 }]]
-allCards["The Moon • XVIII (1)|Message from Your Inner Self"] = [[{
+allCards["The Moon ï¿½ XVIII (1)|Message from Your Inner Self"] = [[{
   "id": "05031",
   "type": "Asset",
   "class": "Rogue",
@@ -13948,7 +13948,7 @@ allCards["05031"] = [[{
   "permanent": false,
   "weakness": false
 }]]
-allCards["The Moon • XVIII (1)|"] = [[{
+allCards["The Moon ï¿½ XVIII (1)|"] = [[{
   "id": "05031",
   "type": "Asset",
   "class": "Rogue",
@@ -14164,7 +14164,7 @@ allCards["05041"] = [[{
   "weakness": true,
   "basicWeaknessCount": 2
 }]]
-allCards["The Tower • XVI|Circumstances Beyond Your Control"] = [[{
+allCards["The Tower ï¿½ XVI|Circumstances Beyond Your Control"] = [[{
   "id": "05042",
   "type": "Asset",
   "class": "Neutral",
@@ -14182,7 +14182,7 @@ allCards["05042"] = [[{
   "weakness": true,
   "basicWeaknessCount": 2
 }]]
-allCards["The Tower • XVI|"] = [[{
+allCards["The Tower ï¿½ XVI|"] = [[{
   "id": "05042",
   "type": "Asset",
   "class": "Neutral",
@@ -15161,7 +15161,7 @@ allCards["05195"] = [[{
   "permanent": false,
   "weakness": false
 }]]
-allCards["The Council's Coffer (2)|What’s in the Box?"] = [[{
+allCards["The Council's Coffer (2)|Whatï¿½s in the Box?"] = [[{
   "id": "05196",
   "type": "Asset",
   "class": "Neutral",
@@ -15823,7 +15823,7 @@ allCards["05314"] = [[{
   ],
   "weakness": false
 }]]
-allCards["\"I've had worse…\" (2)|"] = [[{
+allCards["\"I've had worseï¿½\" (2)|"] = [[{
   "id": "05315",
   "type": "Event",
   "class": "Guardian",
@@ -16855,7 +16855,7 @@ allCards["06017"] = [[{
   "permanent": false,
   "weakness": true
 }]]
-allCards["The Hungering Blade (1)|Calamitous Blade of Celephaïs"] = [[{
+allCards["The Hungering Blade (1)|Calamitous Blade of Celephaï¿½s"] = [[{
   "id": "06018",
   "type": "Asset",
   "class": "Guardian",
@@ -23165,7 +23165,7 @@ allCards["60530"] = [[{
   "permanent": true,
   "weakness": false
 }]]
-allCards["Déjà Vu (5)|"] = [[{
+allCards["Dï¿½jï¿½ Vu (5)|"] = [[{
   "id": "60531",
   "type": "Asset",
   "class": "Survivor",
@@ -24958,7 +24958,7 @@ allCards["Cryptic Grimoire (4)|"] = [[{
   "permanent": false,
   "weakness": false
 }]]
-allCards["Ríastrad (1)|"] = [[{
+allCards["Rï¿½astrad (1)|"] = [[{
   "id": "07193",
   "type": "Event",
   "class": "Rogue",
@@ -26056,7 +26056,7 @@ allCards["90031"] = [[{
   "permanent": false,
   "weakness": true
 }]]
-allCards["The Star • XVII (3)|You Have Been Chosen"] = [[{
+allCards["The Star ï¿½ XVII (3)|You Have Been Chosen"] = [[{
   "id": "54001",
   "type": "Asset",
   "class": "Guardian",
@@ -26074,7 +26074,7 @@ allCards["54001"] = [[{
   "permanent": false,
   "weakness": false
 }]]
-allCards["The Star • XVII (3)|"] = [[{
+allCards["The Star ï¿½ XVII (3)|"] = [[{
   "id": "54001",
   "type": "Asset",
   "class": "Guardian",
@@ -26113,7 +26113,7 @@ allCards["54002"] = [[{
     }
   ]
 }]]
-allCards["The World • XXI (3)|The Journey is Complete"] = [[{
+allCards["The World ï¿½ XXI (3)|The Journey is Complete"] = [[{
   "id": "54003",
   "type": "Asset",
   "class": "Seeker",
@@ -26131,7 +26131,7 @@ allCards["54003"] = [[{
   "permanent": false,
   "weakness": false
 }]]
-allCards["The World • XXI (3)|"] = [[{
+allCards["The World ï¿½ XXI (3)|"] = [[{
   "id": "54003",
   "type": "Asset",
   "class": "Seeker",
@@ -26215,7 +26215,7 @@ allCards["54006"] = [[{
   "permanent": false,
   "weakness": false
 }]]
-allCards["The Hierophant • V (3)|Your True Master Awaits"] = [[{
+allCards["The Hierophant ï¿½ V (3)|Your True Master Awaits"] = [[{
   "id": "54007",
   "type": "Asset",
   "class": "Mystic",
@@ -26233,7 +26233,7 @@ allCards["54007"] = [[{
   "permanent": false,
   "weakness": false
 }]]
-allCards["The Hierophant • V (3)|"] = [[{
+allCards["The Hierophant ï¿½ V (3)|"] = [[{
   "id": "54007",
   "type": "Asset",
   "class": "Mystic",
@@ -26305,7 +26305,7 @@ allCards["54010"] = [[{
   "permanent": false,
   "weakness": false
 }]]
-allCards["The Fool • 0 (3)|Unlimited Potential"] = [[{
+allCards["The Fool ï¿½ 0 (3)|Unlimited Potential"] = [[{
   "id": "54011",
   "type": "Asset",
   "class": "Neutral",
@@ -26323,7 +26323,7 @@ allCards["54011"] = [[{
   "permanent": false,
   "weakness": false
 }]]
-allCards["The Fool • 0 (3)|"] = [[{
+allCards["The Fool ï¿½ 0 (3)|"] = [[{
   "id": "54011",
   "type": "Asset",
   "class": "Neutral",
@@ -26386,7 +26386,7 @@ allCards["54014"] = [[{
   "weakness": true,
   "basicWeaknessCount": 1
 }]]
-allCards["The Devil • XV|Your Shadow Hungers"] = [[{
+allCards["The Devil ï¿½ XV|Your Shadow Hungers"] = [[{
   "id": "54015",
   "type": "Asset",
   "class": "Neutral",
@@ -26404,7 +26404,7 @@ allCards["54015"] = [[{
   "weakness": true,
   "basicWeaknessCount": 2
 }]]
-allCards["The Devil • XV|"] = [[{
+allCards["The Devil ï¿½ XV|"] = [[{
   "id": "54015",
   "type": "Asset",
   "class": "Neutral",
