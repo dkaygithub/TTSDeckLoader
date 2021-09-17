@@ -40,8 +40,8 @@ end
 -- Parameter targetGuid: GUID of the card to be tagged
 function tagSingleCard(targetGuid)
   local targetCard = getObjectFromGUID(targetGuid)
-  local goodPosition = Vector(10, 1, 0)
-  local badPosition = Vector(10, 1, 6)
+  local goodPosition = self.positionToWorld({3, 1, 0})
+  local badPosition = self.positionToWorld({3, 1, -1})
   -- Try and match the metadata using both name and subname
   local name = targetCard.getName().."|"
   if (targetCard.getDescription() ~= nil) then
@@ -77,8 +77,6 @@ end
 -- good or bad piles based on success.
 function tagContainer()
   local tagTarget = getObjectFromGUID(tagTargetGuid)
-  local goodPosition = Vector(10, 1, 0)
-  local badPosition = Vector(10, 1, 6)
   local tempPosition = Vector(20, 1, 0)
   local cardsProcessed = 0
   local isDeck = false
@@ -105,13 +103,13 @@ function tagContainer()
       for _, object in ipairs(everything) do
         if (object.name == "Card") then
           local objPosition = Vector(object.getPosition().x, 0, object.getPosition().z)
-        if (deckPosition:distance(objPosition) < 0.1) then
+          if (deckPosition:distance(objPosition) < 0.1) then
             tagSingleCard(object.getGUID())
             return 1
           end
         end
       end
-    end, 20)
+    end, 90)
   end
 
   return 1

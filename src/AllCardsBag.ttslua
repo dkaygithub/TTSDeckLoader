@@ -112,15 +112,21 @@ function addCardToIndex(cardData, cardMetadata)
 end
 
 function cardComparator(card1, card2)
-  if (card1.data.Nickname ~= card2.data.Nickname) then
-    return card1.data.Nickname < card2.data.Nickname
-  end
   if (card1.metadata.level ~= card2.metadata.level) then
     return card1.metadata.level < card2.metadata.level
+  end
+  if (card1.data.Nickname ~= card2.data.Nickname) then
+    return card1.data.Nickname < card2.data.Nickname
   end
   return card1.data.Description < card2.data.Description
 end
 
+-- Returns a specific card from the bag, based on ArkhamDB ID
+-- Params table:
+--     id: String ID of the card to retrieve
+-- Return: Single table with the following fields
+--     cardData: TTS object data, suitable for spawning the card
+--     cardMetadata: Table of parsed metadata
 function getCardById(params)
   if (not indexingDone) then
     broadcastToAll("Still loading player cards, please try again in a few seconds", {0.9, 0.2, 0.2})
@@ -129,7 +135,14 @@ function getCardById(params)
   return cardIdIndex[params.id]
 end
 
-function getCardByClassAndLevel(params)
+-- Returns a list of cards from the bag matching a class and level (0 or upgraded)
+-- Params table:
+--     class: String class to retrieve ("Guardian", "Seeker", etc)
+--     isUpgraded: true for upgraded cards (Level 1-5), false for Level 0
+-- Return: List of tables, each with the following fields
+--     cardData: TTS object data, suitable for spawning the card
+--     cardMetadata: Table of parsed metadata
+function getCardsByClassAndLevel(params)
   if (not indexingDone) then
     broadcastToAll("Still loading player cards, please try again in a few seconds", {0.9, 0.2, 0.2})
     return nil
@@ -140,10 +153,14 @@ function getCardByClassAndLevel(params)
   else
     upgradeKey = "-level0"
   end
+  log(upgradeKey)
   return classAndLevelIndex[params.class..upgradeKey];
 end
 
--- Gets a random basic weakness from the bag.  Once a given
+-- Gets a random basic weakness from the bag.  Once a given ID has been returned
+-- it will be removed from the list and cannot be selected again until a reload
+-- occurs, which will refresh the list to include all weaknesses.
+-- Return: String ID of the selected weakness.
 function getRandomWeaknessId()
   local pickedIndex = math.random(#basicWeaknessList)
   local weaknessId = basicWeaknessList[pickedIndex]
