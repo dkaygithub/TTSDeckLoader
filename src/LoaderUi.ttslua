@@ -72,6 +72,9 @@ function initializeUi(savedUiState)
 end
 
 function makeOptionToggles()
+  -- Creates the three option toggle buttons.  Each toggle assumes its index as
+  -- part of the toggle logic.  IF YOU CHANGE THE ORDER OF THESE FIELDS YOU MUST
+  -- CHANGE THE EVENT HANDLERS
   makePublicPrivateToggle()
   makeLoadUpgradedToggle()
   makeLoadInvestigatorsToggle()
@@ -230,5 +233,18 @@ function greenDeckChanged(objectInputTyped, playerColorTyped, input_value, selec
 end
 
 function loadDecks()
-  log(getUiState())
+  -- testLoadLotsOfDecks()
+  -- Method in DeckImporterMain, visible due to inclusion
+  if (redDeckId ~= nil and redDeckId ~= "") then
+    build_deck("Red", redDeckId)
+  end
+  if (orangeDeckId ~= nil and orangeDeckId ~= "") then
+    build_deck("Orange", orangeDeckId)
+  end
+  if (whiteDeckId ~= nil and whiteDeckId ~= "") then
+    build_deck("White", whiteDeckId)
+  end
+  if (greenDeckId ~= nil and greenDeckId ~= "") then
+    build_deck("Green", greenDeckId)
+  end
 end
