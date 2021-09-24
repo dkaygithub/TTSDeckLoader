@@ -396,6 +396,7 @@ function maybeDrawRandomWeakness(slots, playerColor, configuration)
     slots[RANDOM_WEAKNESS_ID] = nil
     broadcastToAll("Random basic weakness added to deck", playerColor)
   end
+
 end
 
 -- If the UI indicates that investigator cards should be loaded, add both the
@@ -474,53 +475,122 @@ end
 -- Param configuration: Loader configuration object
 -- Param command_config:
 function load_cards(slots, player_color, command_manager, configuration, command_config)
-  local all_cards_bag = getObjectFromGUID(configuration.card_bag_guid)
-  local yPos = 2
-  for cardId, cardCount in pairs(slots) do
-    local card = all_cards_bag.call("getCardById", { id = cardId })
-
-    -- TODO: Process commands for the card
-
-    if (card ~= nil) then
-      local cardPos = Zones.getZonePosition(player_color, Zones.getDefaultCardZone(card.metadata))
-      cardPos.y = yPos
-      for i = 1, cardCount do
-        spawnObjectData({
-          data = card.data,
-          position = cardPos,
-          rotation = Zones.getDefaultCardRotation(player_color, card.metadata)})
-        cardPos.y = cardPos.y + 0.25
+  function coinside()
+    local all_cards_bag = getObjectFromGUID(configuration.card_bag_guid)
+    local yPos = { }
+    local cardsToSpawn = { }
+    for cardId, cardCount in pairs(slots) do
+      local card = all_cards_bag.call("getCardById", { id = cardId })
+      if (card ~= nil) then
+        local cardZone = Zones.getDefaultCardZone(card.metadata)
+        for i = 1, cardCount do
+          table.insert(cardsToSpawn, { data = card.data, metadata = card.metadata, zone = cardZone })
+        end
+        slots[cardId] = 0
       end
-      -- Set the count to zero so we know we loaded it
-      slots[cardId] = 0
     end
-  end
+    table.sort(cardsToSpawn, cardComparator)
 
-  -- Look for any cards which haven't been loaded
-  local hadError = false
-  for cardId, remainingCount in pairs(slots) do
-    if (remainingCount > 0) then
-      hadError = true
-      local request = Request.start({
-          configuration.api_uri,
-          configuration.cards,
-          cardId},
-          function(result)
-            local adbCardInfo = JSON.decode(fix_utf16_string(result.text))
-            local cardName = adbCardInfo.real_name
-            if (cardName ~= nil) then
-              if (adbCardInfo.xp ~= nil) then
-                cardName = cardName.." ("..adbCardInfo.xp..")"
-              end
-              broadcastToAll("Card not found: "..cardName..", ArkhamDB ID "..cardId, {0.5,0.5,0.5})
-            else
-              broadcastToAll("Card not found in ArkhamDB, ID "..cardId, {0.5,0.5,0.5})
-            end
-          end)
-      return request
+    -- TODO: Process commands for the deck
+
+    for _, spawnCard in ipairs(cardsToSpawn) do
+      if (yPos[spawnCard.zone] == nil) then
+        yPos[spawnCard.zone] = 2
+      else
+        yPos[spawnCard.zone] = yPos[spawnCard.zone] + 0.2
+      end
+      local cardPos = Zones.getZonePosition(player_color, spawnCard.zone)
+      cardPos.y = yPos[spawnCard.zone]
+      spawnObjectData({
+        data = spawnCard.data,
+        position = cardPos,
+        rotation = Zones.getDefaultCardRotation(player_color, spawnCard.metadata)})
+      coroutine.yield(0)
     end
+
+
+
+
+    --
+    --   if (card ~= nil) then
+    --     local zone = Zones.getDefaultCardZone(card.metadata)
+    --     if (yPos[zone] == nil) then
+    --       yPos[zone] = 2
+    --     else
+    --       yPos[zone] = yPos[zone] + 0.1
+    --     end
+    --     local cardPos = Zones.getZonePosition(player_color, zone)
+    --     cardPos.y = yPos[zone]
+    --     for i = 1, cardCount do
+    --       spawnObjectData({
+    --         data = card.data,
+    --         position = cardPos,
+    --         rotation = Zones.getDefaultCardRotation(player_color, card.metadata)})
+    --     end
+    --     -- Set the count to zero so we know we loaded it
+    --     slots[cardId] = 0
+    --     coroutine.yield(0)
+    --   end
+    -- end
+
+    -- Look for any cards which haven't been loaded
+    local hadError = false
+    for cardId, remainingCount in pairs(slots) do
+      if (remainingCount > 0) then
+        hadError = true
+        local request = Request.start({
+            configuration.api_uri,
+            configuration.cards,
+            cardId},
+            function(result)
+              local adbCardInfo = JSON.decode(fix_utf16_string(result.text))
+              local cardName = adbCardInfo.real_name
+              if (cardName ~= nil) then
+                if (adbCardInfo.xp ~= nil) then
+                  cardName = cardName.." ("..adbCardInfo.xp..")"
+                end
+                broadcastToAll("Card not found: "..cardName..", ArkhamDB ID "..cardId, {0.5,0.5,0.5})
+              else
+                broadcastToAll("Card not found in ArkhamDB, ID "..cardId, {0.5,0.5,0.5})
+              end
+            end)
+        return request
+      end
+    end
+    print("Deck loaded successfully!")
+    return 1
   end
-  print("Deck loaded successfully!")
+  startLuaCoroutine(self, "coinside")
+end
+
+function getPbn(metadata)
+  if (metadata.permanent) then
+    return 1
+  elseif (metadata.bonded_to ~= nil) then
+    return 2
+  else -- Normal card
+    return 3
+  end
+end
+-- Comparison function used to sort the class card bag indexes.  Sorts by card
+-- level, then name, then subname.
+function cardComparator(card1, card2)
+  local pbn1 = getPbn(card1.metadata)
+  local pbn2 = getPbn(card2.metadata)
+  if (pbn1 ~= pbn2) then
+    return pbn1 > pbn2
+  end
+  if (pbn1 == 3) then
+    if (card1.data.Nickname ~= card2.data.Nickname) then
+      return card1.data.Nickname < card2.data.Nickname
+    end
+    return card1.data.Description < card2.data.Description
+  else
+    if (card1.data.Nickname ~= card2.data.Nickname) then
+      return card1.data.Nickname > card2.data.Nickname
+    end
+    return card1.data.Description > card2.data.Description
+  end
 end
 
 -- Test method.  Loads all decks which were submitted to ArkhamDB on a given
