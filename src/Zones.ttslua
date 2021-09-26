@@ -1,12 +1,33 @@
 -- Sets up and returns coordinates for all possible spawn zones.  Because Lua
--- assigns tables by reference, and there is no built-in function to copy a
+-- assigns tables by reference and there is no built-in function to copy a
 -- table this is relatively brute force.
 --
 -- Positions are all relative to the player mat, and most are consistent.  The
 -- exception are the SetAside# zones, which are placed to the left of the mat
 -- for White/Green, and the right of the mat for Orange/Red.
+--
+-- Valid Zones:
+-- Investigator: Investigator card area.
+-- Minicard: Placement for the investigator's minicard.  This is just above the
+--     player mat, vertically in line with the investigator card area.
+-- Deck, Discard: Standard locations for the deck and discard piles.
+-- BlankTop, Tarot, Hand1, Hand2, Ally, BlankBottom, Accessory, Arcane1,
+--     Arcane2, Body: Asset slot positions on the player mat.
+-- Threat[1-4]: Threat area slots.  Threat[1-3] correspond to the named threat
+--     area slots, and Threat4 is the blank threat area slot.
+-- SetAside[1-6]: Areas outside the player mat, to the right for Red/Orange and
+--     the left for White/Green.  SetAside[1-3] are a column closest to the
+--     player mat, with 1 at the top of the mat and 3 at the bottom.
+--     SetAside[4-6] are a column farther away from the mat, with 4 at the top
+--     and 6 at the bottom.
 do
-  local allZones = { }
+  local playerMatGuids = { }
+  playerMatGuids["Red"] = "0840d5"
+  playerMatGuids["Orange"] = "bd0ff4"
+  playerMatGuids["White"] = "8b081b"
+  playerMatGuids["Green"] = "383d8b"
+
+  local Zones = { }
 
   local commonZones = { }
   commonZones["Investigator"] = {-0.7833852, 0, 0.0001343352}
@@ -28,61 +49,119 @@ do
   commonZones["Threat3"] = {0.071090,0,-0.633717}
   commonZones["Threat4"] = {0.520816,0,-0.633936}
 
-  allZones["White"] = { }
-  allZones["White"]["Investigator"] = commonZones["Investigator"]
-  allZones["White"]["Minicard"] = commonZones["Minicard"]
-  allZones["White"]["Deck"] = commonZones["Deck"]
-  allZones["White"]["Discard"] = commonZones["Discard"]
-  allZones["White"]["Ally"] = commonZones["Ally"]
-  allZones["White"]["Body"] = commonZones["Body"]
-  allZones["White"]["Hand1"] = commonZones["Hand1"]
-  allZones["White"]["Hand2"] = commonZones["Hand2"]
-  allZones["White"]["Arcane1"] = commonZones["Arcane1"]
-  allZones["White"]["Arcane2"] = commonZones["Arcane2"]
-  allZones["White"]["Tarot"] = commonZones["Tarot"]
-  allZones["White"]["Accessory"] = commonZones["Accessory"]
-  allZones["White"]["BlankTop"] = commonZones["BlankTop"]
-  allZones["White"]["BlankBottom"] = commonZones["BlankBottom"]
-  allZones["White"]["Threat1"] = commonZones["Threat1"]
-  allZones["White"]["Threat2"] = commonZones["Threat2"]
-  allZones["White"]["Threat3"] = commonZones["Threat3"]
-  allZones["White"]["Threat4"] = commonZones["Threat4"]
-  allZones["White"]["SetAside1"] = {2.004500,0,-0.520315}
-  allZones["White"]["SetAside2"] = {2.004500,0,0.042552}
-  allZones["White"]["SetAside3"] = {2.004500,0,0.605419}
-  allZones["White"]["SetAside4"] = {2.434500,0,-0.520315}
-  allZones["White"]["SetAside5"] = {2.434500,0,0.042552}
-  allZones["White"]["SetAside6"] = {2.434500,0,0.605419}
-  allZones["Orange"] = { }
-  allZones["Orange"]["Investigator"] = commonZones["Investigator"]
-  allZones["Orange"]["Minicard"] = commonZones["Minicard"]
-  allZones["Orange"]["Deck"] = commonZones["Deck"]
-  allZones["Orange"]["Discard"] = commonZones["Discard"]
-  allZones["Orange"]["Ally"] = commonZones["Ally"]
-  allZones["Orange"]["Body"] = commonZones["Body"]
-  allZones["Orange"]["Hand1"] = commonZones["Hand1"]
-  allZones["Orange"]["Hand2"] = commonZones["Hand2"]
-  allZones["Orange"]["Arcane1"] = commonZones["Arcane1"]
-  allZones["Orange"]["Arcane2"] = commonZones["Arcane2"]
-  allZones["Orange"]["Tarot"] = commonZones["Tarot"]
-  allZones["Orange"]["Accessory"] = commonZones["Accessory"]
-  allZones["Orange"]["BlankTop"] = commonZones["BlankTop"]
-  allZones["Orange"]["BlankBottom"] = commonZones["BlankBottom"]
-  allZones["Orange"]["Threat1"] = commonZones["Threat1"]
-  allZones["Orange"]["Threat2"] = commonZones["Threat2"]
-  allZones["Orange"]["Threat3"] = commonZones["Threat3"]
-  allZones["Orange"]["Threat4"] = commonZones["Threat4"]
-  allZones["Orange"]["SetAside1"] = {-2.004500,0,-0.520315}
-  allZones["Orange"]["SetAside2"] = {-2.004500,0,0.042552}
-  allZones["Orange"]["SetAside3"] = {-2.004500,0,0.605419}
-  allZones["Orange"]["SetAside4"] = {-2.434500,0,-0.520315}
-  allZones["Orange"]["SetAside5"] = {-2.434500,0,0.042552}
-  allZones["Orange"]["SetAside6"] = {-2.434500,0,0.605419}
+  Zones["White"] = { }
+  Zones["White"]["Investigator"] = commonZones["Investigator"]
+  Zones["White"]["Minicard"] = commonZones["Minicard"]
+  Zones["White"]["Deck"] = commonZones["Deck"]
+  Zones["White"]["Discard"] = commonZones["Discard"]
+  Zones["White"]["Ally"] = commonZones["Ally"]
+  Zones["White"]["Body"] = commonZones["Body"]
+  Zones["White"]["Hand1"] = commonZones["Hand1"]
+  Zones["White"]["Hand2"] = commonZones["Hand2"]
+  Zones["White"]["Arcane1"] = commonZones["Arcane1"]
+  Zones["White"]["Arcane2"] = commonZones["Arcane2"]
+  Zones["White"]["Tarot"] = commonZones["Tarot"]
+  Zones["White"]["Accessory"] = commonZones["Accessory"]
+  Zones["White"]["BlankTop"] = commonZones["BlankTop"]
+  Zones["White"]["BlankBottom"] = commonZones["BlankBottom"]
+  Zones["White"]["Threat1"] = commonZones["Threat1"]
+  Zones["White"]["Threat2"] = commonZones["Threat2"]
+  Zones["White"]["Threat3"] = commonZones["Threat3"]
+  Zones["White"]["Threat4"] = commonZones["Threat4"]
+  Zones["White"]["SetAside1"] = {2.004500,0,-0.520315}
+  Zones["White"]["SetAside2"] = {2.004500,0,0.042552}
+  Zones["White"]["SetAside3"] = {2.004500,0,0.605419}
+  Zones["White"]["SetAside4"] = {2.434500,0,-0.520315}
+  Zones["White"]["SetAside5"] = {2.434500,0,0.042552}
+  Zones["White"]["SetAside6"] = {2.434500,0,0.605419}
+  Zones["Orange"] = { }
+  Zones["Orange"]["Investigator"] = commonZones["Investigator"]
+  Zones["Orange"]["Minicard"] = commonZones["Minicard"]
+  Zones["Orange"]["Deck"] = commonZones["Deck"]
+  Zones["Orange"]["Discard"] = commonZones["Discard"]
+  Zones["Orange"]["Ally"] = commonZones["Ally"]
+  Zones["Orange"]["Body"] = commonZones["Body"]
+  Zones["Orange"]["Hand1"] = commonZones["Hand1"]
+  Zones["Orange"]["Hand2"] = commonZones["Hand2"]
+  Zones["Orange"]["Arcane1"] = commonZones["Arcane1"]
+  Zones["Orange"]["Arcane2"] = commonZones["Arcane2"]
+  Zones["Orange"]["Tarot"] = commonZones["Tarot"]
+  Zones["Orange"]["Accessory"] = commonZones["Accessory"]
+  Zones["Orange"]["BlankTop"] = commonZones["BlankTop"]
+  Zones["Orange"]["BlankBottom"] = commonZones["BlankBottom"]
+  Zones["Orange"]["Threat1"] = commonZones["Threat1"]
+  Zones["Orange"]["Threat2"] = commonZones["Threat2"]
+  Zones["Orange"]["Threat3"] = commonZones["Threat3"]
+  Zones["Orange"]["Threat4"] = commonZones["Threat4"]
+  Zones["Orange"]["SetAside1"] = {-2.004500,0,-0.520315}
+  Zones["Orange"]["SetAside2"] = {-2.004500,0,0.042552}
+  Zones["Orange"]["SetAside3"] = {-2.004500,0,0.605419}
+  Zones["Orange"]["SetAside4"] = {-2.434500,0,-0.520315}
+  Zones["Orange"]["SetAside5"] = {-2.434500,0,0.042552}
+  Zones["Orange"]["SetAside6"] = {-2.434500,0,0.605419}
 
   -- Green positions are the same as White, and Red the same as orange, so we
   -- can just point these at the White/Orange definitions
-  allZones["Red"] = allZones["Orange"]
-  allZones["Green"] = allZones["White"]
+  Zones["Red"] = Zones["Orange"]
+  Zones["Green"] = Zones["White"]
 
-  return allZones
+  -- Returns the zone name where the specified card should be placed, based on
+  -- its metadata.
+  -- Param cardMetadata: Table of card metadata.  Metadata fields type and
+  --     permanent are required; all others are optional.
+  -- Return: Zone name such as "Deck", "SetAside1", etc.  See Zones object
+  --     documentation for a list of valid zones.
+  function Zones.getDefaultCardZone(cardMetadata)
+    if (cardMetadata.type == "Investigator") then
+      return "Investigator"
+    elseif (cardMetadata.type == "Minicard") then
+      return "Minicard"
+    elseif (cardMetadata.permanent) then
+      return "SetAside1"
+    elseif (cardMetadata.bonded_to ~= nil) then
+      return "SetAside2"
+    else
+      return "Deck"
+    end
+  end
+
+  -- Gets the global position for the given zone on the specified player mat.
+  -- Param playerColor: Color name of the player mat to get the zone position
+  --     for (e.g. "Red")
+  -- Param zoneName: Name of the zone to get the position for.  See Zones object
+  --     documentation for a list of valid zones.
+  -- Return: Global position table, or nil if an invalid player color or zone
+  --     is specified
+  function Zones.getZonePosition(playerColor, zoneName)
+    if (playerColor ~= "Red"
+        and playerColor ~= "Orange"
+        and playerColor ~= "White"
+        and playerColor ~= "Green") then
+      return nil
+    end
+    return getObjectFromGUID(playerMatGuids[playerColor]).positionToWorld(Zones[playerColor][zoneName])
+  end
+
+  -- Return the global rotation for a card on the given player mat, based on its
+  -- metadata.
+  -- Param playerColor: Color name of the player mat to get the rotation
+  --     for (e.g. "Red")
+  -- Param cardMetadata: Table of card metadata.  Metadata fields type and
+  --     permanent are required; all others are optional.
+  -- Return: Global rotation vector for the given card.  This will include the
+  --     Y rotation to orient the card on the given player mat as well as a
+  --     Z rotation to place the card face up or face down.
+  function Zones.getDefaultCardRotation(playerColor, zone)
+    local deckRotation = getObjectFromGUID(playerMatGuids[playerColor]).getRotation()
+
+    if (zone == "Investigator") then
+      deckRotation = deckRotation + Vector(0, 270, 0)
+    elseif (zone == "Deck") then
+      deckRotation = deckRotation + Vector(0, 0, 180)
+    end
+
+    return deckRotation
+  end
+
+  return Zones
 end

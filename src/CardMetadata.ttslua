@@ -1,4 +1,5 @@
 allCards = { }
+
 allCards["Daniela Reyes|The Mechanic"] = [[{
   "id": "08001",
   "type": "Investigator",
@@ -55,12 +56,14 @@ allCards["Mob Goons|"] = [[{
 }]]
 allCards["Norman Withers|The Astronomer"] = [[{
   "id": "08004",
+  "alternate_ids": [ "98007" ],
   "type": "Investigator",
   "class": "Seeker",
   "traits": "Miskatonic."
 }]]
 allCards["Norman Withers (promo version)|The Astronomer"] = [[{
   "id": "08004-promo",
+  "alternate_ids": [ "98007-promo" ],
   "type": "Investigator",
   "class": "Seeker",
   "traits": "Miskatonic."
@@ -85,10 +88,12 @@ allCards["Norman Withers (Parallel Back)|The Astronomer"] = [[{
 }]]
 allCards["Norman Withers|"] = [[{
   "id": "08004-m",
+  "alternate_ids": [ "98007-m" ],
   "type": "Minicard"
 }]]
 allCards["Norman Withers|Promo version"] = [[{
   "id": "08004-promo-m",
+  "alternate_ids": [ "98007-promo-m" ],
   "type": "Minicard"
 }]]
 allCards["Livre d'Eibon|Hyperborean Grimoire"] = [[{
@@ -1002,7 +1007,7 @@ allCards["Medical Student|"] = [[{
 }]]
 allCards["On the Trail (1)|"] = [[{
   "id": "08084",
-  "type": "Asset",
+  "type": "Event",
   "class": "Guardian|Seeker",
   "level": 1,
   "traits": "Insight. Tactic.",
@@ -1212,7 +1217,7 @@ allCards["Divination (1)|"] = [[{
 }]]
 allCards["Protecting the Anirniq (2)|"] = [[{
   "id": "08102",
-  "type": "Asset",
+  "type": "Event",
   "class": "Seeker|Mystic",
   "level": 2,
   "traits": "Ritual.",
@@ -1223,7 +1228,7 @@ allCards["Divination (4)|"] = [[{
   "id": "08103",
   "type": "Asset",
   "class": "Seeker|Mystic",
-  "level": 3,
+  "level": 4,
   "traits": "Spell. Augury.",
   "permanent": false,
   "weakness": false,
@@ -1305,7 +1310,7 @@ allCards["Ice Pick (3)|"] = [[{
 allCards["Ethereal Slip|"] = [[{
   "id": "08108",
   "type": "Event",
-  "class": "Seeker|Mystic",
+  "class": "Rogue|Mystic",
   "level": 0,
   "traits": "Spell. Trick.",
   "permanent": false,
@@ -1328,7 +1333,7 @@ allCards["Blur (1)|"] = [[{
 allCards["Ethereal Slip (2)|"] = [[{
   "id": "08110",
   "type": "Event",
-  "class": "Seeker|Mystic",
+  "class": "Rogue|Mystic",
   "level": 2,
   "traits": "Spell. Trick.",
   "permanent": false,
@@ -1351,7 +1356,7 @@ allCards["Blur (4)|"] = [[{
 allCards["\"Hit Me!\"|"] = [[{
   "id": "08112",
   "type": "Event",
-  "class": "Rogue/Mystic",
+  "class": "Rogue/Survivor",
   "level": 0,
   "traits": "Fortune. Gambit.",
   "permanent": false,
@@ -1586,14 +1591,17 @@ allCards["Stupor|"] = [[{
   "weakness": true,
   "basicWeaknessCount": 1
 }]]
+
 allCards["Roland Banks|The Fed"] = [[{
   "id": "01001",
+  "alternate_ids": [ "98004" ],
   "type": "Investigator",
   "class": "Guardian",
   "traits": "Agency. Detective."
 }]]
 allCards["01001"] = [[{
   "id": "01001",
+  "alternate_ids": [ "98004" ],
   "type": "Investigator",
   "class": "Guardian",
   "traits": "Agency. Detective."
@@ -1624,6 +1632,7 @@ allCards["Roland Banks (Parallel Back)|The Fed"] = [[{
 }]]
 allCards["Roland Banks|"] = [[{
   "id": "01001-m",
+  "alternate_ids": [ "98004-m" ],
   "type": "Minicard"
 }]]
 allCards["Roland Banks|Promo version"] = [[{
@@ -4009,90 +4018,6 @@ allCards["82026"] = [[{
   "permanent": false,
   "weakness": false
 }]]
-allCards["Marie Lambeau|The Entertainer"] = [[{
-  "id": "99001",
-  "type": "Investigator",
-  "class": "Mystic",
-  "traits": "Performer. Sorcerer."
-}]]
-allCards["99001"] = [[{
-  "id": "99001",
-  "type": "Investigator",
-  "class": "Mystic",
-  "traits": "Performer. Sorcerer."
-}]]
-allCards["Marie Lambeau (promo version)|The Entertainer"] = [[{
-  "id": "99001-promo",
-  "type": "Investigator",
-  "class": "Mystic",
-  "traits": "Performer. Sorcerer."
-}]]
-allCards["Marie Lambeau (Parallel)|The Entertainer"] = [[{
-  "id": "99001-p",
-  "type": "Investigator",
-  "class": "Mystic",
-  "traits": "Performer. Sorcerer."
-}]]
-allCards["Marie Lambeau (Parallel Front)|The Entertainer"] = [[{
-  "id": "99001-pf",
-  "type": "Investigator",
-  "class": "Mystic",
-  "traits": "Performer. Sorcerer."
-}]]
-allCards["Marie Lambeau (Parallel Back)|The Entertainer"] = [[{
-  "id": "99001-pb",
-  "type": "Investigator",
-  "class": "Mystic",
-  "traits": "Performer. Sorcerer."
-}]]
-allCards["Marie Lambeau|"] = [[{
-  "id": "99001-m",
-  "type": "Minicard"
-}]]
-allCards["Marie Lambeau|Promo version"] = [[{
-  "id": "99001-promo-m",
-  "type": "Minicard"
-}]]
-allCards["Mystifying Song|"] = [[{
-  "id": "99002",
-  "type": "Event",
-  "class": "Neutral",
-  "traits": "Spell. Song.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["99002"] = [[{
-  "id": "99002",
-  "type": "Event",
-  "class": "Neutral",
-  "traits": "Spell. Song.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Baron Samedi|Lord of the Cemetery"] = [[{
-  "id": "99003",
-  "type": "Asset",
-  "class": "Neutral",
-  "traits": "Avatar.",
-  "permanent": false,
-  "weakness": true
-}]]
-allCards["99003"] = [[{
-  "id": "99003",
-  "type": "Asset",
-  "class": "Neutral",
-  "traits": "Avatar.",
-  "permanent": false,
-  "weakness": true
-}]]
-allCards["Baron Samedi|"] = [[{
-  "id": "99003",
-  "type": "Asset",
-  "class": "Neutral",
-  "traits": "Avatar.",
-  "permanent": false,
-  "weakness": true
-}]]
 allCards["Zoey Samaras|The Chef"] = [[{
   "id": "02001",
   "type": "Investigator",
@@ -4189,12 +4114,14 @@ allCards["Rex Murphy|Promo version"] = [[{
 }]]
 allCards["Jenny Barnes|The Dilettante"] = [[{
   "id": "02003",
+  "alternate_ids": [ "98001" ],
   "type": "Investigator",
   "class": "Rogue",
   "traits": "Drifter."
 }]]
 allCards["02003"] = [[{
   "id": "02003",
+  "alternate_ids": [ "98001" ],
   "type": "Investigator",
   "class": "Rogue",
   "traits": "Drifter."
@@ -4225,6 +4152,7 @@ allCards["Jenny Barnes (Parallel Back)|The Dilettante"] = [[{
 }]]
 allCards["Jenny Barnes|"] = [[{
   "id": "02003-m",
+  "alternate_ids": [ "98001-m" ],
   "type": "Minicard"
 }]]
 allCards["Jenny Barnes|Promo version"] = [[{
@@ -9769,50 +9697,6 @@ allCards["Key of Ys (5) (Taboo)|"] = [[{
   "permanent": false,
   "weakness": false
 }]]
-allCards["Carolyn Fern|The Psychologist"] = [[{
-  "id": "98010",
-  "type": "Investigator",
-  "class": "Guardian",
-  "traits": "Medic."
-}]]
-allCards["98010"] = [[{
-  "id": "98010",
-  "type": "Investigator",
-  "class": "Guardian",
-  "traits": "Medic."
-}]]
-allCards["Carolyn Fern (promo version)|The Psychologist"] = [[{
-  "id": "98010-promo",
-  "type": "Investigator",
-  "class": "Guardian",
-  "traits": "Medic."
-}]]
-allCards["Carolyn Fern (Parallel)|The Psychologist"] = [[{
-  "id": "98010-p",
-  "type": "Investigator",
-  "class": "Guardian",
-  "traits": "Medic."
-}]]
-allCards["Carolyn Fern (Parallel Front)|The Psychologist"] = [[{
-  "id": "98010-pf",
-  "type": "Investigator",
-  "class": "Guardian",
-  "traits": "Medic."
-}]]
-allCards["Carolyn Fern (Parallel Back)|The Psychologist"] = [[{
-  "id": "98010-pb",
-  "type": "Investigator",
-  "class": "Guardian",
-  "traits": "Medic."
-}]]
-allCards["Carolyn Fern|"] = [[{
-  "id": "98010-m",
-  "type": "Minicard"
-}]]
-allCards["Carolyn Fern|Promo version"] = [[{
-  "id": "98010-promo-m",
-  "type": "Minicard"
-}]]
 allCards["Foolishness|Foolish Cat of Ulthar"] = [[{
   "id": "98011",
   "type": "Asset",
@@ -13200,12 +13084,14 @@ allCards["Naomi O'Bannion|"] = [[{
 }]]
 allCards["Carolyn Fern|The Psychologist"] = [[{
   "id": "05001",
+  "alternate_ids": [ "98010" ],
   "type": "Investigator",
   "class": "Guardian",
   "traits": "Medic."
 }]]
 allCards["05001"] = [[{
   "id": "05001",
+  "alternate_ids": [ "98010" ],
   "type": "Investigator",
   "class": "Guardian",
   "traits": "Medic."
@@ -13236,6 +13122,7 @@ allCards["Carolyn Fern (Parallel Back)|The Psychologist"] = [[{
 }]]
 allCards["Carolyn Fern|"] = [[{
   "id": "05001-m",
+  "alternate_ids": [ "98010-m" ],
   "type": "Minicard"
 }]]
 allCards["Carolyn Fern|Promo version"] = [[{
@@ -13420,12 +13307,14 @@ allCards["Rita Young|Promo version"] = [[{
 }]]
 allCards["Marie Lambeau|The Entertainer"] = [[{
   "id": "05006",
+  "alternate_ids": [ "99001" ],
   "type": "Investigator",
   "class": "Mystic",
   "traits": "Performer. Sorcerer."
 }]]
 allCards["05006"] = [[{
   "id": "05006",
+  "alternate_ids": [ "99001" ],
   "type": "Investigator",
   "class": "Mystic",
   "traits": "Performer. Sorcerer."
@@ -13456,6 +13345,7 @@ allCards["Marie Lambeau (Parallel Back)|The Entertainer"] = [[{
 }]]
 allCards["Marie Lambeau|"] = [[{
   "id": "05006-m",
+  "alternate_ids": [ "99001-m" ],
   "type": "Minicard"
 }]]
 allCards["Marie Lambeau|Promo version"] = [[{
@@ -13666,6 +13556,7 @@ allCards["05017"] = [[{
 }]]
 allCards["Mystifying Song|"] = [[{
   "id": "05018",
+  "alternate_ids": [ "99002" ],
   "type": "Event",
   "class": "Neutral",
   "traits": "Spell. Song.",
@@ -13674,6 +13565,7 @@ allCards["Mystifying Song|"] = [[{
 }]]
 allCards["05018"] = [[{
   "id": "05018",
+  "alternate_ids": [ "99002" ],
   "type": "Event",
   "class": "Neutral",
   "traits": "Spell. Song.",
@@ -13682,6 +13574,7 @@ allCards["05018"] = [[{
 }]]
 allCards["Baron Samedi|Lord of the Cemetery"] = [[{
   "id": "05019",
+  "alternate_ids": [ "99003" ],
   "type": "Asset",
   "class": "Neutral",
   "traits": "Avatar.",
@@ -13690,6 +13583,7 @@ allCards["Baron Samedi|Lord of the Cemetery"] = [[{
 }]]
 allCards["05019"] = [[{
   "id": "05019",
+  "alternate_ids": [ "99003" ],
   "type": "Asset",
   "class": "Neutral",
   "traits": "Avatar.",
@@ -13698,6 +13592,7 @@ allCards["05019"] = [[{
 }]]
 allCards["Baron Samedi|"] = [[{
   "id": "05019",
+  "alternate_ids": [ "99003" ],
   "type": "Asset",
   "class": "Neutral",
   "traits": "Avatar.",
@@ -23317,12 +23212,14 @@ allCards["Trish Scarborough|Promo version"] = [[{
 }]]
 allCards["Dexter Drake|The Magician"] = [[{
   "id": "07004",
+  "alternate_ids": [ "98016" ],
   "type": "Investigator",
   "class": "Mystic",
   "traits": "Sorcerer. Veteran."
 }]]
 allCards["07004"] = [[{
   "id": "07004",
+  "alternate_ids": [ "98016" ],
   "type": "Investigator",
   "class": "Mystic",
   "traits": "Sorcerer. Veteran."
@@ -23353,6 +23250,7 @@ allCards["Dexter Drake (Parallel Back)|The Magician"] = [[{
 }]]
 allCards["Dexter Drake|"] = [[{
   "id": "07004-m",
+  "alternate_ids": [ "98016-m" ],
   "type": "Minicard"
 }]]
 allCards["Dexter Drake|Promo version"] = [[{
@@ -23361,12 +23259,14 @@ allCards["Dexter Drake|Promo version"] = [[{
 }]]
 allCards["Silas Marsh|The Sailor"] = [[{
   "id": "07005",
+  "alternate_ids": [ "98013" ],
   "type": "Investigator",
   "class": "Survivor",
   "traits": "Drifter."
 }]]
 allCards["07005"] = [[{
   "id": "07005",
+  "alternate_ids": [ "98013" ],
   "type": "Investigator",
   "class": "Survivor",
   "traits": "Drifter."
@@ -23397,6 +23297,7 @@ allCards["Silas Marsh (Parallel Back)|The Sailor"] = [[{
 }]]
 allCards["Silas Marsh|"] = [[{
   "id": "07005-m",
+  "alternate_ids": [ "98013-m" ],
   "type": "Minicard"
 }]]
 allCards["Silas Marsh|Promo version"] = [[{
