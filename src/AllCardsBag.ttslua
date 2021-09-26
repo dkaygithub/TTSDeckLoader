@@ -8,6 +8,7 @@ local allowRemoval = false
 
 function onLoad()
   self.addContextMenuItem("Rebuild Index", startIndexBuild)
+  math.randomseed(os.time())
   Wait.frames(startIndexBuild, 30)
 end
 
@@ -187,7 +188,6 @@ function getCardsByClassAndLevel(params)
   else
     upgradeKey = "-level0"
   end
-  log(upgradeKey)
   return classAndLevelIndex[params.class..upgradeKey];
 end
 

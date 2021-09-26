@@ -151,12 +151,12 @@ do
   -- Return: Global rotation vector for the given card.  This will include the
   --     Y rotation to orient the card on the given player mat as well as a
   --     Z rotation to place the card face up or face down.
-  function Zones.getDefaultCardRotation(playerColor, cardMetadata)
+  function Zones.getDefaultCardRotation(playerColor, zone)
     local deckRotation = getObjectFromGUID(playerMatGuids[playerColor]).getRotation()
 
-    if (cardMetadata.type == "Investigator") then
+    if (zone == "Investigator") then
       deckRotation = deckRotation + Vector(0, 270, 0)
-    elseif (cardMetadata.type ~= "Minicard" and not cardMetadata.permanent and cardMetadata.bonded_to == nil) then
+    elseif (zone == "Deck") then
       deckRotation = deckRotation + Vector(0, 0, 180)
     end
 

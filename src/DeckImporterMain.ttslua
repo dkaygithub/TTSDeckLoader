@@ -68,6 +68,7 @@ end
 function onLoad(script_state)
   local state = JSON.decode(script_state)
   initializeUi(state)
+  math.randomseed(os.time())
 
     local configuration = get_configuration()
     local taboo = Request.start({configuration.api_uri, configuration.taboo}, function (status)
@@ -467,6 +468,10 @@ end
 -- Process the slot list, which defines the card Ids and counts of cards to
 -- load.  Spawn those cards at the appropriate zones, and report an error to the
 -- user if any could not be loaded.
+--
+-- This method uses an encapsulated coroutine with yields to make the card
+-- spawning cleaner.
+--
 -- Param slots: Key-Value table of cardId:count.  cardId is the ArkhamDB ID of
 --     the card to spawn, and count is the number which should be spawned
 -- Param player_color String Color name of the player mat to place this deck
@@ -491,7 +496,12 @@ function load_cards(slots, player_color, command_manager, configuration, command
     end
     table.sort(cardsToSpawn, cardComparator)
 
-    -- TODO: Process commands for the deck
+    -- TODO: Process commands for the cardsToSpawn list
+
+    -- These should probably be commands, but are examples of working with the
+    -- cardsToSpawn list
+    handleDuke(cardsToSpawn)
+    handleAncestralKnowledge(cardsToSpawn)
 
     for _, spawnCard in ipairs(cardsToSpawn) do
       if (yPos[spawnCard.zone] == nil) then
@@ -504,34 +514,9 @@ function load_cards(slots, player_color, command_manager, configuration, command
       spawnObjectData({
         data = spawnCard.data,
         position = cardPos,
-        rotation = Zones.getDefaultCardRotation(player_color, spawnCard.metadata)})
+        rotation = Zones.getDefaultCardRotation(player_color, spawnCard.zone)})
       coroutine.yield(0)
     end
-
-
-
-
-    --
-    --   if (card ~= nil) then
-    --     local zone = Zones.getDefaultCardZone(card.metadata)
-    --     if (yPos[zone] == nil) then
-    --       yPos[zone] = 2
-    --     else
-    --       yPos[zone] = yPos[zone] + 0.1
-    --     end
-    --     local cardPos = Zones.getZonePosition(player_color, zone)
-    --     cardPos.y = yPos[zone]
-    --     for i = 1, cardCount do
-    --       spawnObjectData({
-    --         data = card.data,
-    --         position = cardPos,
-    --         rotation = Zones.getDefaultCardRotation(player_color, card.metadata)})
-    --     end
-    --     -- Set the count to zero so we know we loaded it
-    --     slots[cardId] = 0
-    --     coroutine.yield(0)
-    --   end
-    -- end
 
     -- Look for any cards which haven't been loaded
     local hadError = false
@@ -563,6 +548,10 @@ function load_cards(slots, player_color, command_manager, configuration, command
   startLuaCoroutine(self, "coinside")
 end
 
+-- Get the PBN (Permanent/Bonded/Normal) value from the given metadata.
+-- Return: 1 for Permanent, 2 for Bonded, or 3 for Normal.  The actual values
+--     are irrelevant as they provide only grouping and the order between them
+--     doesn't matter.
 function getPbn(metadata)
   if (metadata.permanent) then
     return 1
@@ -572,24 +561,63 @@ function getPbn(metadata)
     return 3
   end
 end
--- Comparison function used to sort the class card bag indexes.  Sorts by card
--- level, then name, then subname.
+
+-- Comparison function used to sort the cards in a deck.  Groups bonded or
+-- permanent cards first, then sorts within theose types by name/subname.
+-- Normal cards will sort in standard alphabetical order, while permanent/bonded
+-- will be in reverse alphabetical order.
+--
+-- Since cards spawn in the order provided by this comparator, with the first
+-- cards ending up at the bottom of a pile, this ordering will spawn in reverse
+-- alphabetical order.  This presents the cards in order for non-face-down
+-- areas, and presents them in order when Searching the face-down deck.
 function cardComparator(card1, card2)
   local pbn1 = getPbn(card1.metadata)
   local pbn2 = getPbn(card2.metadata)
   if (pbn1 ~= pbn2) then
     return pbn1 > pbn2
   end
-  if (pbn1 == 3) then
-    if (card1.data.Nickname ~= card2.data.Nickname) then
-      return card1.data.Nickname < card2.data.Nickname
+  if (card1.data.Nickname ~= card2.data.Nickname) then
+    return card1.data.Nickname > card2.data.Nickname
+  end
+  return card1.data.Description > card2.data.Description
+end
+
+-- Place Duke in the play area
+function handleDuke(cardList)
+  for _, card in ipairs(cardList) do
+    if (card.metadata.id == "02014") then
+      -- It's Duke!
+      card.zone = "BlankTop"
     end
-    return card1.data.Description < card2.data.Description
-  else
-    if (card1.data.Nickname ~= card2.data.Nickname) then
-      return card1.data.Nickname > card2.data.Nickname
+  end
+end
+
+-- Check to see if the deck list has Ancestral Knowledge.  If it does, move 5
+-- random skills to SetAside3
+function handleAncestralKnowledge(cardList)
+  local hasAncestralKnowledge = false
+  local skillList = { }
+  -- Have to process the entire list to check for Ancestral Knowledge and get
+  -- all possible skills, so do both in one pass
+  for i, card in ipairs(cardList) do
+    if (card.metadata.id == "07303") then
+      -- Ancestral Knowledge found
+      hasAncestralKnowledge = true
+      card.zone = "SetAside3"
+    elseif (card.metadata.type == "Skill"
+        and card.metadata.bonded_to == nil
+        and not card.metadata.weakness) then
+      table.insert(skillList, i)
     end
-    return card1.data.Description > card2.data.Description
+  end
+  if (hasAncestralKnowledge) then
+    for i = 1,5 do
+      -- Move 5 random skills to SetAside3
+      local skillListIndex = math.random(#skillList)
+      cardList[skillList[skillListIndex]].zone = "SetAside3"
+      table.remove(skillList, skillListIndex)
+    end
   end
 end
 
