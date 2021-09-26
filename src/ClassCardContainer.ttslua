@@ -109,7 +109,6 @@ function buttonClick_place()
   assetCount = 0
   local allCardsBag = getObjectFromGUID(allCardsBagGuid)
   local cardList = allCardsBag.call("getCardsByClassAndLevel", {class = cardClass, upgraded = isUpgraded})
-  log("Got "..#cardList)
   placeCards(cardList)
 end
 
