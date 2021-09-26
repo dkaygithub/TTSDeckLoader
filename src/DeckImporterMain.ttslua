@@ -494,8 +494,10 @@ function load_cards(slots, player_color, command_manager, configuration, command
         slots[cardId] = 0
       end
     end
-    table.sort(cardsToSpawn, cardComparator)
 
+    handleAltInvestigatorCard(cardsToSpawn, "promo", configuration)
+
+    table.sort(cardsToSpawn, cardComparator)
     -- TODO: Process commands for the cardsToSpawn list
 
     -- These should probably be commands, but are examples of working with the
@@ -581,6 +583,28 @@ function cardComparator(card1, card2)
     return card1.data.Nickname > card2.data.Nickname
   end
   return card1.data.Description > card2.data.Description
+end
+
+function handleAltInvestigatorCard(cardList, altVersionTag, configuration)
+  local all_cards_bag = getObjectFromGUID(configuration.card_bag_guid)
+  for _, card in ipairs(cardList) do
+    if (card.metadata.type == "Investigator") then
+      local altInvestigator = all_cards_bag.call("getCardById", { id = card.metadata.id.."-"..altVersionTag})
+      if (altInvestigator ~= nil) then
+        card.data = altInvestigator.data
+        card.metadata = altInvestigator.metadata
+      end
+    end
+    if (card.metadata.type == "Minicard") then
+      -- -promo comes before -m in the ID, so needs a little massaging
+      local investigatorId = string.sub(card.metadata.id, 1, 5)
+      local altMinicard = all_cards_bag.call("getCardById", { id = investigatorId.."-"..altVersionTag.."-m"})
+      if (altMinicard ~= nil) then
+        card.data = altMinicard.data
+        card.metadata = altMinicard.metadata
+      end
+    end
+  end
 end
 
 -- Place Duke in the play area
