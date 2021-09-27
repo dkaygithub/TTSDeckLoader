@@ -21,12 +21,12 @@ local Priority = {
 }
 
 ---@type fun(text: string)
-local print_fun = print
-local print_priority = Priority.INFO
+local printFunction = printToAll
+local printPriority = Priority.INFO
 
 ---@param priority number
 ---@return string
-function Priority.get_label(priority)
+function Priority.getLabel(priority)
     if priority==0 then return "ERROR"
     elseif priority==1 then return "WARNING"
     elseif priority==2 then return "INFO"
@@ -37,17 +37,20 @@ end
 
 ---@param message string
 ---@param priority number
-local function debug_print(message, priority)
-    if (print_priority >= priority) then
-        print_fun("[" .. Priority.get_label(priority) .. "] " .. message)
-    end
+local function debugPrint(message, priority, color)
+  if (color == nil) then
+    color = { 0.5, 0.5, 0.5 }
+  end
+  if (printPriority >= priority) then
+    printFunction("[" .. Priority.getLabel(priority) .. "] " .. message, color)
+  end
 end
 
 ---@param str string
 ---@return string
-local function fix_utf16_string(str)
-    return str:gsub("\\u(%w%w%w%w)", function (match)
-        return string.char(tonumber(match,16))
+local function fixUtf16String(str)
+  return str:gsub("\\u(%w%w%w%w)", function (match)
+      return string.char(tonumber(match,16))
     end)
 end
 
@@ -56,12 +59,12 @@ end
 local Request = {}
 
 ---@type table<string, ArkhamImportTaboo>
-local taboo_list = {}
+local tabooList = {}
 
 ---@return ArkhamImportConfiguration
-local function get_configuration()
+local function getConfiguration()
     local configuration = getObjectsWithTag(tags.configuration)[1]:getTable("configuration")
-    print_priority = configuration.priority
+    printPriority = configuration.priority
     return configuration
 end
 
@@ -70,308 +73,84 @@ function onLoad(script_state)
   initializeUi(state)
   math.randomseed(os.time())
 
-    local configuration = get_configuration()
-    local taboo = Request.start({configuration.api_uri, configuration.taboo}, function (status)
-        local json = JSON.decode(fix_utf16_string(status.text))
-        for _, taboo in pairs(json) do
-            ---@type <string, boolean>
-            local cards = {}
+  local configuration = getConfiguration()
+  Request.start({configuration.api_uri, configuration.taboo}, function (status)
+      local json = JSON.decode(fixUtf16String(status.text))
+      for _, taboo in pairs(json) do
+        ---@type <string, boolean>
+        local cards = {}
 
-            for _, card in pairs(JSON.decode(taboo.cards)) do
-                cards[card.code] = true
-            end
-
-            taboo_list[taboo.id] = {
-                date = taboo.date_start,
-                cards = cards
-            }
+        for _, card in pairs(JSON.decode(taboo.cards)) do
+          cards[card.code] = true
         end
-        return true, nil
-    end)
 
-    --TODO: Remove call after verifying it's unnecessary for the taboo load
-    --taboo:with(initialize, configuration)
+        tabooList[taboo.id] = {
+          date = taboo.date_start,
+          cards = cards
+        }
+      end
+      return true, nil
+    end)
 end
 
 function onSave()
   return JSON.encode(getUiState())
 end
 
--- TODO: Remove after verifying this function is no longer needed with the new
--- loader logic
----@param status WebRequestStatus
----@param number number
----@param is_bonded boolean
----@return boolean, ArkhamImportCard
--- local function on_card_request(status, number, is_bonded)
---     local text = fix_utf16_string(status.text)
---
---     ---@type ArkhamImportCard
---     local card = JSON.decode(text)
---     card.count = number
---     card.is_bonded = is_bonded
---
---     return true, card
--- end
-
--- TODO: Remove after verifying this function is no longer needed with the new
--- loader logic. The new logic does not require any single-card calls to ADB
----@param configuration ArkhamImportConfiguration
----@param card_code string
----@param count number
----@param is_bonded boolean
----@return Request
--- local function add_card(configuration, card_code, count, is_bonded)
---     local api, card_path = configuration.api_uri, configuration.cards
---     local request = Request.start({api, card_path, card_code}, on_card_request, nil, count, is_bonded)
---     return request
--- end
-
--- TODO: Remove after verifying this function is no longer needed with the new
--- loader logic.  Cards are now spawned directly in the correct position, no
--- callback needed.
----@param source TTSObject
----@param count number
----@param zones ArkhamImportZone[]
----@param keep_card boolean
----@return fun(card: TTSObject)
--- local function position_card(source, count, zones, keep_card)
---     ---@param card TTSObject
---     return function (card)
---
---         for n = 1, count do
---             local zone = zones[n]
---
---             local destination = zone.is_absolute and zone.position or self:positionToWorld(zone.position)
---             local rotation = self:getRotation() + Vector(0, 0, zone.is_facedown and 180 or 0)
---             card:clone {
---                 position = destination,
---                 rotation = rotation
---             }
---         end
---
---         if keep_card then source:putObject(card) else card:destruct() end
---     end
--- end
-
--- TODO: Remove after verifying this function is no longer needed with the new
--- loader logic
----@param source TTSObject
----@param target_name string
----@param target_subname string
----@param count number
----@param zone ArkhamImportZone[]
--- local function process_card(source, target_name, target_subname, count, zone)
---     for _, card in ipairs(source:getObjects()) do
---         if (card.name == target_name and (not target_subname or card.description==target_subname)) then
---             source:takeObject {
---                 position = {0, 1.5, 0},
---                 index = card.index,
---                 smooth = false,
---                 callback_function = position_card(source, count, zone, true)
---             }
---             debug_print(table.concat({ "Added", count, "of", target_name}, " "), Priority.DEBUG)
---             return
---         end
---     end
---     debug_print(table.concat({ "Card not found:", target_name}, " "), Priority.WARNING)
--- end
-
--- TODO: Remove after verifying this function is no longer needed with the new
--- loader logic.  This function is replaced by maybeDrawRandomWeakness()
----@param source TTSObject
----@param zones ArkhamImportZone[]
--- local function random_weakness(source, zones)
---     source:shuffle()
---
---     local card = source:takeObject {
---         position = {0, 1.5, 0},
---         index = 0,
---         smooth = false,
---         callback_function = position_card(source, 1, zones, false),
---     }
---
---     broadcastToAll("Drew random basic weakness: " .. card:getName())
--- end
-
--- TODO: Remove after verifying this function is no longer needed with the new
--- loader logic
----@param configuration ArkhamImportConfiguration
----@param card_id string
----@param used_bindings table<string, boolean>
----@param requests Request[]
--- local function process_bindings(configuration, card_id, used_bindings, requests)
---     local bondedCards = configuration.bonded_cards[card_id]
---
---     if not bondedCards then return end
---
---     if bondedCards.code then bondedCards = {bondedCards} end
---
---     for _, bond in ipairs(bondedCards) do
---         if not used_bindings[bond.code] then
---             used_bindings[bond.code] = true
---             local result = add_card(configuration, bond.code, bond.count, true)
---
---             table.insert(requests, result)
---         end
---     end
--- end
-
--- TODO: Check whether this is still necessary.  If possible it is likely better
--- to handle each card individually, though this may cause issues with the count
--- in the Move command.
----@param zone string
----@param count number
----@return string[]
-local function fill_zone(zone, count)
-    local result = {}
-    for n=1,count do
-        result[n] = zone
-    end
-    return result
-end
-
--- TODO: Remove after verifying this function is no longer needed with the new
--- loader logic.  This method should be replaced by the Zones object
----@param card ArkhamImportCard
----@param zone string[]
----@param override string[]
----@return string[]
--- local function get_zone_id(card, zone, override)
---     local result = {}
---     for n=1,card.count do
---         result[n] = zone[n]
---                 or override[n]
---                 or (card.is_bonded and "bonded")
---                 or (card.permanent and "permanent")
---                 or (card.subtype_name and card.subtype_name:find("Weakness") and "weakness")
---                 or (card.type_code == "investigator" and "investigator")
---                 or "default"
---     end
---
---     return result
--- end
-
--- TODO: Remove after verifying this function is no longer needed with the new
--- loader logic
----@param cards ArkhamImportCard[]
----@param deck ArkhamImportDeck
----@param command_manager TTSObject
----@param configuration ArkhamImportConfiguration
--- local function on_cards_ready(cards, deck, command_manager, configuration)
---     local card_bag = getObjectFromGUID(configuration.card_bag_guid)
---     local weakness_bag = getObjectFromGUID(configuration.weaknesses_bag_guid)
---     local investigator_bag = getObjectFromGUID(configuration.investigator_bag_guid)
---     local minicard_bag = getObjectFromGUID(configuration.minicard_bag_guid)
---
---     local taboo = taboo_list[deck.taboo_id] or {}
---
---     local meta = deck.meta and JSON.decode(deck.meta) or {}
---
---     for _, card in ipairs(cards) do
---         ---@type ArkhamImport_Command_HandlerArguments
---         local parameters = {
---             configuration = configuration,
---             source_guid = self:getGUID(),
---             zone = {},
---             card = card,
---         }
---
---         ---@type ArkhamImport_CommandManager_HandlerResults
---         local command_result = command_manager:call("handle", parameters)
---
---         if not command_result.is_successful then
---             debug_print(command_result.error_message, Priority.ERROR)
---             return
---         end
---
---         local card = command_result.card
---
---         if not command_result.handled then
---             local target_name, target_subname = get_card_selector(configuration.discriminators, card, taboo, meta)
---             local override = configuration.default_zone_overrides[card.code]
---
---             if type(override)=="string" then override = fill_zone(override, card.count) end
---
---             local zone = get_zone_id(card, command_result.zone, configuration.default_zone_overrides[card.code] or {})
---
---             local spawn_zones = {}
---
---             local zones = configuration.zones
---             for index, zone in ipairs(zone) do
---                 spawn_zones[index] = zones[zone]
---             end
---
---             if card.real_name == "Random Basic Weakness" then
---                 random_weakness(weakness_bag, spawn_zones)
---             elseif card.type_code == "investigator" then
---                 process_card(investigator_bag, target_name, nil, card.count, spawn_zones)
---                 process_card(minicard_bag, card.real_name, nil, card.count, spawn_zones)
---             else
---                 process_card(card_bag, target_name, target_subname, card.count, spawn_zones)
---             end
---         end
---     end
--- end
-
 -- Callback when the deck information is received from ArkhamDB.  Parses the
 -- response then applies standard transformations to the deck such as adding
 -- random weaknesses and checking for taboos.  Once the deck is processed,
--- passes to load_cards to actually spawn the defined deck.
+-- passes to loadCards to actually spawn the defined deck.
 ---@param deck ArkhamImportDeck
----@param player_color String Color name of the player mat to place this deck
+---@param playerColor String Color name of the player mat to place this deck
 --     on (e.g. "Red")
 ---@param configuration ArkhamImportConfiguration
-local function on_deck_result(deck, player_color, configuration)
+local function onDeckResult(deck, playerColor, configuration)
   -- Load the next deck in the upgrade path if the option is enabled
   if (getUiState().loadNewest and deck.next_deck ~= nil and deck.next_deck ~= "") then
-    build_deck(player_color, deck.next_deck)
+    buildDeck(playerColor, deck.next_deck)
     return
   end
 
-    debug_print(table.concat({ "Found decklist: ", deck.name}), Priority.INFO)
+  debugPrint(table.concat({ "Found decklist: ", deck.name}), Priority.INFO, playerColor)
 
-    debug_print(table.concat({"-", deck.name, "-"}), Priority.DEBUG)
-    for k,v in pairs(deck) do
-        if type(v)=="table" then
-            debug_print(table.concat {k, ": <table>"}, Priority.DEBUG)
-        else
-            debug_print(table.concat {k, ": ", tostring(v)}, Priority.DEBUG)
-        end
+  debugPrint(table.concat({"-", deck.name, "-"}), Priority.DEBUG)
+  for k,v in pairs(deck) do
+    if type(v)=="table" then
+      debugPrint(table.concat {k, ": <table>"}, Priority.DEBUG)
+    else
+      debugPrint(table.concat {k, ": ", tostring(v)}, Priority.DEBUG)
     end
-    debug_print("", Priority.DEBUG)
+  end
+  debugPrint("", Priority.DEBUG)
 
-    -- Initialize deck slot table and perform common transformations.  The order
-    -- of these should not be changed, as later steps may act on cards added in
-    -- each.  For example, a random weakness or investigator may have bonded
-    -- cards or taboo entries, and should be present
-    local slots = deck.slots
-    maybeDrawRandomWeakness(slots, player_color, configuration)
-    maybeAddInvestigatorCards(deck, slots)
-    extractBondedCards(slots, configuration)
-    checkTaboos(deck.taboo_id, slots)
+  -- Initialize deck slot table and perform common transformations.  The order
+  -- of these should not be changed, as later steps may act on cards added in
+  -- each.  For example, a random weakness or investigator may have bonded
+  -- cards or taboo entries, and should be present
+  local slots = deck.slots
+  maybeDrawRandomWeakness(slots, playerColor, configuration)
+  maybeAddInvestigatorCards(deck, slots)
+  extractBondedCards(slots, configuration)
+  checkTaboos(deck.taboo_id, slots, playerColor, configuration)
 
-    local command_manager = getObjectFromGUID(configuration.command_manager_guid)
+  local commandManager = getObjectFromGUID(configuration.command_manager_guid)
 
-    ---@type ArkhamImport_CommandManager_InitializationArguments
-    local parameters = {
-        configuration = configuration,
-        description = deck.description_md,
-    }
+  ---@type ArkhamImport_CommandManager_InitializationArguments
+  local parameters = {
+    configuration = configuration,
+    description = deck.description_md,
+  }
 
-    ---@type ArkhamImport_CommandManager_InitializationResults
-    local results = command_manager:call("initialize", parameters)
+  ---@type ArkhamImport_CommandManager_InitializationResults
+  local results = commandManager:call("initialize", parameters)
 
-    if not results.is_successful then
-        debug_print(results.error_message, Priority.ERROR)
-        return
-    end
+  if not results.is_successful then
+    debugPrint(results.error_message, Priority.ERROR)
+    return
+  end
 
-    load_cards(slots, player_color, command_manager, configuration, results.configuration)
-
--- TODO: Remove call, the calls (and hence the additional callbacks) should no
--- longer be necessary
---    Request.with_all(requests, on_cards_ready, nil, deck, command_manager, results.configuration)
+  loadCards(slots, playerColor, commandManager, configuration, results.configuration)
 end
 
 -- Checks to see if the slot list includes the random weakness ID.  If it does,
@@ -383,7 +162,7 @@ end
 --     Used for broadcast if a weakness is added.
 -- Param configuration: The API configuration object
 function maybeDrawRandomWeakness(slots, playerColor, configuration)
-  local all_cards_bag = getObjectFromGUID(configuration.card_bag_guid)
+  local allCardsBag = getObjectFromGUID(configuration.card_bag_guid)
   local hasRandomWeakness = false
   for cardId, cardCount in pairs(slots) do
     if (cardId == RANDOM_WEAKNESS_ID) then
@@ -392,10 +171,10 @@ function maybeDrawRandomWeakness(slots, playerColor, configuration)
     end
   end
   if (hasRandomWeakness) then
-    local weaknessId = all_cards_bag.call("getRandomWeaknessId")
+    local weaknessId = allCardsBag.call("getRandomWeaknessId")
     slots[weaknessId] = 1
     slots[RANDOM_WEAKNESS_ID] = nil
-    broadcastToAll("Random basic weakness added to deck", playerColor)
+    debugPrint("Random basic weakness added to deck", Priority.INFO, playerColor)
   end
 
 end
@@ -408,9 +187,6 @@ end
 function maybeAddInvestigatorCards(deck, slots)
   if (getUiState().investigators) then
     local investigatorId = deck.investigator_code
-    if (investigatorId == "98016") then
-      log("FOUND! "..deck.id)
-    end
     slots[investigatorId.."-m"] = 1
     local parallelFront = deck.meta ~= nil and deck.meta.alternate_front ~= nil and deck.meta.alternate_front ~= ""
     local parallelBack = deck.meta ~= nil and deck.meta.alternate_back ~= nil  and deck.meta.alternate_back ~= ""
@@ -431,11 +207,11 @@ end
 --     value is the number of those cards which will be spawned
 -- Param configuration: The API configuration object
 function extractBondedCards(slots, configuration)
-  local all_cards_bag = getObjectFromGUID(configuration.card_bag_guid)
+  local allCardsBag = getObjectFromGUID(configuration.card_bag_guid)
   -- Create a list of bonded cards first so we don't modify slots while iterating
   local bondedCards = { }
   for cardId, cardCount in pairs(slots) do
-    local card = all_cards_bag.call("getCardById", { id = cardId })
+    local card = allCardsBag.call("getCardById", { id = cardId })
     if (card ~= nil and card.metadata.bonded ~= nil) then
       for _, bond in ipairs(card.metadata.bonded) do
         bondedCards[bond.id] = bond.count
@@ -454,12 +230,23 @@ end
 --     field.  May be nil, indicating that no taboo list should be used
 -- Param slots: The slot list for cards in this deck.  Table key is the cardId,
 --     value is the number of those cards which will be spawned
-function checkTaboos(tabooId, slots)
+function checkTaboos(tabooId, slots, playerColor, configuration)
   if (tabooId) then
-    for cardId, _ in pairs(taboo_list[tabooId].cards) do
+    local allCardsBag = getObjectFromGUID(configuration.card_bag_guid)
+    for cardId, _ in pairs(tabooList[tabooId].cards) do
       if (slots[cardId] ~= nil) then
-        slots[cardId.."-t"] = slots[cardId]
-        slots[cardId] = nil
+        -- Make sure there's a taboo version of the card before we replace it
+        -- SCED only maintains the most recent taboo cards.  If a deck is using
+        -- an older taboo list it's possible the card isn't a taboo any more
+        local tabooCard = allCardsBag.call("getCardById", { id = cardId.."-t" })
+        if (tabooCard == nil) then
+          local basicCard = allCardsBag.call("getCardById", { id = cardId })
+          debugPrint("Taboo version for "..basicCard.data.Nickname..
+              " is not available.  Using standard version", Priority.WARNING, playerColor)
+        else
+          slots[cardId.."-t"] = slots[cardId]
+          slots[cardId] = nil
+        end
       end
     end
   end
@@ -474,18 +261,18 @@ end
 --
 -- Param slots: Key-Value table of cardId:count.  cardId is the ArkhamDB ID of
 --     the card to spawn, and count is the number which should be spawned
--- Param player_color String Color name of the player mat to place this deck
+-- Param playerColor String Color name of the player mat to place this deck
 --     on (e.g. "Red")
--- Param command_manager
+-- Param commandManager
 -- Param configuration: Loader configuration object
 -- Param command_config:
-function load_cards(slots, player_color, command_manager, configuration, command_config)
+function loadCards(slots, playerColor, commandManager, configuration, command_config)
   function coinside()
-    local all_cards_bag = getObjectFromGUID(configuration.card_bag_guid)
+    local allCardsBag = getObjectFromGUID(configuration.card_bag_guid)
     local yPos = { }
     local cardsToSpawn = { }
     for cardId, cardCount in pairs(slots) do
-      local card = all_cards_bag.call("getCardById", { id = cardId })
+      local card = allCardsBag.call("getCardById", { id = cardId })
       if (card ~= nil) then
         local cardZone = Zones.getDefaultCardZone(card.metadata)
         for i = 1, cardCount do
@@ -495,14 +282,15 @@ function load_cards(slots, player_color, command_manager, configuration, command
       end
     end
 
-    handleAltInvestigatorCard(cardsToSpawn, "promo", configuration)
+    -- Re-enable this later, as a command
+    --handleAltInvestigatorCard(cardsToSpawn, "promo", configuration)
 
     table.sort(cardsToSpawn, cardComparator)
+
     -- TODO: Process commands for the cardsToSpawn list
 
-    -- These should probably be commands, but are examples of working with the
-    -- cardsToSpawn list
-    handleDuke(cardsToSpawn)
+    -- These should probably be commands, once the command handler is updated
+    handleStartsInPlay(cardsToSpawn)
     handleAncestralKnowledge(cardsToSpawn)
 
     for _, spawnCard in ipairs(cardsToSpawn) do
@@ -511,12 +299,12 @@ function load_cards(slots, player_color, command_manager, configuration, command
       else
         yPos[spawnCard.zone] = yPos[spawnCard.zone] + 0.2
       end
-      local cardPos = Zones.getZonePosition(player_color, spawnCard.zone)
+      local cardPos = Zones.getZonePosition(playerColor, spawnCard.zone)
       cardPos.y = yPos[spawnCard.zone]
       spawnObjectData({
         data = spawnCard.data,
         position = cardPos,
-        rotation = Zones.getDefaultCardRotation(player_color, spawnCard.zone)})
+        rotation = Zones.getDefaultCardRotation(playerColor, spawnCard.zone)})
       coroutine.yield(0)
     end
 
@@ -530,21 +318,22 @@ function load_cards(slots, player_color, command_manager, configuration, command
             configuration.cards,
             cardId},
             function(result)
-              local adbCardInfo = JSON.decode(fix_utf16_string(result.text))
+              local adbCardInfo = JSON.decode(fixUtf16String(result.text))
               local cardName = adbCardInfo.real_name
               if (cardName ~= nil) then
-                if (adbCardInfo.xp ~= nil) then
+                if (adbCardInfo.xp ~= nil and adbCardInfo.xp > 0) then
                   cardName = cardName.." ("..adbCardInfo.xp..")"
                 end
-                broadcastToAll("Card not found: "..cardName..", ArkhamDB ID "..cardId, {0.5,0.5,0.5})
+                debugPrint("Card not found: "..cardName..", ArkhamDB ID "..cardId, Priority.ERROR, playerColor)
               else
-                broadcastToAll("Card not found in ArkhamDB, ID "..cardId, {0.5,0.5,0.5})
+                debugPrint("Card not found in ArkhamDB, ID "..cardId, Priority.ERROR, playerColor)
               end
             end)
-        return request
       end
     end
-    print("Deck loaded successfully!")
+    if (not hadError) then
+      debugPrint("Deck loaded successfully!", Priority.INFO, playerColor)
+    end
     return 1
   end
   startLuaCoroutine(self, "coinside")
@@ -585,11 +374,20 @@ function cardComparator(card1, card2)
   return card1.data.Description > card2.data.Description
 end
 
+-- Replace the investigator card and minicard with an alternate version.  This
+-- will find the relevant cards and look for IDs with <id>-<altVersionTag>, and
+-- <id>-<altVersionTag>-m, and update the entries in cardList with the new card
+-- data.
+--
+-- Param cardList: Deck list being created
+-- Param altVersionTag: The tag for the different version, currently the only
+--     alt versions are "promo", but will soon inclide "revised"
+-- Param configuration: ArkhamDB configuration defniition, used for the card bag
 function handleAltInvestigatorCard(cardList, altVersionTag, configuration)
-  local all_cards_bag = getObjectFromGUID(configuration.card_bag_guid)
+  local allCardsBag = getObjectFromGUID(configuration.card_bag_guid)
   for _, card in ipairs(cardList) do
     if (card.metadata.type == "Investigator") then
-      local altInvestigator = all_cards_bag.call("getCardById", { id = card.metadata.id.."-"..altVersionTag})
+      local altInvestigator = allCardsBag.call("getCardById", { id = card.metadata.id.."-"..altVersionTag})
       if (altInvestigator ~= nil) then
         card.data = altInvestigator.data
         card.metadata = altInvestigator.metadata
@@ -598,7 +396,7 @@ function handleAltInvestigatorCard(cardList, altVersionTag, configuration)
     if (card.metadata.type == "Minicard") then
       -- -promo comes before -m in the ID, so needs a little massaging
       local investigatorId = string.sub(card.metadata.id, 1, 5)
-      local altMinicard = all_cards_bag.call("getCardById", { id = investigatorId.."-"..altVersionTag.."-m"})
+      local altMinicard = allCardsBag.call("getCardById", { id = investigatorId.."-"..altVersionTag.."-m"})
       if (altMinicard ~= nil) then
         card.data = altMinicard.data
         card.metadata = altMinicard.metadata
@@ -607,11 +405,12 @@ function handleAltInvestigatorCard(cardList, altVersionTag, configuration)
   end
 end
 
--- Place Duke in the play area
-function handleDuke(cardList)
+-- Place cards which start in play (Duke, Sophie) in the play area
+function handleStartsInPlay(cardList)
   for _, card in ipairs(cardList) do
-    if (card.metadata.id == "02014") then
-      -- It's Duke!
+    -- 02014 = Duke (Ashcan Pete)
+    -- 03009 = Sophie (Mark Harrigan)
+    if (card.metadata.id == "02014" or card.metadata.id == "03009") then
       card.zone = "BlankTop"
     end
   end
@@ -646,20 +445,26 @@ function handleAncestralKnowledge(cardList)
 end
 
 -- Test method.  Loads all decks which were submitted to ArkhamDB on a given
--- date.
+-- date window.
 function testLoadLotsOfDecks()
-  local configuration = get_configuration()
-  local deckList = Request.start({
-    configuration.api_uri,
-    "decklists/by_date",
-    "2020-06-04",
-  },
-  function(result)
-    local json = JSON.decode(result.text)
-    for i, deckData in ipairs(json) do
-      build_deck(getColorForTest(i), deckData.id)
-    end
-  end)
+  local configuration = getConfiguration()
+  local numDays = 7
+  local day = os.time{year=2021, month=7, day=15} -- Start date here
+  for i=1,numDays do
+    local dateString = os.date("%Y-%m-%d", day)
+    local deckList = Request.start({
+      configuration.api_uri,
+      "decklists/by_date",
+      dateString,
+    },
+    function(result)
+      local json = JSON.decode(result.text)
+      for i, deckData in ipairs(json) do
+        buildDeck(getColorForTest(i), deckData.id)
+      end
+    end)
+    day = day + (60 * 60 * 24) -- Move forward by one day
+  end
 end
 
 -- Rotates the player mat based on index, to spread the card stacks during
@@ -678,36 +483,35 @@ end
 
 -- Start the deck build process for the given player color and deck ID.  This
 -- will retrieve the deck from ArkhamDB, and pass to a callback for processing.
--- Param player_color String Color name of the player mat to place this deck
+-- Param playerColor String Color name of the player mat to place this deck
 --     on (e.g. "Red")
--- Param deck_id: ArkhamDB deck id to be loaded
-function build_deck(player_color, deck_id)
-    local configuration = get_configuration()
-    -- Get a simple card to see if the bag indexes are complete.  If not, abort
-    -- the deck load.  The called method will handle player notification.
-    local all_cards_bag = getObjectFromGUID(configuration.card_bag_guid)
-    local checkCard = all_cards_bag.call("getCardById", { id = "01001"})
-    if (checkCard ~= nil and checkCard.data == nil) then
-      return
-    end
+-- Param deckId: ArkhamDB deck id to be loaded
+function buildDeck(playerColor, deckId)
+  local configuration = getConfiguration()
+  -- Get a simple card to see if the bag indexes are complete.  If not, abort
+  -- the deck load.  The called method will handle player notification.
+  local allCardsBag = getObjectFromGUID(configuration.card_bag_guid)
+  local checkCard = allCardsBag.call("getCardById", { id = "01001"})
+  if (checkCard ~= nil and checkCard.data == nil) then
+    return
+  end
 
-    local deck_uri = { configuration.api_uri, getUiState().private and configuration.private_deck or configuration.public_deck, deck_id }
+  local deckUri = { configuration.api_uri, getUiState().private and configuration.private_deck or configuration.public_deck, deckId }
 
-    local deck = Request.start(deck_uri, function (status)
-        if string.find(status.text, "<!DOCTYPE html>") then
-            return false, table.concat({ "Private deck ", deck_id, " is not shared"})
-        end
+  local deck = Request.start(deckUri, function (status)
+      if string.find(status.text, "<!DOCTYPE html>") then
+        return false, table.concat({ "Private deck ", deckId, " is not shared"})
+      end
+      local json = JSON.decode(status.text)
 
-        local json = JSON.decode(status.text)
+      if not json then
+        return false, "Deck not found!"
+      end
 
-        if not json then
-            return false, "Deck not found!"
-        end
-
-        return true, JSON.decode(status.text)
+      return true, JSON.decode(status.text)
     end)
 
-    deck:with(on_deck_result, player_color, configuration)
+  deck:with(onDeckResult, playerColor, configuration)
 end
 
 ---@type Request
@@ -803,7 +607,7 @@ function Request.with_all(requests, on_success, on_error, ...)
             on_success(results, table.unpack(parameters))
         elseif on_error ==nil then
             for _, request in ipairs(errors) do
-                debug_print(table.concat({ "[ERROR]", request.uri, ":", request.error_message }), Priority.ERROR)
+                debugPrint(table.concat({ "[ERROR]", request.uri, ":", request.error_message }), Priority.ERROR)
             end
         else
             on_error(requests, table.unpack(parameters))
