@@ -500,11 +500,13 @@ function buildDeck(playerColor, deckId)
 
   local deck = Request.start(deckUri, function (status)
       if string.find(status.text, "<!DOCTYPE html>") then
+        debugPrint("Private deck ID "..deckId.." is not shared", Priority.ERROR, playerColor)
         return false, table.concat({ "Private deck ", deckId, " is not shared"})
       end
       local json = JSON.decode(status.text)
 
       if not json then
+        debugPrint("Deck ID "..deckId.." not found", Priority.ERROR, playerColor)
         return false, "Deck not found!"
       end
 
