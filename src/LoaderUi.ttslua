@@ -213,38 +213,38 @@ function loadInvestigatorsChanged()
 end
 
 -- Event handler for deck ID change
-function redDeckChanged(objectInputTyped, playerColorTyped, input_value, selected)
-  redDeckId = input_value
+function redDeckChanged(objectInputTyped, playerColorTyped, inputValue, selected)
+  redDeckId = inputValue
 end
 
 -- Event handler for deck ID change
-function orangeDeckChanged(objectInputTyped, playerColorTyped, input_value, selected)
-  orangeDeckId = input_value
+function orangeDeckChanged(objectInputTyped, playerColorTyped, inputValue, selected)
+  orangeDeckId = inputValue
 end
 
 -- Event handler for deck ID change
-function whiteDeckChanged(objectInputTyped, playerColorTyped, input_value, selected)
-  whiteDeckId = input_value
+function whiteDeckChanged(objectInputTyped, playerColorTyped, inputValue, selected)
+  whiteDeckId = inputValue
 end
 
 -- Event handler for deck ID change
-function greenDeckChanged(objectInputTyped, playerColorTyped, input_value, selected)
-  greenDeckId = input_value
+function greenDeckChanged(objectInputTyped, playerColorTyped, inputValue, selected)
+  greenDeckId = inputValue
 end
 
 function loadDecks()
   -- testLoadLotsOfDecks()
   -- Method in DeckImporterMain, visible due to inclusion
   if (redDeckId ~= nil and redDeckId ~= "") then
-    build_deck("Red", redDeckId)
+    buildDeck("Red", redDeckId)
   end
   if (orangeDeckId ~= nil and orangeDeckId ~= "") then
-    build_deck("Orange", orangeDeckId)
+    buildDeck("Orange", orangeDeckId)
   end
   if (whiteDeckId ~= nil and whiteDeckId ~= "") then
-    build_deck("White", whiteDeckId)
+    buildDeck("White", whiteDeckId)
   end
   if (greenDeckId ~= nil and greenDeckId ~= "") then
-    build_deck("Green", greenDeckId)
+    buildDeck("Green", greenDeckId)
   end
 end
