@@ -148,6 +148,7 @@ end
 -- since we're doing it based on the container data rather than the card itself
 -- the implementation does not leverage verifySingleCard
 function verifyContainer()
+  local ids = { }
   local verifyTarget = getObjectFromGUID(verifyTargetGuid)
   log(verifyTarget)
   local checkCount = 0
@@ -156,13 +157,19 @@ function verifyContainer()
     local cardName = cardData.Nickname
     log("Checking "..cardName)
     if (cardData.GMNotes == nil or cardData.GMNotes == "") then
-      log(cardName.." has no metadata")
+      log("*** "..cardName.." has no metadata")
       failCount = failCount + 1
     else
       local metadata = JSON.decode(cardData.GMNotes)
       if (metadata.id == nil or metadata.id == "") then
-        log(cardName.." has no ID set, probable bad metadata")
+        log("*** "..cardName.." has no ID set, probable bad metadata")
         failCount = failCount + 1
+      end
+      if (ids[metadata.id]) then
+        log("*** "..cardName.." has a duplicate ID: "..metadata.id)
+        failCount = failCount + 1
+      else
+        ids[metadata.id] = true
       end
     end
     checkCount = checkCount + 1

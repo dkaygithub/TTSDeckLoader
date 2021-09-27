@@ -765,7 +765,7 @@ allCards["Dragon Pole|"] = [[{
   "weakness": false
 }]]
 allCards["Meditative Trance|"] = [[{
-  "id": "08060",
+  "id": "08061",
   "type": "Event",
   "class": "Mystic",
   "level": 0,
@@ -16670,6 +16670,7 @@ allCards["06014"] = [[{
 }]]
 allCards["Dream-Gate|"] = [[{
   "id": "06015a",
+  "alternate_ids": [ "06015b" ],
   "type": "Location",
   "class": "Neutral",
   "traits": "Dreamlands.",
@@ -16684,6 +16685,7 @@ allCards["Dream-Gate|"] = [[{
 }]]
 allCards["06015a"] = [[{
   "id": "06015a",
+  "alternate_ids": [ "06015b" ],
   "type": "Location",
   "class": "Neutral",
   "traits": "Dreamlands.",
@@ -16698,6 +16700,7 @@ allCards["06015a"] = [[{
 }]]
 allCards["Dream-Gate|"] = [[{
   "id": "06015a",
+  "alternate_ids": [ "06015b" ],
   "type": "Location",
   "class": "Neutral",
   "traits": "Dreamlands.",
