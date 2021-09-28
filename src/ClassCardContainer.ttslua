@@ -113,8 +113,10 @@ function buttonClick_place()
 end
 
 -- Spawn all cards from the returned index
-function placeCards(cardList)
-  for _, card in ipairs(cardList) do
+function placeCards(cardIdList)
+  local allCardsBag = getObjectFromGUID(allCardsBagGuid)
+  for _, cardId in ipairs(cardIdList) do
+    local card = allCardsBag.call("getCardById", { id = cardId })
     placeCard(card.data, card.metadata)
   end
 end
