@@ -1,1597 +1,5 @@
 allCards = { }
 
-allCards["Daniela Reyes|The Mechanic"] = [[{
-  "id": "08001",
-  "type": "Investigator",
-  "class": "Guardian",
-  "traits": "Entrepeneur."
-}]]
-allCards["Daniela Reyes (promo version)|The Mechanic"] = [[{
-  "id": "08001-promo",
-  "type": "Investigator",
-  "class": "Guardian",
-  "traits": "Entrepeneur."
-}]]
-allCards["Daniela Reyes (Parallel)|The Mechanic"] = [[{
-  "id": "08001-p",
-  "type": "Investigator",
-  "class": "Guardian",
-  "traits": "Entrepeneur."
-}]]
-allCards["Daniela Reyes (Parallel Front)|The Mechanic"] = [[{
-  "id": "08001-pf",
-  "type": "Investigator",
-  "class": "Guardian",
-  "traits": "Entrepeneur."
-}]]
-allCards["Daniela Reyes (Parallel Back)|The Mechanic"] = [[{
-  "id": "08001-pb",
-  "type": "Investigator",
-  "class": "Guardian",
-  "traits": "Entrepeneur."
-}]]
-allCards["Daniela Reyes|"] = [[{
-  "id": "08001-m",
-  "type": "Minicard"
-}]]
-allCards["Daniela Reyes|Promo version"] = [[{
-  "id": "08001-promo-m",
-  "type": "Minicard"
-}]]
-allCards["Mechanic's Wrench|"] = [[{
-  "id": "08002",
-  "type": "Asset",
-  "class": "Neutral",
-  "traits": "Item. Tool. Melee.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Mob Goons|"] = [[{
-  "id": "08003",
-  "type": "Enemy",
-  "traits": "Humanoid. Criminal.",
-  "class": "Neutral",
-  "permanent": false,
-  "weakness": true
-}]]
-allCards["Norman Withers|The Astronomer"] = [[{
-  "id": "08004",
-  "alternate_ids": [ "98007" ],
-  "type": "Investigator",
-  "class": "Seeker",
-  "traits": "Miskatonic."
-}]]
-allCards["Norman Withers (promo version)|The Astronomer"] = [[{
-  "id": "08004-promo",
-  "alternate_ids": [ "98007-promo" ],
-  "type": "Investigator",
-  "class": "Seeker",
-  "traits": "Miskatonic."
-}]]
-allCards["Norman Withers (Parallel)|The Astronomer"] = [[{
-  "id": "08004-p",
-  "type": "Investigator",
-  "class": "Seeker",
-  "traits": "Miskatonic."
-}]]
-allCards["Norman Withers (Parallel Front)|The Astronomer"] = [[{
-  "id": "08004-pf",
-  "type": "Investigator",
-  "class": "Seeker",
-  "traits": "Miskatonic."
-}]]
-allCards["Norman Withers (Parallel Back)|The Astronomer"] = [[{
-  "id": "08004-pb",
-  "type": "Investigator",
-  "class": "Seeker",
-  "traits": "Miskatonic."
-}]]
-allCards["Norman Withers|"] = [[{
-  "id": "08004-m",
-  "alternate_ids": [ "98007-m" ],
-  "type": "Minicard"
-}]]
-allCards["Norman Withers|Promo version"] = [[{
-  "id": "08004-promo-m",
-  "alternate_ids": [ "98007-promo-m" ],
-  "type": "Minicard"
-}]]
-allCards["Livre d'Eibon|Hyperborean Grimoire"] = [[{
-  "id": "08005",
-  "type": "Asset",
-  "class": "Neutral",
-  "traits": "Item. Relic. Tome.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Livre d'Eibon|"] = [[{
-  "id": "08005",
-  "type": "Asset",
-  "class": "Neutral",
-  "traits": "Item. Relic. Tome.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["The Harbinger|"] = [[{
-  "id": "08006",
-  "type": "Treachery",
-  "class": "Neutral",
-  "traits": "Omen. Endtimes.",
-  "permanent": false,
-  "weakness": true
-}]]
-allCards["Monterey Jack|The Archaeologist"] = [[{
-  "id": "08007",
-  "type": "Investigator",
-  "class": "Rogue",
-  "traits": "Wayfarer."
-}]]
-allCards["Monterey Jack (promo version)|The Archaeologist"] = [[{
-  "id": "08007-promo",
-  "type": "Investigator",
-  "class": "Rogue",
-  "traits": "Wayfarer."
-}]]
-allCards["Monterey Jack (Parallel)|The Archaeologist"] = [[{
-  "id": "08007-p",
-  "type": "Investigator",
-  "class": "Rogue",
-  "traits": "Wayfarer."
-}]]
-allCards["Monterey Jack (Parallel Front)|The Archaeologist"] = [[{
-  "id": "08007-pf",
-  "type": "Investigator",
-  "class": "Rogue",
-  "traits": "Wayfarer."
-}]]
-allCards["Monterey Jack (Parallel Back)|The Archaeologist"] = [[{
-  "id": "08007-pb",
-  "type": "Investigator",
-  "class": "Rogue",
-  "traits": "Wayfarer."
-}]]
-allCards["Monterey Jack|"] = [[{
-  "id": "08007-m",
-  "type": "Minicard"
-}]]
-allCards["Monterey Jack|Promo version"] = [[{
-  "id": "08007-promo-m",
-  "type": "Minicard"
-}]]
-allCards["Trusty Bullwhip|"] = [[{
-  "id": "08008",
-  "type": "Asset",
-  "class": "Neutral",
-  "traits": "Item. Weapon. Melee.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Buried Secrets|"] = [[{
-  "id": "08009",
-  "type": "Treachery",
-  "class": "Neutral",
-  "traits": "Mystery.",
-  "permanent": false,
-  "weakness": true
-}]]
-allCards["Lily Chen|The Martial Artist"] = [[{
-  "id": "08010",
-  "type": "Investigator",
-  "class": "Mystic",
-  "traits": "Chosen. Warden."
-}]]
-allCards["Lily Chen (promo version)|The Martial Artist"] = [[{
-  "id": "08010-promo",
-  "type": "Investigator",
-  "class": "Mystic",
-  "traits": "Chosen. Warden."
-}]]
-allCards["Lily Chen (Parallel)|The Martial Artist"] = [[{
-  "id": "08010-p",
-  "type": "Investigator",
-  "class": "Mystic",
-  "traits": "Chosen. Warden."
-}]]
-allCards["Lily Chen (Parallel Front)|The Martial Artist"] = [[{
-  "id": "08010-pf",
-  "type": "Investigator",
-  "class": "Mystic",
-  "traits": "Chosen. Warden."
-}]]
-allCards["Lily Chen (Parallel Back)|The Martial Artist"] = [[{
-  "id": "08010-pb",
-  "type": "Investigator",
-  "class": "Mystic",
-  "traits": "Chosen. Warden."
-}]]
-allCards["Lily Chen|"] = [[{
-  "id": "08010-m",
-  "type": "Minicard"
-}]]
-allCards["Lily Chen|Promo version"] = [[{
-  "id": "08010-promo-m",
-  "type": "Minicard"
-}]]
-allCards["Discipline|Alignment of Spirit"] = [[{
-  "id": "08011a",
-  "type": "Asset",
-  "class": "Neutral",
-  "traits": "Unbroken.",
-  "permanent": true,
-  "weakness": false
-}]]
-allCards["Discipline|Quiescence of Thought"] = [[{
-  "id": "08012a",
-  "type": "Asset",
-  "class": "Neutral",
-  "traits": "Unbroken.",
-  "permanent": true,
-  "weakness": false
-}]]
-allCards["Discipline|Prescience of Fate"] = [[{
-  "id": "08013a",
-  "type": "Asset",
-  "class": "Neutral",
-  "traits": "Unbroken.",
-  "permanent": true,
-  "weakness": false
-}]]
-allCards["Discipline|Balance of Body"] = [[{
-  "id": "08014a",
-  "type": "Asset",
-  "class": "Neutral",
-  "traits": "Unbroken.",
-  "permanent": true,
-  "weakness": false
-}]]
-allCards["Burden of Destiny|"] = [[{
-  "id": "08015",
-  "type": "Treachery",
-  "class": "Neutral",
-  "traits": "Flaw.",
-  "permanent": false,
-  "weakness": true
-}]]
-allCards["Bob Jenkins|The Salesman"] = [[{
-  "id": "08016",
-  "type": "Investigator",
-  "class": "Survivor",
-  "traits": "Entrepeneur."
-}]]
-allCards["Bob Jenkins (promo version)|The Salesman"] = [[{
-  "id": "08016-promo",
-  "type": "Investigator",
-  "class": "Survivor",
-  "traits": "Entrepeneur."
-}]]
-allCards["Bob Jenkins (Parallel)|The Salesman"] = [[{
-  "id": "08016-p",
-  "type": "Investigator",
-  "class": "Survivor",
-  "traits": "Entrepeneur."
-}]]
-allCards["Bob Jenkins (Parallel Front)|The Salesman"] = [[{
-  "id": "08016-pf",
-  "type": "Investigator",
-  "class": "Survivor",
-  "traits": "Entrepeneur."
-}]]
-allCards["Bob Jenkins (Parallel Back)|The Salesman"] = [[{
-  "id": "08016-pb",
-  "type": "Investigator",
-  "class": "Survivor",
-  "traits": "Entrepeneur."
-}]]
-allCards["Bob Jenkins|"] = [[{
-  "id": "08016-m",
-  "type": "Minicard"
-}]]
-allCards["Bob Jenkins|Promo version"] = [[{
-  "id": "08016-promo-m",
-  "type": "Minicard"
-}]]
-allCards["Shrewd Dealings|"] = [[{
-  "id": "08017",
-  "type": "Asset",
-  "class": "Neutral",
-  "traits": "Talent.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Greed|"] = [[{
-  "id": "08018",
-  "type": "Treachery",
-  "class": "Neutral",
-  "traits": "Flaw.",
-  "permanent": false,
-  "weakness": true
-}]]
-allCards["Geared Up"] = [[{
-  "id": "08019",
-  "type": "Asset",
-  "class": "Guardian",
-  "level": 0,
-  "traits": "Talent.",
-  "permanent": true,
-  "weakness": false
-}]]
-allCards["Toe to Toe|"] = [[{
-  "id": "08020",
-  "type": "Event",
-  "class": "Guardian",
-  "level": 0,
-  "traits": "Spirit. Tactic.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["\"Get behind me!\"|"] = [[{
-  "id": "08021",
-  "type": "Event",
-  "class": "Guardian",
-  "level": 0,
-  "traits": "Spirit. Tactic.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Gang Up (1)|"] = [[{
-  "id": "08022",
-  "type": "Event",
-  "class": "Guardian",
-  "level": 1,
-  "traits": "Spirit. Synergy.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Sweeping Kick (1)|"] = [[{
-  "id": "08023",
-  "type": "Event",
-  "class": "Guardian",
-  "level": 1,
-  "traits": "Spirit. Tactic. Trick.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Defensive Stance (1)|"] = [[{
-  "id": "08024",
-  "type": "Skill",
-  "class": "Guardian",
-  "level": 1,
-  "traits": "Practiced. Expert.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Butterfly Swords (2)|"] = [[{
-  "id": "08025",
-  "type": "Asset",
-  "class": "Guardian",
-  "level": 2,
-  "traits": "Item. Weapon. Melee.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Dodge (2)|"] = [[{
-  "id": "08026",
-  "type": "Event",
-  "class": "Guardian",
-  "level": 2,
-  "traits": "Tactic.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Combat Training (3)|"] = [[{
-  "id": "08027",
-  "type": "Asset",
-  "class": "Guardian",
-  "level": 3,
-  "traits": "Talent. Composure.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["On the Hunt (3)|"] = [[{
-  "id": "08028",
-  "type": "Event",
-  "class": "Guardian",
-  "level": 3,
-  "traits": "Tactic.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Fang of Tyr'thrha (4)|"] = [[{
-  "id": "08029",
-  "type": "Asset",
-  "class": "Guardian",
-  "level": 4,
-  "traits": "Spell.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Butterfly Swords (5)|"] = [[{
-  "id": "08030",
-  "type": "Asset",
-  "class": "Guardian",
-  "level": 5,
-  "traits": "Item. Weapon. Melee.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Forced Learning|"] = [[{
-  "id": "08031",
-  "type": "Asset",
-  "class": "Seeker",
-  "level": 0,
-  "traits": "Talent. Ritual..",
-  "permanent": true,
-  "weakness": false
-}]]
-allCards["Jeremiah Kirby|Arctic Archaeologist"] = [[{
-  "id": "08032",
-  "type": "Asset",
-  "class": "Seeker",
-  "level": 0,
-  "traits": "Ally. Miskatonic. Wayfarer.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Jeremiah Kirby|"] = [[{
-  "id": "08032",
-  "type": "Asset",
-  "class": "Seeker",
-  "level": 0,
-  "traits": "Ally. Miskatonic. Wayfarer.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Archive of Conduits|"] = [[{
-  "id": "08033",
-  "type": "Asset",
-  "class": "Seeker",
-  "level": 0,
-  "traits": "Item. Tome. Occult.",
-  "permanent": false,
-  "weakness": false,
-  "uses": {
-    "token": "resource",
-    "type": "Leyline",
-    "count": 4
-  }
-}]]
-allCards["Written in the Stars|"] = [[{
-  "id": "08034",
-  "type": "Event",
-  "class": "Seeker",
-  "level": 0,
-  "traits": "Insight.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Hiking Boots (1)|"] = [[{
-  "id": "08035",
-  "type": "Asset",
-  "class": "Seeker",
-  "level": 1,
-  "traits": "Item. Clothing. Footwear.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Join the Caravan (1)|"] = [[{
-  "id": "08036",
-  "type": "Event",
-  "class": "Seeker",
-  "level": 1,
-  "traits": "Insight. Synergy.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Survey the Area (1)|"] = [[{
-  "id": "08037",
-  "type": "Skill",
-  "class": "Seeker",
-  "level": 1,
-  "traits": "Practiced. Expert.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Medical Texts (2)|"] = [[{
-  "id": "08038",
-  "type": "Asset",
-  "class": "Seeker",
-  "level": 2,
-  "traits": "Item. Tome.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Unearth the Ancients (2)|"] = [[{
-  "id": "08039",
-  "type": "Event",
-  "class": "Seeker",
-  "level": 2,
-  "traits": "Insight.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Scientific Theory (3)"] = [[{
-  "id": "08040",
-  "type": "Asset",
-  "class": "Seeker",
-  "level": 3,
-  "traits": "Talent. Composure.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Archive of Conduits (4)|Gateway to Tindalos"] = [[{
-  "id": "08041",
-  "type": "Asset",
-  "class": "Seeker",
-  "level": 4,
-  "traits": "Ritual.",
-  "permanent": false,
-  "weakness": false,
-  "uses": {
-    "token": "resource",
-    "type": "Leyline",
-    "count": 4
-  }
-}]]
-allCards["Archive of Conduits (4)|Gateway to Acheron"] = [[{
-  "id": "08042",
-  "type": "Asset",
-  "class": "Seeker",
-  "level": 4,
-  "traits": "Ritual.",
-  "permanent": false,
-  "weakness": false,
-  "uses": {
-    "token": "resource",
-    "type": "Leyline",
-    "count": 4
-  }
-}]]
-allCards["Archive of Conduits (4)|Gateway to Aldebaran"] = [[{
-  "id": "08043",
-  "type": "Asset",
-  "class": "Seeker",
-  "level": 4,
-  "traits": "Ritual.",
-  "permanent": false,
-  "weakness": false,
-  "uses": {
-    "token": "resource",
-    "type": "Leyline",
-    "count": 4
-  }
-}]]
-allCards["Archive of Conduits (4)|Gateway to Paradise"] = [[{
-  "id": "08044",
-  "type": "Asset",
-  "class": "Seeker",
-  "level": 4,
-  "traits": "Ritual.",
-  "permanent": false,
-  "weakness": false,
-  "uses": {
-    "token": "resource",
-    "type": "Leyline",
-    "count": 4
-  }
-}]]
-allCards["Prophesiae Profana (5)|Atlas of the Unknowable"] = [[{
-  "id": "08045",
-  "type": "Asset",
-  "class": "Seeker",
-  "level": 5,
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Prophesiae Profana (5)|"] = [[{
-  "id": "08045",
-  "type": "Asset",
-  "class": "Seeker",
-  "level": 5,
-  "traits": "Item. Relic. Tome.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Underworld Support|"] = [[{
-  "id": "08046",
-  "type": "Asset",
-  "class": "Rogue",
-  "traits": "Favor. Illicit.",
-  "level": 0,
-  "permanent": true,
-  "weakness": false
-}]]
-allCards["Scout Ahead|"] = [[{
-  "id": "08047",
-  "type": "Event",
-  "class": "Rogue",
-  "level": 0,
-  "traits": "Insight. Trick.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["21 or Bust|"] = [[{
-  "id": "08048",
-  "type": "Event",
-  "class": "Rogue",
-  "traits": "Fortune. Gambit.",
-  "level": 0,
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Counterespionage (1)|"] = [[{
-  "id": "08049",
-  "type": "Event",
-  "class": "Rogue",
-  "level": 1,
-  "traits": "Favor. Service.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Cheat the System (1)|"] = [[{
-  "id": "08050",
-  "type": "Event",
-  "class": "Rogue",
-  "level": 1,
-  "traits": "Trick. Synergy.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Untimely Transaction (1)|"] = [[{
-  "id": "08051",
-  "type": "Event",
-  "class": "Rogue",
-  "level": 1,
-  "traits": "Favor.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Savant (1)|"] = [[{
-  "id": "08052",
-  "type": "Skill",
-  "class": "Rogue",
-  "level": 1,
-  "traits": "Innate. Developed.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["The Red Clock (2)|Broken but Reliable"] = [[{
-  "id": "08053",
-  "type": "Asset",
-  "class": "Rogue",
-  "level": 2,
-  "traits": "Item. Relic.",
-  "permanent": false,
-  "weakness": false,
-  "uses": {
-    "token": "resource",
-    "type": "Charge",
-    "count": 0
-  }
-}]]
-allCards["The Red Clock (2)|"] = [[{
-  "id": "08053",
-  "type": "Asset",
-  "class": "Rogue",
-  "level": 2,
-  "traits": "Item. Relic.",
-  "permanent": false,
-  "weakness": false,
-  "uses": {
-    "token": "resource",
-    "type": "Charge",
-    "count": 0
-  }
-}]]
-allCards["Money Talks (2)|"] = [[{
-  "id": "08054",
-  "type": "Event",
-  "class": "Rogue",
-  "level": 2,
-  "traits": "Favor. Gambit.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Black Market (2)|"] = [[{
-  "id": "08055",
-  "type": "Event",
-  "class": "Rogue",
-  "level": 2,
-  "traits": "Favor.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Moxie (3)|"] = [[{
-  "id": "08056",
-  "type": "Asset",
-  "class": "Rogue",
-  "level": 3,
-  "traits": "Talent. Composure.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["The Black Fan (3)|"] = [[{
-  "id": "08057",
-  "type": "Asset",
-  "class": "Rogue",
-  "level": 3,
-  "traits": "Item. Relic.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["The Red Clock (5)|Broken but Reliable"] = [[{
-  "id": "08058",
-  "type": "Asset",
-  "class": "Rogue",
-  "level": 5,
-  "traits": "Item. Relic.",
-  "permanent": false,
-  "weakness": false,
-  "uses": {
-    "token": "resource",
-    "type": "Charge",
-    "count": 0
-  }
-}]]
-allCards["The Red Clock (5)|"] = [[{
-  "id": "08058",
-  "type": "Asset",
-  "class": "Rogue",
-  "level": 5,
-  "traits": "Item. Relic.",
-  "permanent": false,
-  "weakness": false,
-  "uses": {
-    "token": "resource",
-    "type": "Charge",
-    "count": 0
-  }
-}]]
-allCards["Down the Rabbit Hole|"] = [[{
-  "id": "08059",
-  "type": "Asset",
-  "class": "Mystic",
-  "level": 0,
-  "traits": "Talent.",
-  "permanent": true,
-  "weakness": false
-}]]
-allCards["Dragon Pole|"] = [[{
-  "id": "08060",
-  "type": "Asset",
-  "class": "Mystic",
-  "level": 0,
-  "traits": "Item. Weapon. Melee.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Meditative Trance|"] = [[{
-  "id": "08061",
-  "type": "Event",
-  "class": "Mystic",
-  "level": 0,
-  "traits": "Insight. Spirit.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Close the Circle (1)|"] = [[{
-  "id": "08062",
-  "type": "Asset",
-  "class": "Mystic",
-  "level": 1,
-  "traits": "Ritual. Synergy.",
-  "permanent": false,
-  "weakness": false,
-  "uses": {
-    "token": "resource",
-    "type": "Charge",
-    "count": 1
-  }
-}]]
-allCards["Winds of Power (1)|"] = [[{
-  "id": "08063",
-  "type": "Event",
-  "class": "Mystic",
-  "level": 1,
-  "traits": "Spirit.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Foresight (1)|"] = [[{
-  "id": "08064",
-  "type": "Event",
-  "class": "Mystic",
-  "level": 1,
-  "traits": "Augury.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Occult Theory (1)|"] = [[{
-  "id": "08065",
-  "type": "Skill",
-  "class": "Mystic",
-  "level": 1,
-  "traits": "Practiced. Expert.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Parallel Fates (2)|"] = [[{
-  "id": "08066",
-  "type": "Event",
-  "class": "Mystic",
-  "level": 2,
-  "traits": "Augury.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Astronomical Atlas (3)|"] = [[{
-  "id": "08067",
-  "type": "Asset",
-  "class": "Mystic",
-  "level": 3,
-  "traits": "Item. Tome.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Healing Words (3)|"] = [[{
-  "id": "08068",
-  "type": "Asset",
-  "class": "Mystic",
-  "level": 3,
-  "traits": "Spell.",
-  "permanent": false,
-  "weakness": false,
-  "uses": {
-    "token": "resource",
-    "type": "Charge",
-    "count": 4
-  }
-}]]
-allCards["Grounded (3)|"] = [[{
-  "id": "08069",
-  "type": "Asset",
-  "class": "Mystic",
-  "level": 3,
-  "traits": "Talent. Composure.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["True Magick (5)|"] = [[{
-  "id": "08070",
-  "type": "Asset",
-  "class": "Mystic",
-  "level": 5,
-  "traits": "Item. Relic. Tome.",
-  "permanent": false,
-  "weakness": false,
-  "uses": {
-    "token": "resource",
-    "type": "Charge",
-    "count": 1
-  }
-}]]
-allCards["Short Supply|"] = [[{
-  "id": "08071",
-  "type": "Asset",
-  "class": "Survivor",
-  "level": 0,
-  "traits": "Talent.",
-  "permanent": true,
-  "weakness": false
-}]]
-allCards["Schoffner's Catalogue|"] = [[{
-  "id": "08072",
-  "type": "Asset",
-  "class": "Survivor",
-  "level": 0,
-  "traits": "Item. Tome.",
-  "permanent": false,
-  "weakness": false,
-  "uses": {
-    "token": "resource",
-    "type": "Secret",
-    "count": 5
-  }
-}]]
-allCards["Bandages|"] = [[{
-  "id": "08073",
-  "type": "Asset",
-  "class": "Survivor",
-  "level": 0,
-  "traits": "Item.",
-  "permanent": false,
-  "weakness": false,
-  "uses": {
-    "token": "resource",
-    "type": "Supply",
-    "count": 3
-  }
-}]]
-allCards["Jury-Rig|"] = [[{
-  "id": "08074",
-  "type": "Event",
-  "class": "Survivor",
-  "level": 0,
-  "traits": "Upgrade.",
-  "permanent": false,
-  "weakness": false,
-  "uses": {
-    "token": "resource",
-    "type": "Durability",
-    "count": 1
-  }
-}]]
-allCards["Bangle of Jinxes (1)|"] = [[{
-  "id": "08075",
-  "type": "Asset",
-  "class": "Survivor",
-  "level": 1,
-  "traits": "Item. Charm. Cursed.",
-  "permanent": false,
-  "weakness": false,
-  "uses": {
-    "token": "resource",
-    "type": "Charge",
-    "count": 1
-  }
-}]]
-allCards["Burn After Reading (1)|"] = [[{
-  "id": "08076",
-  "type": "Event",
-  "class": "Survivor",
-  "level": 1,
-  "traits": "Insight.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Strength in Numbers (1)|"] = [[{
-  "id": "08077",
-  "type": "Skill",
-  "class": "Survivor",
-  "level": 1,
-  "traits": "Innate. Synergy.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Dauntless Spirit (1)|"] = [[{
-  "id": "08078",
-  "type": "Skill",
-  "class": "Survivor",
-  "level": 1,
-  "traits": "Innate. Developed.",
-  "weakness": false
-}]]
-allCards["Blood Will Have Blood (2)|"] = [[{
-  "id": "08079",
-  "type": "Event",
-  "class": "Survivor",
-  "level": 2,
-  "traits": "Pact. Cursed.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Fire Extinguisher (3)|"] = [[{
-  "id": "08080",
-  "type": "Asset",
-  "class": "Survivor",
-  "level": 3,
-  "traits": "Item. Tool. Melee.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Plucky (3)|"] = [[{
-  "id": "08081",
-  "type": "Asset",
-  "class": "Survivor",
-  "level": 3,
-  "traits": "Talent. Composure.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Fend Off (3)|"] = [[{
-  "id": "08082",
-  "type": "Event",
-  "class": "Survivor",
-  "level": 3,
-  "traits": "Gambit. Trick.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Medical Student|"] = [[{
-  "id": "08083",
-  "type": "Asset",
-  "class": "Guardian|Seeker",
-  "level": 0,
-  "traits": "Ally. Miskatonic. Science.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["On the Trail (1)|"] = [[{
-  "id": "08084",
-  "type": "Event",
-  "class": "Guardian|Seeker",
-  "level": 1,
-  "traits": "Insight. Tactic.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["On the Trail (3)|"] = [[{
-  "id": "08085",
-  "type": "Event",
-  "class": "Guardian|Seeker",
-  "level": 3,
-  "traits": "Insight. Tactic.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Michael Leigh (5)|Experienced Hunter"] = [[{
-  "id": "08086",
-  "type": "Asset",
-  "class": "Guardian|Seeker",
-  "level": 5,
-  "traits": "Ally. Detective.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Michael Leigh (5)|"] = [[{
-  "id": "08086",
-  "type": "Asset",
-  "class": "Guardian|Seeker",
-  "level": 5,
-  "traits": "Ally. Detective.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Snipe (1)|"] = [[{
-  "id": "08087",
-  "type": "Event",
-  "class": "Guardian|Rogue",
-  "level": 1,
-  "traits": "Tactic.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Old Shotgun (2)|"] = [[{
-  "id": "08088",
-  "type": "Asset",
-  "class": "Guardian|Rogue",
-  "level": 2,
-  "traits": "Item. Weapon. Firearm..",
-  "permanent": false,
-  "weakness": false,
-  "uses": {
-    "token": "resource",
-    "type": "Ammo",
-    "count": 0
-  }
-}]]
-allCards["Quickdraw Holster (4)|"] = [[{
-  "id": "08089",
-  "type": "Asset",
-  "class": "Guardian|Rogue",
-  "level": 4,
-  "traits": "Item. Tool. Illicit.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Brand of Cthugha (1)|"] = [[{
-  "id": "08090",
-  "type": "Asset",
-  "class": "Guardian|Mystic",
-  "level": 1,
-  "traits": "Spell.",
-  "permanent": false,
-  "weakness": false,
-  "uses": {
-    "token": "resource",
-    "type": "Charge",
-    "count": 6
-  }
-}]]
-allCards["Nkosi Mabati (3)|Enigmatic Warlock"] = [[{
-  "id": "08091",
-  "type": "Asset",
-  "class": "Guardian|Mystic",
-  "level": 3,
-  "traits": "Ally. Sorcerer.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Nkosi Mabati (3)|"] = [[{
-  "id": "08091",
-  "type": "Asset",
-  "class": "Guardian|Mystic",
-  "level": 3,
-  "traits": "Ally. Sorcerer.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Brand of Cthugha (4)|"] = [[{
-  "id": "08092",
-  "type": "Asset",
-  "class": "Guardian|Mystic",
-  "level": 4,
-  "traits": "Spell.",
-  "permanent": false,
-  "weakness": false,
-  "uses": {
-    "token": "resource",
-    "type": "Charge",
-    "count": 9
-  }
-}]]
-allCards["Cyclopean Hammer (5)|"] = [[{
-  "id": "08093",
-  "type": "Asset",
-  "class": "Guardian|Mystic",
-  "level": 5,
-  "traits": "Item. Relic. Weapon. Melee.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Sledgehammer|"] = [[{
-  "id": "08094",
-  "type": "Asset",
-  "class": "Guardian|Survivor",
-  "level": 0,
-  "traits": "Item. Tool. Weapon. Melee.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Protective Gear (2)|"] = [[{
-  "id": "08095",
-  "type": "Asset",
-  "class": "Guardian|Survivor",
-  "level": 2,
-  "traits": "Item. Armor.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Sledgehammer (4)|"] = [[{
-  "id": "08096",
-  "type": "Asset",
-  "class": "Guardian|Survivor",
-  "level": 4,
-  "traits": "Item. Tool. Weapon. Melee.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Pocket Telescope|"] = [[{
-  "id": "08097",
-  "type": "Asset",
-  "class": "Seeker/Rogue",
-  "level": 0,
-  "traits": "Item. Tool.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Eon Chart (1)|"] = [[{
-  "id": "08098",
-  "type": "Asset",
-  "class": "Seeker/Rogue",
-  "level": 1,
-  "traits": "Item. Relic.",
-  "permanent": false,
-  "weakness": false,
-  "uses": {
-    "token": "resource",
-    "type": "Secret",
-    "count": 3
-  }
-}]]
-allCards["Gené Beauregard (3)|"] = [[{
-  "id": "08099",
-  "type": "Asset",
-  "class": "Seeker/Rogue",
-  "level": 3,
-  "traits": "Ally. Wayfarer.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Eon Chart (4)|"] = [[{
-  "id": "08100",
-  "type": "Asset",
-  "class": "Seeker|Rogue",
-  "level": 4,
-  "traits": "Item. Relic.",
-  "permanent": false,
-  "weakness": false,
-  "uses": {
-    "token": "resource",
-    "type": "Secret",
-    "count": 3
-  }
-}]]
-allCards["Divination (1)|"] = [[{
-  "id": "08101",
-  "type": "Asset",
-  "class": "Seeker|Mystic",
-  "level": 1,
-  "traits": "Spell. Augury.",
-  "permanent": false,
-  "weakness": false,
-  "uses": {
-    "token": "resource",
-    "type": "Charge",
-    "count": 4
-  }
-}]]
-allCards["Protecting the Anirniq (2)|"] = [[{
-  "id": "08102",
-  "type": "Event",
-  "class": "Seeker|Mystic",
-  "level": 2,
-  "traits": "Ritual.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Divination (4)|"] = [[{
-  "id": "08103",
-  "type": "Asset",
-  "class": "Seeker|Mystic",
-  "level": 4,
-  "traits": "Spell. Augury.",
-  "permanent": false,
-  "weakness": false,
-  "uses": {
-    "token": "resource",
-    "type": "Charge",
-    "count": 6
-  }
-}]]
-allCards["Professor William Webb|Finder of Hidden Connections"] = [[{
-  "id": "08104",
-  "type": "Asset",
-  "class": "Seeker|Survivor",
-  "level": 0,
-  "traits": "Ally. Miskatonic.",
-  "permanent": false,
-  "weakness": false,
-  "uses": {
-    "token": "resource",
-    "type": "Secret",
-    "count": 3
-  }
-}]]
-allCards["Professor William Webb|"] = [[{
-  "id": "08104",
-  "type": "Asset",
-  "class": "Seeker|Survivor",
-  "level": 0,
-  "traits": "Ally. Miskatonic.",
-  "permanent": false,
-  "weakness": false,
-  "uses": {
-    "token": "resource",
-    "type": "Secret",
-    "count": 3
-  }
-}]]
-allCards["Ice Pick (1)|"] = [[{
-  "id": "08105",
-  "type": "Asset",
-  "class": "Seeker|Survivor",
-  "level": 1,
-  "traits": "Item. Tool. Melee.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Professor William Webb (2)|Finder of Hidden Connections"] = [[{
-  "id": "08106",
-  "type": "Asset",
-  "class": "Seeker|Survivor",
-  "level": 2,
-  "traits": "Ally. Miskatonic.",
-  "permanent": false,
-  "weakness": false,
-  "uses": {
-    "token": "resource",
-    "type": "Secret",
-    "count": 3
-  }
-}]]
-allCards["Professor William Webb (2)|"] = [[{
-  "id": "08106",
-  "type": "Asset",
-  "class": "Seeker|Survivor",
-  "level": 2,
-  "traits": "Ally. Miskatonic.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Ice Pick (3)|"] = [[{
-  "id": "08107",
-  "type": "Asset",
-  "class": "Seeker|Survivor",
-  "level": 3,
-  "traits": "Item. Tool. Melee.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Ethereal Slip|"] = [[{
-  "id": "08108",
-  "type": "Event",
-  "class": "Rogue|Mystic",
-  "level": 0,
-  "traits": "Spell. Trick.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Blur (1)|"] = [[{
-  "id": "08109",
-  "type": "Asset",
-  "class": "Rogue|Mystic",
-  "level": 1,
-  "traits": "Spell.",
-  "permanent": false,
-  "weakness": false,
-  "uses": {
-    "token": "resource",
-    "type": "Charge",
-    "count": 3
-  }
-}]]
-allCards["Ethereal Slip (2)|"] = [[{
-  "id": "08110",
-  "type": "Event",
-  "class": "Rogue|Mystic",
-  "level": 2,
-  "traits": "Spell. Trick.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Blur (4)|"] = [[{
-  "id": "08111",
-  "type": "Asset",
-  "class": "Rogue|Mystic",
-  "level": 4,
-  "traits": "Spell.",
-  "permanent": false,
-  "weakness": false,
-  "uses": {
-    "token": "resource",
-    "type": "Charge",
-    "count": 4
-  }
-}]]
-allCards["\"Hit Me!\"|"] = [[{
-  "id": "08112",
-  "type": "Event",
-  "class": "Rogue/Survivor",
-  "level": 0,
-  "traits": "Fortune. Gambit.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Unscrupulous Loan (3)|"] = [[{
-  "id": "08113",
-  "type": "Asset",
-  "class": "Rogue/Survivor",
-  "level": 3,
-  "traits": "Pact.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Precious Memento (4)|From a Former Life"] = [[{
-  "id": "08114",
-  "type": "Asset",
-  "class": "Rogue/Survivor",
-  "level": 4,
-  "traits": "Item. Charm. Blessed.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Precious Memento (4)|From a Future Life"] = [[{
-  "id": "08115",
-  "type": "Asset",
-  "class": "Rogue/Survivor",
-  "level": 4,
-  "traits": "Item. Charm. Blessed.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Talisman of Protection|"] = [[{
-  "id": "08116",
-  "type": "Asset",
-  "class": "Mystic/Survivor",
-  "level": 0,
-  "traits": "Item. Charm.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Earthly Serenity (1)|"] = [[{
-  "id": "08117",
-  "type": "Asset",
-  "class": "Mystic/Survivor",
-  "level": 1,
-  "traits": "Spell.",
-  "permanent": false,
-  "weakness": false,
-  "uses": {
-    "token": "resource",
-    "type": "Charge",
-    "count": 4
-  }
-}]]
-allCards["Enchanted Bow (2)|"] = [[{
-  "id": "08118",
-  "type": "Asset",
-  "class": "Mystic|Survivor",
-  "level": 2,
-  "traits": "Spell. Blessed. Weapon. Ranged.",
-  "permanent": false,
-  "weakness": false,
-  "uses": {
-    "token": "resource",
-    "type": "Charge",
-    "count": 3
-  }
-}]]
-allCards["Earthly Serenity (4)|"] = [[{
-  "id": "08119",
-  "type": "Asset",
-  "class": "Mystic/Survivor",
-  "level": 4,
-  "traits": "Spell.",
-  "permanent": false,
-  "weakness": false,
-  "uses": {
-    "token": "resource",
-    "type": "Charge",
-    "count": 6
-  }
-}]]
-allCards["Prophetic (3)|"] = [[{
-  "id": "08120",
-  "type": "Asset",
-  "class": "Guardian|Mystic|Survivor",
-  "level": 3,
-  "traits": "Talent.",
-  "permanent": false,
-  "weakness": false,
-  "uses": {
-    "token": "resource",
-    "type": "Resource",
-    "count": 2
-  }
-}]]
-allCards["Sleuth (3)|"] = [[{
-  "id": "08121",
-  "type": "Asset",
-  "class": "Guardian|Seeker|Mystic",
-  "level": 3,
-  "traits": "Talent.",
-  "permanent": false,
-  "weakness": false,
-  "uses": {
-    "token": "resource",
-    "type": "Resource",
-    "count": 2
-  }
-}]]
-allCards["Bruiser (3)|"] = [[{
-  "id": "08122",
-  "type": "Asset",
-  "class": "Guardian|Rogue|Survivor",
-  "level": 3,
-  "traits": "Talent.",
-  "permanent": false,
-  "weakness": false,
-  "uses": {
-    "token": "resource",
-    "type": "Resource",
-    "count": 2
-  }
-}]]
-allCards["Crafty (3)|"] = [[{
-  "id": "08123",
-  "type": "Asset",
-  "class": "Seeker|Rogue|Survivor",
-  "level": 3,
-  "traits": "Talent.",
-  "permanent": false,
-  "weakness": false,
-  "uses": {
-    "token": "resource",
-    "type": "Resource",
-    "count": 2
-  }
-}]]
-allCards["Antiquary (3)|"] = [[{
-  "id": "08124",
-  "type": "Asset",
-  "class": "Seeker|Rogue|Mystic",
-  "level": 3,
-  "traits": "Talent.",
-  "permanent": false,
-  "weakness": false,
-  "uses": {
-    "token": "resource",
-    "type": "Resource",
-    "count": 2
-  }
-}]]
-allCards["In the Thick of It|"] = [[{
-  "id": "08125",
-  "type": "Asset",
-  "class": "Neutral",
-  "level": 0,
-  "traits": "Curse.",
-  "permanent": true,
-  "weakness": false
-}]]
-allCards["Heavy Furs|"] = [[{
-  "id": "08126",
-  "type": "Asset",
-  "class": "Neutral",
-  "level": 0,
-  "traits": "Item. Armor.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Sled Dog|"] = [[{
-  "id": "08127",
-  "type": "Asset",
-  "class": "Neutral",
-  "level": 0,
-  "traits": "Ally. Creature.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Rod of Animalism (1)|"] = [[{
-  "id": "08128",
-  "type": "Asset",
-  "class": "Neutral",
-  "level": 1,
-  "traits": "Item. Relic.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Call for Backup (2)|"] = [[{
-  "id": "08129",
-  "type": "Event",
-  "class": "Neutral",
-  "level": 2,
-  "traits": "Favor. Synergy.",
-  "permanent": false,
-  "weakness": false
-}]]
-allCards["Arm Injury|"] = [[{
-  "id": "08130",
-  "type": "Treachery",
-  "class": "Neutral",
-  "traits": "Injury.",
-  "permanent": false,
-  "weakness": true,
-  "basicWeaknessCount": 1
-}]]
-allCards["Leg Injury|"] = [[{
-  "id": "08131",
-  "type": "Treachery",
-  "class": "Neutral",
-  "traits": "Injury.",
-  "permanent": false,
-  "weakness": true,
-  "basicWeaknessCount": 1
-}]]
-allCards["Panic|"] = [[{
-  "id": "08132",
-  "type": "Treachery",
-  "class": "Neutral",
-  "traits": "Madness.",
-  "permanent": false,
-  "weakness": true,
-  "basicWeaknessCount": 1
-}]]
-allCards["Stupor|"] = [[{
-  "id": "08133",
-  "type": "Treachery",
-  "class": "Neutral",
-  "traits": "Madness.",
-  "permanent": false,
-  "weakness": true,
-  "basicWeaknessCount": 1
-}]]
-
 allCards["Roland Banks|The Fed"] = [[{
   "id": "01001",
   "alternate_ids": [ "98004" ],
@@ -26340,4 +24748,2925 @@ allCards["Erynn MacAoidh|"] = [[{
   "traits": "Ally. Witch.",
   "permanent": false,
   "weakness": false
+}]]
+allCards["Daniela Reyes|The Mechanic"] = [[{
+  "id": "08001",
+  "type": "Investigator",
+  "class": "Guardian",
+  "traits": "Entrepreneur."
+}]]
+allCards["08001"] = [[{
+  "id": "08001",
+  "type": "Investigator",
+  "class": "Guardian",
+  "traits": "Entrepreneur."
+}]]
+allCards["Daniela Reyes (promo version)|The Mechanic"] = [[{
+  "id": "08001-promo",
+  "type": "Investigator",
+  "class": "Guardian",
+  "traits": "Entrepreneur."
+}]]
+allCards["Daniela Reyes (Parallel)|The Mechanic"] = [[{
+  "id": "08001-p",
+  "type": "Investigator",
+  "class": "Guardian",
+  "traits": "Entrepreneur."
+}]]
+allCards["Daniela Reyes (Parallel Front)|The Mechanic"] = [[{
+  "id": "08001-pf",
+  "type": "Investigator",
+  "class": "Guardian",
+  "traits": "Entrepreneur."
+}]]
+allCards["Daniela Reyes (Parallel Back)|The Mechanic"] = [[{
+  "id": "08001-pb",
+  "type": "Investigator",
+  "class": "Guardian",
+  "traits": "Entrepreneur."
+}]]
+allCards["Daniela Reyes|"] = [[{
+  "id": "08001-m",
+  "type": "Minicard"
+}]]
+allCards["Daniela Reyes|Promo version"] = [[{
+  "id": "08001-promo-m",
+  "type": "Minicard"
+}]]
+allCards["Mechanic's Wrench|"] = [[{
+  "id": "08002",
+  "type": "Asset",
+  "class": "Neutral",
+  "traits": "Item. Tool. Melee.",
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08002"] = [[{
+  "id": "08002",
+  "type": "Asset",
+  "class": "Neutral",
+  "traits": "Item. Tool. Melee.",
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Mob Goons|"] = [[{
+  "id": "08003",
+  "type": "Enemy",
+  "class": "Neutral",
+  "traits": "Humanoid. Criminal.",
+  "permanent": false,
+  "weakness": true
+}]]
+allCards["08003"] = [[{
+  "id": "08003",
+  "type": "Enemy",
+  "class": "Neutral",
+  "traits": "Humanoid. Criminal.",
+  "permanent": false,
+  "weakness": true
+}]]
+allCards["Norman Withers|The Astronomer"] = [[{
+  "id": "08004",
+  "type": "Investigator",
+  "class": "Seeker",
+  "traits": "Miskatonic."
+}]]
+allCards["08004"] = [[{
+  "id": "08004",
+  "type": "Investigator",
+  "class": "Seeker",
+  "traits": "Miskatonic."
+}]]
+allCards["Norman Withers (promo version)|The Astronomer"] = [[{
+  "id": "08004-promo",
+  "type": "Investigator",
+  "class": "Seeker",
+  "traits": "Miskatonic."
+}]]
+allCards["Norman Withers (Parallel)|The Astronomer"] = [[{
+  "id": "08004-p",
+  "type": "Investigator",
+  "class": "Seeker",
+  "traits": "Miskatonic."
+}]]
+allCards["Norman Withers (Parallel Front)|The Astronomer"] = [[{
+  "id": "08004-pf",
+  "type": "Investigator",
+  "class": "Seeker",
+  "traits": "Miskatonic."
+}]]
+allCards["Norman Withers (Parallel Back)|The Astronomer"] = [[{
+  "id": "08004-pb",
+  "type": "Investigator",
+  "class": "Seeker",
+  "traits": "Miskatonic."
+}]]
+allCards["Norman Withers|"] = [[{
+  "id": "08004-m",
+  "type": "Minicard"
+}]]
+allCards["Norman Withers|Promo version"] = [[{
+  "id": "08004-promo-m",
+  "type": "Minicard"
+}]]
+allCards["Livre d'Eibon|Hyperborean Grimoire"] = [[{
+  "id": "08005",
+  "type": "Asset",
+  "class": "Neutral",
+  "traits": "Item. Relic. Tome.",
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08005"] = [[{
+  "id": "08005",
+  "type": "Asset",
+  "class": "Neutral",
+  "traits": "Item. Relic. Tome.",
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Livre d'Eibon|"] = [[{
+  "id": "08005",
+  "type": "Asset",
+  "class": "Neutral",
+  "traits": "Item. Relic. Tome.",
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["The Harbinger|"] = [[{
+  "id": "08006",
+  "type": "Treachery",
+  "class": "Neutral",
+  "traits": "Omen. Endtimes.",
+  "permanent": false,
+  "weakness": true
+}]]
+allCards["08006"] = [[{
+  "id": "08006",
+  "type": "Treachery",
+  "class": "Neutral",
+  "traits": "Omen. Endtimes.",
+  "permanent": false,
+  "weakness": true
+}]]
+allCards["Monterey Jack|The Archaeologist"] = [[{
+  "id": "08007",
+  "type": "Investigator",
+  "class": "Rogue",
+  "traits": "Wayfarer."
+}]]
+allCards["08007"] = [[{
+  "id": "08007",
+  "type": "Investigator",
+  "class": "Rogue",
+  "traits": "Wayfarer."
+}]]
+allCards["Monterey Jack (promo version)|The Archaeologist"] = [[{
+  "id": "08007-promo",
+  "type": "Investigator",
+  "class": "Rogue",
+  "traits": "Wayfarer."
+}]]
+allCards["Monterey Jack (Parallel)|The Archaeologist"] = [[{
+  "id": "08007-p",
+  "type": "Investigator",
+  "class": "Rogue",
+  "traits": "Wayfarer."
+}]]
+allCards["Monterey Jack (Parallel Front)|The Archaeologist"] = [[{
+  "id": "08007-pf",
+  "type": "Investigator",
+  "class": "Rogue",
+  "traits": "Wayfarer."
+}]]
+allCards["Monterey Jack (Parallel Back)|The Archaeologist"] = [[{
+  "id": "08007-pb",
+  "type": "Investigator",
+  "class": "Rogue",
+  "traits": "Wayfarer."
+}]]
+allCards["Monterey Jack|"] = [[{
+  "id": "08007-m",
+  "type": "Minicard"
+}]]
+allCards["Monterey Jack|Promo version"] = [[{
+  "id": "08007-promo-m",
+  "type": "Minicard"
+}]]
+allCards["Trusty Bullwhip|"] = [[{
+  "id": "08008",
+  "type": "Asset",
+  "class": "Neutral",
+  "traits": "Item. Weapon. Melee.",
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08008"] = [[{
+  "id": "08008",
+  "type": "Asset",
+  "class": "Neutral",
+  "traits": "Item. Weapon. Melee.",
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Buried Secrets|"] = [[{
+  "id": "08009",
+  "type": "Treachery",
+  "class": "Neutral",
+  "traits": "Mystery.",
+  "permanent": false,
+  "weakness": true
+}]]
+allCards["08009"] = [[{
+  "id": "08009",
+  "type": "Treachery",
+  "class": "Neutral",
+  "traits": "Mystery.",
+  "permanent": false,
+  "weakness": true
+}]]
+allCards["Lily Chen|The Martial Artist"] = [[{
+  "id": "08010",
+  "type": "Investigator",
+  "class": "Mystic",
+  "traits": "Chosen. Warden."
+}]]
+allCards["08010"] = [[{
+  "id": "08010",
+  "type": "Investigator",
+  "class": "Mystic",
+  "traits": "Chosen. Warden."
+}]]
+allCards["Lily Chen (promo version)|The Martial Artist"] = [[{
+  "id": "08010-promo",
+  "type": "Investigator",
+  "class": "Mystic",
+  "traits": "Chosen. Warden."
+}]]
+allCards["Lily Chen (Parallel)|The Martial Artist"] = [[{
+  "id": "08010-p",
+  "type": "Investigator",
+  "class": "Mystic",
+  "traits": "Chosen. Warden."
+}]]
+allCards["Lily Chen (Parallel Front)|The Martial Artist"] = [[{
+  "id": "08010-pf",
+  "type": "Investigator",
+  "class": "Mystic",
+  "traits": "Chosen. Warden."
+}]]
+allCards["Lily Chen (Parallel Back)|The Martial Artist"] = [[{
+  "id": "08010-pb",
+  "type": "Investigator",
+  "class": "Mystic",
+  "traits": "Chosen. Warden."
+}]]
+allCards["Lily Chen|"] = [[{
+  "id": "08010-m",
+  "type": "Minicard"
+}]]
+allCards["Lily Chen|Promo version"] = [[{
+  "id": "08010-promo-m",
+  "type": "Minicard"
+}]]
+allCards["Discipline|Alignment of Spirit"] = [[{
+  "id": "08011a",
+  "type": "Asset",
+  "class": "Neutral",
+  "traits": "Unbroken.",
+  "permanent": true,
+  "weakness": false
+}]]
+allCards["08011a"] = [[{
+  "id": "08011a",
+  "type": "Asset",
+  "class": "Neutral",
+  "traits": "Unbroken.",
+  "permanent": true,
+  "weakness": false
+}]]
+allCards["Discipline|"] = [[{
+  "id": "08011a",
+  "type": "Asset",
+  "class": "Neutral",
+  "traits": "Unbroken.",
+  "permanent": true,
+  "weakness": false
+}]]
+allCards["Discipline|Quiescence of Thought"] = [[{
+  "id": "08012a",
+  "type": "Asset",
+  "class": "Neutral",
+  "traits": "Unbroken.",
+  "permanent": true,
+  "weakness": false
+}]]
+allCards["08012a"] = [[{
+  "id": "08012a",
+  "type": "Asset",
+  "class": "Neutral",
+  "traits": "Unbroken.",
+  "permanent": true,
+  "weakness": false
+}]]
+allCards["Discipline|"] = [[{
+  "id": "08012a",
+  "type": "Asset",
+  "class": "Neutral",
+  "traits": "Unbroken.",
+  "permanent": true,
+  "weakness": false
+}]]
+allCards["Discipline|Prescience of Fate"] = [[{
+  "id": "08013a",
+  "type": "Asset",
+  "class": "Neutral",
+  "traits": "Unbroken.",
+  "permanent": true,
+  "weakness": false
+}]]
+allCards["08013a"] = [[{
+  "id": "08013a",
+  "type": "Asset",
+  "class": "Neutral",
+  "traits": "Unbroken.",
+  "permanent": true,
+  "weakness": false
+}]]
+allCards["Discipline|"] = [[{
+  "id": "08013a",
+  "type": "Asset",
+  "class": "Neutral",
+  "traits": "Unbroken.",
+  "permanent": true,
+  "weakness": false
+}]]
+allCards["Discipline|Balance of Body"] = [[{
+  "id": "08014a",
+  "type": "Asset",
+  "class": "Neutral",
+  "traits": "Unbroken.",
+  "permanent": true,
+  "weakness": false
+}]]
+allCards["08014a"] = [[{
+  "id": "08014a",
+  "type": "Asset",
+  "class": "Neutral",
+  "traits": "Unbroken.",
+  "permanent": true,
+  "weakness": false
+}]]
+allCards["Discipline|"] = [[{
+  "id": "08014a",
+  "type": "Asset",
+  "class": "Neutral",
+  "traits": "Unbroken.",
+  "permanent": true,
+  "weakness": false
+}]]
+allCards["Burden of Destiny|"] = [[{
+  "id": "08015",
+  "type": "Treachery",
+  "class": "Neutral",
+  "traits": "Flaw.",
+  "permanent": false,
+  "weakness": true
+}]]
+allCards["08015"] = [[{
+  "id": "08015",
+  "type": "Treachery",
+  "class": "Neutral",
+  "traits": "Flaw.",
+  "permanent": false,
+  "weakness": true
+}]]
+allCards["Bob Jenkins|The Salesman"] = [[{
+  "id": "08016",
+  "type": "Investigator",
+  "class": "Survivor",
+  "traits": "Entrepreneur."
+}]]
+allCards["08016"] = [[{
+  "id": "08016",
+  "type": "Investigator",
+  "class": "Survivor",
+  "traits": "Entrepreneur."
+}]]
+allCards["Bob Jenkins (promo version)|The Salesman"] = [[{
+  "id": "08016-promo",
+  "type": "Investigator",
+  "class": "Survivor",
+  "traits": "Entrepreneur."
+}]]
+allCards["Bob Jenkins (Parallel)|The Salesman"] = [[{
+  "id": "08016-p",
+  "type": "Investigator",
+  "class": "Survivor",
+  "traits": "Entrepreneur."
+}]]
+allCards["Bob Jenkins (Parallel Front)|The Salesman"] = [[{
+  "id": "08016-pf",
+  "type": "Investigator",
+  "class": "Survivor",
+  "traits": "Entrepreneur."
+}]]
+allCards["Bob Jenkins (Parallel Back)|The Salesman"] = [[{
+  "id": "08016-pb",
+  "type": "Investigator",
+  "class": "Survivor",
+  "traits": "Entrepreneur."
+}]]
+allCards["Bob Jenkins|"] = [[{
+  "id": "08016-m",
+  "type": "Minicard"
+}]]
+allCards["Bob Jenkins|Promo version"] = [[{
+  "id": "08016-promo-m",
+  "type": "Minicard"
+}]]
+allCards["Shrewd Dealings|"] = [[{
+  "id": "08017",
+  "type": "Asset",
+  "class": "Neutral",
+  "traits": "Talent.",
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08017"] = [[{
+  "id": "08017",
+  "type": "Asset",
+  "class": "Neutral",
+  "traits": "Talent.",
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Greed|"] = [[{
+  "id": "08018",
+  "type": "Treachery",
+  "class": "Neutral",
+  "traits": "Flaw.",
+  "permanent": false,
+  "weakness": true
+}]]
+allCards["08018"] = [[{
+  "id": "08018",
+  "type": "Treachery",
+  "class": "Neutral",
+  "traits": "Flaw.",
+  "permanent": false,
+  "weakness": true
+}]]
+allCards["Geared Up|"] = [[{
+  "id": "08019",
+  "type": "Asset",
+  "class": "Guardian",
+  "traits": "Talent.",
+  "level": 0,
+  "permanent": true,
+  "weakness": false
+}]]
+allCards["08019"] = [[{
+  "id": "08019",
+  "type": "Asset",
+  "class": "Guardian",
+  "traits": "Talent.",
+  "level": 0,
+  "permanent": true,
+  "weakness": false
+}]]
+allCards["Toe to Toe|"] = [[{
+  "id": "08020",
+  "type": "Event",
+  "class": "Guardian",
+  "traits": "Spirit. Tactic.",
+  "level": 0,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08020"] = [[{
+  "id": "08020",
+  "type": "Event",
+  "class": "Guardian",
+  "traits": "Spirit. Tactic.",
+  "level": 0,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["\"Get behind me!\"|"] = [[{
+  "id": "08021",
+  "type": "Event",
+  "class": "Guardian",
+  "traits": "Spirit. Tactic.",
+  "level": 0,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08021"] = [[{
+  "id": "08021",
+  "type": "Event",
+  "class": "Guardian",
+  "traits": "Spirit. Tactic.",
+  "level": 0,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Gang Up (1)|"] = [[{
+  "id": "08022",
+  "type": "Event",
+  "class": "Guardian",
+  "traits": "Spirit. Synergy.",
+  "level": 1,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08022"] = [[{
+  "id": "08022",
+  "type": "Event",
+  "class": "Guardian",
+  "traits": "Spirit. Synergy.",
+  "level": 1,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Sweeping Kick (1)|"] = [[{
+  "id": "08023",
+  "type": "Event",
+  "class": "Guardian",
+  "traits": "Spirit. Tactic. Trick.",
+  "level": 1,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08023"] = [[{
+  "id": "08023",
+  "type": "Event",
+  "class": "Guardian",
+  "traits": "Spirit. Tactic. Trick.",
+  "level": 1,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Defensive Stance (1)|"] = [[{
+  "id": "08024",
+  "type": "Skill",
+  "class": "Guardian",
+  "traits": "Practiced. Expert.",
+  "level": 1,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08024"] = [[{
+  "id": "08024",
+  "type": "Skill",
+  "class": "Guardian",
+  "traits": "Practiced. Expert.",
+  "level": 1,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Butterfly Swords (2)|"] = [[{
+  "id": "08025",
+  "type": "Asset",
+  "class": "Guardian",
+  "traits": "Item. Weapon. Melee.",
+  "level": 2,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08025"] = [[{
+  "id": "08025",
+  "type": "Asset",
+  "class": "Guardian",
+  "traits": "Item. Weapon. Melee.",
+  "level": 2,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Dodge (2)|"] = [[{
+  "id": "08026",
+  "type": "Event",
+  "class": "Guardian",
+  "traits": "Tactic.",
+  "level": 2,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08026"] = [[{
+  "id": "08026",
+  "type": "Event",
+  "class": "Guardian",
+  "traits": "Tactic.",
+  "level": 2,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Combat Training (3)|"] = [[{
+  "id": "08027",
+  "type": "Asset",
+  "class": "Guardian",
+  "traits": "Talent. Composure.",
+  "level": 3,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08027"] = [[{
+  "id": "08027",
+  "type": "Asset",
+  "class": "Guardian",
+  "traits": "Talent. Composure.",
+  "level": 3,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["On the Hunt (3)|"] = [[{
+  "id": "08028",
+  "type": "Event",
+  "class": "Guardian",
+  "traits": "Tactic.",
+  "level": 3,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08028"] = [[{
+  "id": "08028",
+  "type": "Event",
+  "class": "Guardian",
+  "traits": "Tactic.",
+  "level": 3,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Fang of Tyr'thrha (4)|"] = [[{
+  "id": "08029",
+  "type": "Event",
+  "class": "Guardian",
+  "traits": "Spell.",
+  "level": 4,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08029"] = [[{
+  "id": "08029",
+  "type": "Event",
+  "class": "Guardian",
+  "traits": "Spell.",
+  "level": 4,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Butterfly Swords (5)|"] = [[{
+  "id": "08030",
+  "type": "Asset",
+  "class": "Guardian",
+  "traits": "Item. Weapon. Melee.",
+  "level": 5,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08030"] = [[{
+  "id": "08030",
+  "type": "Asset",
+  "class": "Guardian",
+  "traits": "Item. Weapon. Melee.",
+  "level": 5,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Forced Learning|"] = [[{
+  "id": "08031",
+  "type": "Asset",
+  "class": "Seeker",
+  "traits": "Talent. Ritual.",
+  "level": 0,
+  "permanent": true,
+  "weakness": false
+}]]
+allCards["08031"] = [[{
+  "id": "08031",
+  "type": "Asset",
+  "class": "Seeker",
+  "traits": "Talent. Ritual.",
+  "level": 0,
+  "permanent": true,
+  "weakness": false
+}]]
+allCards["Jeremiah Kirby|Arctic Archaeologist"] = [[{
+  "id": "08032",
+  "type": "Asset",
+  "class": "Seeker",
+  "traits": "Ally. Miskatonic. Wayfarer.",
+  "level": 0,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08032"] = [[{
+  "id": "08032",
+  "type": "Asset",
+  "class": "Seeker",
+  "traits": "Ally. Miskatonic. Wayfarer.",
+  "level": 0,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Jeremiah Kirby|"] = [[{
+  "id": "08032",
+  "type": "Asset",
+  "class": "Seeker",
+  "traits": "Ally. Miskatonic. Wayfarer.",
+  "level": 0,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Archive of Conduits|Unidentified"] = [[{
+  "id": "08033",
+  "type": "Asset",
+  "class": "Seeker",
+  "traits": "Item. Tome. Occult.",
+  "level": 0,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08033"] = [[{
+  "id": "08033",
+  "type": "Asset",
+  "class": "Seeker",
+  "traits": "Item. Tome. Occult.",
+  "level": 0,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Archive of Conduits|"] = [[{
+  "id": "08033",
+  "type": "Asset",
+  "class": "Seeker",
+  "traits": "Item. Tome. Occult.",
+  "level": 0,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Written in the Stars|"] = [[{
+  "id": "08034",
+  "type": "Event",
+  "class": "Seeker",
+  "traits": "Insight.",
+  "level": 0,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08034"] = [[{
+  "id": "08034",
+  "type": "Event",
+  "class": "Seeker",
+  "traits": "Insight.",
+  "level": 0,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Hiking Boots (1)|"] = [[{
+  "id": "08035",
+  "type": "Asset",
+  "class": "Seeker",
+  "traits": "Item. Clothing. Footwear.",
+  "level": 1,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08035"] = [[{
+  "id": "08035",
+  "type": "Asset",
+  "class": "Seeker",
+  "traits": "Item. Clothing. Footwear.",
+  "level": 1,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Join the Caravan (1)|"] = [[{
+  "id": "08036",
+  "type": "Event",
+  "class": "Seeker",
+  "traits": "Insight. Synergy.",
+  "level": 1,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08036"] = [[{
+  "id": "08036",
+  "type": "Event",
+  "class": "Seeker",
+  "traits": "Insight. Synergy.",
+  "level": 1,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Survey the Area (1)|"] = [[{
+  "id": "08037",
+  "type": "Skill",
+  "class": "Seeker",
+  "traits": "Practiced. Expert.",
+  "level": 1,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08037"] = [[{
+  "id": "08037",
+  "type": "Skill",
+  "class": "Seeker",
+  "traits": "Practiced. Expert.",
+  "level": 1,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Medical Texts (2)|"] = [[{
+  "id": "08038",
+  "type": "Asset",
+  "class": "Seeker",
+  "traits": "Item. Tome.",
+  "level": 2,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08038"] = [[{
+  "id": "08038",
+  "type": "Asset",
+  "class": "Seeker",
+  "traits": "Item. Tome.",
+  "level": 2,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Unearth the Ancients (2)|"] = [[{
+  "id": "08039",
+  "type": "Event",
+  "class": "Seeker",
+  "traits": "Insight.",
+  "level": 2,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08039"] = [[{
+  "id": "08039",
+  "type": "Event",
+  "class": "Seeker",
+  "traits": "Insight.",
+  "level": 2,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Scientific Theory (3)|"] = [[{
+  "id": "08040",
+  "type": "Asset",
+  "class": "Seeker",
+  "level": 3,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08040"] = [[{
+  "id": "08040",
+  "type": "Asset",
+  "class": "Seeker",
+  "level": 3,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Archive of Conduits (4)|Gateway to Tindalos"] = [[{
+  "id": "08041",
+  "type": "Asset",
+  "class": "Seeker",
+  "traits": "Ritual.",
+  "level": 4,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08041"] = [[{
+  "id": "08041",
+  "type": "Asset",
+  "class": "Seeker",
+  "traits": "Ritual.",
+  "level": 4,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Archive of Conduits (4)|"] = [[{
+  "id": "08041",
+  "type": "Asset",
+  "class": "Seeker",
+  "traits": "Ritual.",
+  "level": 4,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Archive of Conduits (4)|Gateway to Acheron"] = [[{
+  "id": "08042",
+  "type": "Asset",
+  "class": "Seeker",
+  "traits": "Ritual.",
+  "level": 4,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08042"] = [[{
+  "id": "08042",
+  "type": "Asset",
+  "class": "Seeker",
+  "traits": "Ritual.",
+  "level": 4,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Archive of Conduits (4)|"] = [[{
+  "id": "08042",
+  "type": "Asset",
+  "class": "Seeker",
+  "traits": "Ritual.",
+  "level": 4,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Archive of Conduits (4)|Gateway to Aldebaran"] = [[{
+  "id": "08043",
+  "type": "Asset",
+  "class": "Seeker",
+  "traits": "Ritual.",
+  "level": 4,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08043"] = [[{
+  "id": "08043",
+  "type": "Asset",
+  "class": "Seeker",
+  "traits": "Ritual.",
+  "level": 4,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Archive of Conduits (4)|"] = [[{
+  "id": "08043",
+  "type": "Asset",
+  "class": "Seeker",
+  "traits": "Ritual.",
+  "level": 4,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Archive of Conduits (4)|Gateway to Paradise"] = [[{
+  "id": "08044",
+  "type": "Asset",
+  "class": "Seeker",
+  "traits": "Ritual.",
+  "level": 4,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08044"] = [[{
+  "id": "08044",
+  "type": "Asset",
+  "class": "Seeker",
+  "traits": "Ritual.",
+  "level": 4,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Archive of Conduits (4)|"] = [[{
+  "id": "08044",
+  "type": "Asset",
+  "class": "Seeker",
+  "traits": "Ritual.",
+  "level": 4,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Prophesiae Profana (5)|Atlas of the Unknowable"] = [[{
+  "id": "08045",
+  "type": "Asset",
+  "class": "Seeker",
+  "traits": "Item. Relic. Tome.",
+  "level": 5,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08045"] = [[{
+  "id": "08045",
+  "type": "Asset",
+  "class": "Seeker",
+  "traits": "Item. Relic. Tome.",
+  "level": 5,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Prophesiae Profana (5)|"] = [[{
+  "id": "08045",
+  "type": "Asset",
+  "class": "Seeker",
+  "traits": "Item. Relic. Tome.",
+  "level": 5,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Underworld Support|"] = [[{
+  "id": "08046",
+  "type": "Asset",
+  "class": "Rogue",
+  "traits": "Favor. Illicit.",
+  "level": 0,
+  "permanent": true,
+  "weakness": false
+}]]
+allCards["08046"] = [[{
+  "id": "08046",
+  "type": "Asset",
+  "class": "Rogue",
+  "traits": "Favor. Illicit.",
+  "level": 0,
+  "permanent": true,
+  "weakness": false
+}]]
+allCards["Scout Ahead|"] = [[{
+  "id": "08047",
+  "type": "Event",
+  "class": "Rogue",
+  "traits": "Insight. Trick.",
+  "level": 0,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08047"] = [[{
+  "id": "08047",
+  "type": "Event",
+  "class": "Rogue",
+  "traits": "Insight. Trick.",
+  "level": 0,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["21 or Bust|"] = [[{
+  "id": "08048",
+  "type": "Event",
+  "class": "Rogue",
+  "traits": "Fortune. Gambit.",
+  "level": 0,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08048"] = [[{
+  "id": "08048",
+  "type": "Event",
+  "class": "Rogue",
+  "traits": "Fortune. Gambit.",
+  "level": 0,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Counterespionage (1)|"] = [[{
+  "id": "08049",
+  "type": "Event",
+  "class": "Rogue",
+  "traits": "Favor. Service.",
+  "level": 1,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08049"] = [[{
+  "id": "08049",
+  "type": "Event",
+  "class": "Rogue",
+  "traits": "Favor. Service.",
+  "level": 1,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Cheat the System (1)|"] = [[{
+  "id": "08050",
+  "type": "Event",
+  "class": "Rogue",
+  "traits": "Trick. Synergy.",
+  "level": 1,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08050"] = [[{
+  "id": "08050",
+  "type": "Event",
+  "class": "Rogue",
+  "traits": "Trick. Synergy.",
+  "level": 1,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Untimely Transaction (1)|"] = [[{
+  "id": "08051",
+  "type": "Event",
+  "class": "Rogue",
+  "traits": "Favor.",
+  "level": 1,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08051"] = [[{
+  "id": "08051",
+  "type": "Event",
+  "class": "Rogue",
+  "traits": "Favor.",
+  "level": 1,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Savant (1)|"] = [[{
+  "id": "08052",
+  "type": "Skill",
+  "class": "Rogue",
+  "traits": "Innate. Developed.",
+  "level": 1,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08052"] = [[{
+  "id": "08052",
+  "type": "Skill",
+  "class": "Rogue",
+  "traits": "Innate. Developed.",
+  "level": 1,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["The Red Clock (2)|Broken but Reliable"] = [[{
+  "id": "08053",
+  "type": "Asset",
+  "class": "Rogue",
+  "traits": "Item. Relic.",
+  "level": 2,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08053"] = [[{
+  "id": "08053",
+  "type": "Asset",
+  "class": "Rogue",
+  "traits": "Item. Relic.",
+  "level": 2,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["The Red Clock (2)|"] = [[{
+  "id": "08053",
+  "type": "Asset",
+  "class": "Rogue",
+  "traits": "Item. Relic.",
+  "level": 2,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Money Talks (2)|"] = [[{
+  "id": "08054",
+  "type": "Event",
+  "class": "Rogue",
+  "traits": "Favor. Gambit.",
+  "level": 2,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08054"] = [[{
+  "id": "08054",
+  "type": "Event",
+  "class": "Rogue",
+  "traits": "Favor. Gambit.",
+  "level": 2,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Black Market (2)|"] = [[{
+  "id": "08055",
+  "type": "Event",
+  "class": "Rogue",
+  "traits": "Favor.",
+  "level": 2,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08055"] = [[{
+  "id": "08055",
+  "type": "Event",
+  "class": "Rogue",
+  "traits": "Favor.",
+  "level": 2,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Moxie (3)|"] = [[{
+  "id": "08056",
+  "type": "Asset",
+  "class": "Rogue",
+  "traits": "Talent. Composure.",
+  "level": 3,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08056"] = [[{
+  "id": "08056",
+  "type": "Asset",
+  "class": "Rogue",
+  "traits": "Talent. Composure.",
+  "level": 3,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["The Black Fan (3)|Symbol of Power"] = [[{
+  "id": "08057",
+  "type": "Asset",
+  "class": "Rogue",
+  "traits": "Item. Relic.",
+  "level": 3,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08057"] = [[{
+  "id": "08057",
+  "type": "Asset",
+  "class": "Rogue",
+  "traits": "Item. Relic.",
+  "level": 3,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["The Black Fan (3)|"] = [[{
+  "id": "08057",
+  "type": "Asset",
+  "class": "Rogue",
+  "traits": "Item. Relic.",
+  "level": 3,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["The Red Clock (5)|Broken but Reliable"] = [[{
+  "id": "08058",
+  "type": "Asset",
+  "class": "Rogue",
+  "traits": "Item. Relic.",
+  "level": 5,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08058"] = [[{
+  "id": "08058",
+  "type": "Asset",
+  "class": "Rogue",
+  "traits": "Item. Relic.",
+  "level": 5,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["The Red Clock (5)|"] = [[{
+  "id": "08058",
+  "type": "Asset",
+  "class": "Rogue",
+  "traits": "Item. Relic.",
+  "level": 5,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Down the Rabbit Hole|"] = [[{
+  "id": "08059",
+  "type": "Asset",
+  "class": "Mystic",
+  "traits": "Talent.",
+  "level": 0,
+  "permanent": true,
+  "weakness": false
+}]]
+allCards["08059"] = [[{
+  "id": "08059",
+  "type": "Asset",
+  "class": "Mystic",
+  "traits": "Talent.",
+  "level": 0,
+  "permanent": true,
+  "weakness": false
+}]]
+allCards["Dragon Pole|"] = [[{
+  "id": "08060",
+  "type": "Asset",
+  "class": "Mystic",
+  "traits": "Item. Weapon. Melee.",
+  "level": 0,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08060"] = [[{
+  "id": "08060",
+  "type": "Asset",
+  "class": "Mystic",
+  "traits": "Item. Weapon. Melee.",
+  "level": 0,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Meditative Trance|"] = [[{
+  "id": "08061",
+  "type": "Event",
+  "class": "Mystic",
+  "traits": "Insight. Spirit.",
+  "level": 0,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08061"] = [[{
+  "id": "08061",
+  "type": "Event",
+  "class": "Mystic",
+  "traits": "Insight. Spirit.",
+  "level": 0,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Close the Circle (1)|"] = [[{
+  "id": "08062",
+  "type": "Asset",
+  "class": "Mystic",
+  "traits": "Ritual. Synergy.",
+  "level": 1,
+  "permanent": false,
+  "weakness": false,
+  "uses": {
+    "token": "resource",
+    "type": "Charge",
+    "count": 1
+  }
+}]]
+allCards["08062"] = [[{
+  "id": "08062",
+  "type": "Asset",
+  "class": "Mystic",
+  "traits": "Ritual. Synergy.",
+  "level": 1,
+  "permanent": false,
+  "weakness": false,
+  "uses": {
+    "token": "resource",
+    "type": "Charge",
+    "count": 1
+  }
+}]]
+allCards["Winds of Power (1)|"] = [[{
+  "id": "08063",
+  "type": "Event",
+  "class": "Mystic",
+  "traits": "Spirit.",
+  "level": 1,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08063"] = [[{
+  "id": "08063",
+  "type": "Event",
+  "class": "Mystic",
+  "traits": "Spirit.",
+  "level": 1,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Foresight (1)|"] = [[{
+  "id": "08064",
+  "type": "Event",
+  "class": "Mystic",
+  "traits": "Augury.",
+  "level": 1,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08064"] = [[{
+  "id": "08064",
+  "type": "Event",
+  "class": "Mystic",
+  "traits": "Augury.",
+  "level": 1,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Occult Theory (1)|"] = [[{
+  "id": "08065",
+  "type": "Skill",
+  "class": "Mystic",
+  "traits": "Practiced. Expert.",
+  "level": 1,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08065"] = [[{
+  "id": "08065",
+  "type": "Skill",
+  "class": "Mystic",
+  "traits": "Practiced. Expert.",
+  "level": 1,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Parallel Fates (2)|"] = [[{
+  "id": "08066",
+  "type": "Event",
+  "class": "Mystic",
+  "traits": "Augury.",
+  "level": 2,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08066"] = [[{
+  "id": "08066",
+  "type": "Event",
+  "class": "Mystic",
+  "traits": "Augury.",
+  "level": 2,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Astronomical Atlas (3)|"] = [[{
+  "id": "08067",
+  "type": "Asset",
+  "class": "Mystic",
+  "traits": "Item. Tome.",
+  "level": 3,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08067"] = [[{
+  "id": "08067",
+  "type": "Asset",
+  "class": "Mystic",
+  "traits": "Item. Tome.",
+  "level": 3,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Healing Words (3)|"] = [[{
+  "id": "08068",
+  "type": "Asset",
+  "class": "Mystic",
+  "traits": "Spell.",
+  "level": 3,
+  "permanent": false,
+  "weakness": false,
+  "uses": {
+    "token": "resource",
+    "type": "Charge",
+    "count": 4
+  }
+}]]
+allCards["08068"] = [[{
+  "id": "08068",
+  "type": "Asset",
+  "class": "Mystic",
+  "traits": "Spell.",
+  "level": 3,
+  "permanent": false,
+  "weakness": false,
+  "uses": {
+    "token": "resource",
+    "type": "Charge",
+    "count": 4
+  }
+}]]
+allCards["Grounded (3)|"] = [[{
+  "id": "08069",
+  "type": "Asset",
+  "class": "Mystic",
+  "traits": "Talent. Composure.",
+  "level": 3,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08069"] = [[{
+  "id": "08069",
+  "type": "Asset",
+  "class": "Mystic",
+  "traits": "Talent. Composure.",
+  "level": 3,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["True Magick (5)|Reworking Reality"] = [[{
+  "id": "08070",
+  "type": "Asset",
+  "class": "Mystic",
+  "traits": "Item. Relic. Tome.",
+  "level": 5,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08070"] = [[{
+  "id": "08070",
+  "type": "Asset",
+  "class": "Mystic",
+  "traits": "Item. Relic. Tome.",
+  "level": 5,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["True Magick (5)|"] = [[{
+  "id": "08070",
+  "type": "Asset",
+  "class": "Mystic",
+  "traits": "Item. Relic. Tome.",
+  "level": 5,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Short Supply|"] = [[{
+  "id": "08071",
+  "type": "Asset",
+  "class": "Survivor",
+  "traits": "Talent.",
+  "level": 0,
+  "permanent": true,
+  "weakness": false
+}]]
+allCards["08071"] = [[{
+  "id": "08071",
+  "type": "Asset",
+  "class": "Survivor",
+  "traits": "Talent.",
+  "level": 0,
+  "permanent": true,
+  "weakness": false
+}]]
+allCards["Schoffner's Catalogue|"] = [[{
+  "id": "08072",
+  "type": "Asset",
+  "class": "Survivor",
+  "traits": "Item. Tome.",
+  "level": 0,
+  "permanent": false,
+  "weakness": false,
+  "uses": {
+    "token": "resource",
+    "type": "Secret",
+    "count": 5
+  }
+}]]
+allCards["08072"] = [[{
+  "id": "08072",
+  "type": "Asset",
+  "class": "Survivor",
+  "traits": "Item. Tome.",
+  "level": 0,
+  "permanent": false,
+  "weakness": false,
+  "uses": {
+    "token": "resource",
+    "type": "Secret",
+    "count": 5
+  }
+}]]
+allCards["Bandages|"] = [[{
+  "id": "08073",
+  "type": "Asset",
+  "class": "Survivor",
+  "traits": "Item.",
+  "level": 0,
+  "permanent": false,
+  "weakness": false,
+  "uses": {
+    "token": "resource",
+    "type": "Supply",
+    "count": 3
+  }
+}]]
+allCards["08073"] = [[{
+  "id": "08073",
+  "type": "Asset",
+  "class": "Survivor",
+  "traits": "Item.",
+  "level": 0,
+  "permanent": false,
+  "weakness": false,
+  "uses": {
+    "token": "resource",
+    "type": "Supply",
+    "count": 3
+  }
+}]]
+allCards["Jury-Rig|"] = [[{
+  "id": "08074",
+  "type": "Event",
+  "class": "Survivor",
+  "level": 0,
+  "permanent": false,
+  "weakness": false,
+  "uses": {
+    "token": "resource",
+    "type": "Durability",
+    "count": 3
+  }
+}]]
+allCards["08074"] = [[{
+  "id": "08074",
+  "type": "Event",
+  "class": "Survivor",
+  "level": 0,
+  "permanent": false,
+  "weakness": false,
+  "uses": {
+    "token": "resource",
+    "type": "Durability",
+    "count": 3
+  }
+}]]
+allCards["Bangle of Jinxes (1)|"] = [[{
+  "id": "08075",
+  "type": "Asset",
+  "class": "Survivor",
+  "traits": "Item. Charm. Cursed.",
+  "level": 1,
+  "permanent": false,
+  "weakness": false,
+  "uses": {
+    "token": "resource",
+    "type": "Charge",
+    "count": 1
+  }
+}]]
+allCards["08075"] = [[{
+  "id": "08075",
+  "type": "Asset",
+  "class": "Survivor",
+  "traits": "Item. Charm. Cursed.",
+  "level": 1,
+  "permanent": false,
+  "weakness": false,
+  "uses": {
+    "token": "resource",
+    "type": "Charge",
+    "count": 1
+  }
+}]]
+allCards["Burn After Reading (1)|"] = [[{
+  "id": "08076",
+  "type": "Event",
+  "class": "Survivor",
+  "level": 1,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08076"] = [[{
+  "id": "08076",
+  "type": "Event",
+  "class": "Survivor",
+  "level": 1,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Strength in Numbers (1)|"] = [[{
+  "id": "08077",
+  "type": "Skill",
+  "class": "Survivor",
+  "traits": "Innate. Synergy.",
+  "level": 1,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08077"] = [[{
+  "id": "08077",
+  "type": "Skill",
+  "class": "Survivor",
+  "traits": "Innate. Synergy.",
+  "level": 1,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Dauntless Spirit (1)|"] = [[{
+  "id": "08078",
+  "type": "Skill",
+  "class": "Survivor",
+  "traits": "Innate. Developed.",
+  "level": 1,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08078"] = [[{
+  "id": "08078",
+  "type": "Skill",
+  "class": "Survivor",
+  "traits": "Innate. Developed.",
+  "level": 1,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Blood Will Have Blood (2)|"] = [[{
+  "id": "08079",
+  "type": "Event",
+  "class": "Survivor",
+  "traits": "Pact. Cursed.",
+  "level": 2,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08079"] = [[{
+  "id": "08079",
+  "type": "Event",
+  "class": "Survivor",
+  "traits": "Pact. Cursed.",
+  "level": 2,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Fire Extinguisher (3)|"] = [[{
+  "id": "08080",
+  "type": "Asset",
+  "class": "Survivor",
+  "traits": "Item. Tool. Melee.",
+  "level": 3,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08080"] = [[{
+  "id": "08080",
+  "type": "Asset",
+  "class": "Survivor",
+  "traits": "Item. Tool. Melee.",
+  "level": 3,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Plucky (3)|"] = [[{
+  "id": "08081",
+  "type": "Asset",
+  "class": "Survivor",
+  "traits": "Talent. Composure.",
+  "level": 3,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08081"] = [[{
+  "id": "08081",
+  "type": "Asset",
+  "class": "Survivor",
+  "traits": "Talent. Composure.",
+  "level": 3,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Fend Off (3)|"] = [[{
+  "id": "08082",
+  "type": "Event",
+  "class": "Survivor",
+  "traits": "Gambit. Trick.",
+  "level": 3,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08082"] = [[{
+  "id": "08082",
+  "type": "Event",
+  "class": "Survivor",
+  "traits": "Gambit. Trick.",
+  "level": 3,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Medical Student|"] = [[{
+  "id": "08083",
+  "type": "Asset",
+  "class": "Guardian|Seeker",
+  "traits": "Ally. Miskatonic. Science.",
+  "level": 0,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08083"] = [[{
+  "id": "08083",
+  "type": "Asset",
+  "class": "Guardian|Seeker",
+  "traits": "Ally. Miskatonic. Science.",
+  "level": 0,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["On the Trail (1)|"] = [[{
+  "id": "08084",
+  "type": "Event",
+  "class": "Guardian|Seeker",
+  "traits": "Insight. Tactic.",
+  "level": 1,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08084"] = [[{
+  "id": "08084",
+  "type": "Event",
+  "class": "Guardian|Seeker",
+  "traits": "Insight. Tactic.",
+  "level": 1,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["On the Trail (3)|"] = [[{
+  "id": "08085",
+  "type": "Event",
+  "class": "Guardian|Seeker",
+  "traits": "Insight. Tactic.",
+  "level": 3,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08085"] = [[{
+  "id": "08085",
+  "type": "Event",
+  "class": "Guardian|Seeker",
+  "traits": "Insight. Tactic.",
+  "level": 3,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Michael Leigh (5)|Experienced Hunter"] = [[{
+  "id": "08086",
+  "type": "Asset",
+  "class": "Guardian|Seeker",
+  "traits": "Ally. Detective.",
+  "level": 5,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08086"] = [[{
+  "id": "08086",
+  "type": "Asset",
+  "class": "Guardian|Seeker",
+  "traits": "Ally. Detective.",
+  "level": 5,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Michael Leigh (5)|"] = [[{
+  "id": "08086",
+  "type": "Asset",
+  "class": "Guardian|Seeker",
+  "traits": "Ally. Detective.",
+  "level": 5,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Snipe (1)|"] = [[{
+  "id": "08087",
+  "type": "Event",
+  "class": "Guardian|Rogue",
+  "traits": "Tactic.",
+  "level": 1,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08087"] = [[{
+  "id": "08087",
+  "type": "Event",
+  "class": "Guardian|Rogue",
+  "traits": "Tactic.",
+  "level": 1,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Old Shotgun (2)|"] = [[{
+  "id": "08088",
+  "type": "Asset",
+  "class": "Guardian|Rogue",
+  "traits": "Item. Weapon. Firearm.",
+  "level": 2,
+  "permanent": false,
+  "weakness": false,
+  "uses": {
+    "token": "resource",
+    "type": "Ammo",
+    "count": 0
+  }
+}]]
+allCards["08088"] = [[{
+  "id": "08088",
+  "type": "Asset",
+  "class": "Guardian|Rogue",
+  "traits": "Item. Weapon. Firearm.",
+  "level": 2,
+  "permanent": false,
+  "weakness": false,
+  "uses": {
+    "token": "resource",
+    "type": "Ammo",
+    "count": 0
+  }
+}]]
+allCards["Quickdraw Holster (4)|"] = [[{
+  "id": "08089",
+  "type": "Asset",
+  "class": "Guardian|Rogue",
+  "traits": "Item. Tool. Illicit.",
+  "level": 4,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08089"] = [[{
+  "id": "08089",
+  "type": "Asset",
+  "class": "Guardian|Rogue",
+  "traits": "Item. Tool. Illicit.",
+  "level": 4,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Brand of Cthugha (1)|"] = [[{
+  "id": "08090",
+  "type": "Asset",
+  "class": "Guardian|Mystic",
+  "traits": "Spell.",
+  "level": 1,
+  "permanent": false,
+  "weakness": false,
+  "uses": {
+    "token": "resource",
+    "type": "Charge",
+    "count": 6
+  }
+}]]
+allCards["08090"] = [[{
+  "id": "08090",
+  "type": "Asset",
+  "class": "Guardian|Mystic",
+  "traits": "Spell.",
+  "level": 1,
+  "permanent": false,
+  "weakness": false,
+  "uses": {
+    "token": "resource",
+    "type": "Charge",
+    "count": 6
+  }
+}]]
+allCards["Nkosi Mabati (3)|Enigmatic Warlock"] = [[{
+  "id": "08091",
+  "type": "Asset",
+  "class": "Guardian|Mystic",
+  "traits": "Ally. Sorcerer.",
+  "level": 3,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08091"] = [[{
+  "id": "08091",
+  "type": "Asset",
+  "class": "Guardian|Mystic",
+  "traits": "Ally. Sorcerer.",
+  "level": 3,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Nkosi Mabati (3)|"] = [[{
+  "id": "08091",
+  "type": "Asset",
+  "class": "Guardian|Mystic",
+  "traits": "Ally. Sorcerer.",
+  "level": 3,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Brand of Cthugha (4)|"] = [[{
+  "id": "08092",
+  "type": "Asset",
+  "class": "Guardian|Mystic",
+  "traits": "Spell.",
+  "level": 4,
+  "permanent": false,
+  "weakness": false,
+  "uses": {
+    "token": "resource",
+    "type": "Charge",
+    "count": 9
+  }
+}]]
+allCards["08092"] = [[{
+  "id": "08092",
+  "type": "Asset",
+  "class": "Guardian|Mystic",
+  "traits": "Spell.",
+  "level": 4,
+  "permanent": false,
+  "weakness": false,
+  "uses": {
+    "token": "resource",
+    "type": "Charge",
+    "count": 9
+  }
+}]]
+allCards["Cyclopean Hammer (5)|"] = [[{
+  "id": "08093",
+  "type": "Asset",
+  "class": "Guardian|Mystic",
+  "traits": "Item. Relic. Weapon. Melee.",
+  "level": 5,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08093"] = [[{
+  "id": "08093",
+  "type": "Asset",
+  "class": "Guardian|Mystic",
+  "traits": "Item. Relic. Weapon. Melee.",
+  "level": 5,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Sledgehammer|"] = [[{
+  "id": "08094",
+  "type": "Asset",
+  "class": "Guardian|Survivor",
+  "traits": "Item. Tool. Weapon. Melee.",
+  "level": 0,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08094"] = [[{
+  "id": "08094",
+  "type": "Asset",
+  "class": "Guardian|Survivor",
+  "traits": "Item. Tool. Weapon. Melee.",
+  "level": 0,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Protective Gear (2)|"] = [[{
+  "id": "08095",
+  "type": "Asset",
+  "class": "Guardian|Survivor",
+  "traits": "Item. Armor.",
+  "level": 2,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08095"] = [[{
+  "id": "08095",
+  "type": "Asset",
+  "class": "Guardian|Survivor",
+  "traits": "Item. Armor.",
+  "level": 2,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Sledgehammer (4)|"] = [[{
+  "id": "08096",
+  "type": "Asset",
+  "class": "Guardian|Survivor",
+  "traits": "Item. Tool. Weapon. Melee.",
+  "level": 4,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08096"] = [[{
+  "id": "08096",
+  "type": "Asset",
+  "class": "Guardian|Survivor",
+  "traits": "Item. Tool. Weapon. Melee.",
+  "level": 4,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Pocket Telescope|"] = [[{
+  "id": "08097",
+  "type": "Asset",
+  "class": "Seeker|Rogue",
+  "traits": "Item. Tool.",
+  "level": 0,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08097"] = [[{
+  "id": "08097",
+  "type": "Asset",
+  "class": "Seeker|Rogue",
+  "traits": "Item. Tool.",
+  "level": 0,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Eon Chart (1)|"] = [[{
+  "id": "08098",
+  "type": "Asset",
+  "class": "Seeker|Rogue",
+  "traits": "Item. Relic.",
+  "level": 1,
+  "permanent": false,
+  "weakness": false,
+  "uses": {
+    "token": "resource",
+    "type": "Secret",
+    "count": 3
+  }
+}]]
+allCards["08098"] = [[{
+  "id": "08098",
+  "type": "Asset",
+  "class": "Seeker|Rogue",
+  "traits": "Item. Relic.",
+  "level": 1,
+  "permanent": false,
+  "weakness": false,
+  "uses": {
+    "token": "resource",
+    "type": "Secret",
+    "count": 3
+  }
+}]]
+allCards["Gen� Beauregard (3)|Intrepid Explorer"] = [[{
+  "id": "08099",
+  "type": "Asset",
+  "class": "Seeker|Rogue",
+  "level": 3,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08099"] = [[{
+  "id": "08099",
+  "type": "Asset",
+  "class": "Seeker|Rogue",
+  "level": 3,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Gen� Beauregard (3)|"] = [[{
+  "id": "08099",
+  "type": "Asset",
+  "class": "Seeker|Rogue",
+  "level": 3,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Eon Chart (4)|"] = [[{
+  "id": "08100",
+  "type": "Asset",
+  "class": "Seeker|Rogue",
+  "traits": "Item. Relic.",
+  "level": 4,
+  "permanent": false,
+  "weakness": false,
+  "uses": {
+    "token": "resource",
+    "type": "Secret",
+    "count": 3
+  }
+}]]
+allCards["08100"] = [[{
+  "id": "08100",
+  "type": "Asset",
+  "class": "Seeker|Rogue",
+  "traits": "Item. Relic.",
+  "level": 4,
+  "permanent": false,
+  "weakness": false,
+  "uses": {
+    "token": "resource",
+    "type": "Secret",
+    "count": 3
+  }
+}]]
+allCards["Divination (1)|"] = [[{
+  "id": "08101",
+  "type": "Asset",
+  "class": "Seeker|Mystic",
+  "traits": "Spell. Augury.",
+  "level": 1,
+  "permanent": false,
+  "weakness": false,
+  "uses": {
+    "token": "resource",
+    "type": "Charge",
+    "count": 4
+  }
+}]]
+allCards["08101"] = [[{
+  "id": "08101",
+  "type": "Asset",
+  "class": "Seeker|Mystic",
+  "traits": "Spell. Augury.",
+  "level": 1,
+  "permanent": false,
+  "weakness": false,
+  "uses": {
+    "token": "resource",
+    "type": "Charge",
+    "count": 4
+  }
+}]]
+allCards["Protecting the Anirniq (2)|"] = [[{
+  "id": "08102",
+  "type": "Event",
+  "class": "Seeker|Mystic",
+  "traits": "Ritual.",
+  "level": 2,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08102"] = [[{
+  "id": "08102",
+  "type": "Event",
+  "class": "Seeker|Mystic",
+  "traits": "Ritual.",
+  "level": 2,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Divination (4)|"] = [[{
+  "id": "08103",
+  "type": "Asset",
+  "class": "Seeker|Mystic",
+  "traits": "Spell. Augury.",
+  "level": 4,
+  "permanent": false,
+  "weakness": false,
+  "uses": {
+    "token": "resource",
+    "type": "Charge",
+    "count": 6
+  }
+}]]
+allCards["08103"] = [[{
+  "id": "08103",
+  "type": "Asset",
+  "class": "Seeker|Mystic",
+  "traits": "Spell. Augury.",
+  "level": 4,
+  "permanent": false,
+  "weakness": false,
+  "uses": {
+    "token": "resource",
+    "type": "Charge",
+    "count": 6
+  }
+}]]
+allCards["Professor William Webb|Finder of Hidden Connections"] = [[{
+  "id": "08104",
+  "type": "Asset",
+  "class": "Seeker|Survivor",
+  "traits": "Ally. Miskatonic.",
+  "level": 0,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08104"] = [[{
+  "id": "08104",
+  "type": "Asset",
+  "class": "Seeker|Survivor",
+  "traits": "Ally. Miskatonic.",
+  "level": 0,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Professor William Webb|"] = [[{
+  "id": "08104",
+  "type": "Asset",
+  "class": "Seeker|Survivor",
+  "traits": "Ally. Miskatonic.",
+  "level": 0,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Ice Pick (1)|"] = [[{
+  "id": "08105",
+  "type": "Asset",
+  "class": "Seeker|Survivor",
+  "traits": "Item. Tool. Melee.",
+  "level": 1,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08105"] = [[{
+  "id": "08105",
+  "type": "Asset",
+  "class": "Seeker|Survivor",
+  "traits": "Item. Tool. Melee.",
+  "level": 1,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Professor William Webb (2)|Finder of Hidden Connections"] = [[{
+  "id": "08106",
+  "type": "Asset",
+  "class": "Seeker|Survivor",
+  "traits": "Ally. Miskatonic.",
+  "level": 2,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08106"] = [[{
+  "id": "08106",
+  "type": "Asset",
+  "class": "Seeker|Survivor",
+  "traits": "Ally. Miskatonic.",
+  "level": 2,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Professor William Webb (2)|"] = [[{
+  "id": "08106",
+  "type": "Asset",
+  "class": "Seeker|Survivor",
+  "traits": "Ally. Miskatonic.",
+  "level": 2,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Ice Pick (3)|"] = [[{
+  "id": "08107",
+  "type": "Asset",
+  "class": "Seeker|Survivor",
+  "traits": "Item. Tool. Melee.",
+  "level": 3,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08107"] = [[{
+  "id": "08107",
+  "type": "Asset",
+  "class": "Seeker|Survivor",
+  "traits": "Item. Tool. Melee.",
+  "level": 3,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Ethereal Slip|"] = [[{
+  "id": "08108",
+  "type": "Event",
+  "class": "Rogue|Mystic",
+  "traits": "Spell. Trick.",
+  "level": 0,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08108"] = [[{
+  "id": "08108",
+  "type": "Event",
+  "class": "Rogue|Mystic",
+  "traits": "Spell. Trick.",
+  "level": 0,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Blur (1)|"] = [[{
+  "id": "08109",
+  "type": "Asset",
+  "class": "Rogue|Mystic",
+  "traits": "Spell.",
+  "level": 1,
+  "permanent": false,
+  "weakness": false,
+  "uses": {
+    "token": "resource",
+    "type": "Charge",
+    "count": 3
+  }
+}]]
+allCards["08109"] = [[{
+  "id": "08109",
+  "type": "Asset",
+  "class": "Rogue|Mystic",
+  "traits": "Spell.",
+  "level": 1,
+  "permanent": false,
+  "weakness": false,
+  "uses": {
+    "token": "resource",
+    "type": "Charge",
+    "count": 3
+  }
+}]]
+allCards["Ethereal Slip (2)|"] = [[{
+  "id": "08110",
+  "type": "Event",
+  "class": "Rogue|Mystic",
+  "traits": "Spell. Trick.",
+  "level": 2,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08110"] = [[{
+  "id": "08110",
+  "type": "Event",
+  "class": "Rogue|Mystic",
+  "traits": "Spell. Trick.",
+  "level": 2,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Blur (4)|"] = [[{
+  "id": "08111",
+  "type": "Asset",
+  "class": "Rogue|Mystic",
+  "traits": "Spell.",
+  "level": 4,
+  "permanent": false,
+  "weakness": false,
+  "uses": {
+    "token": "resource",
+    "type": "Charge",
+    "count": 4
+  }
+}]]
+allCards["08111"] = [[{
+  "id": "08111",
+  "type": "Asset",
+  "class": "Rogue|Mystic",
+  "traits": "Spell.",
+  "level": 4,
+  "permanent": false,
+  "weakness": false,
+  "uses": {
+    "token": "resource",
+    "type": "Charge",
+    "count": 4
+  }
+}]]
+allCards["\"Hit me!\"|"] = [[{
+  "id": "08112",
+  "type": "Event",
+  "class": "Rogue|Survivor",
+  "traits": "Fortune. Gambit.",
+  "level": 0,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08112"] = [[{
+  "id": "08112",
+  "type": "Event",
+  "class": "Rogue|Survivor",
+  "traits": "Fortune. Gambit.",
+  "level": 0,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Unscrupulous Loan (3)|"] = [[{
+  "id": "08113",
+  "type": "Asset",
+  "class": "Rogue|Survivor",
+  "traits": "Pact.",
+  "level": 3,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08113"] = [[{
+  "id": "08113",
+  "type": "Asset",
+  "class": "Rogue|Survivor",
+  "traits": "Pact.",
+  "level": 3,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Precious Memento (4)|From a Former Life"] = [[{
+  "id": "08114",
+  "type": "Asset",
+  "class": "Rogue|Survivor",
+  "traits": "Item. Charm. Blessed.",
+  "level": 4,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08114"] = [[{
+  "id": "08114",
+  "type": "Asset",
+  "class": "Rogue|Survivor",
+  "traits": "Item. Charm. Blessed.",
+  "level": 4,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Precious Memento (4)|"] = [[{
+  "id": "08114",
+  "type": "Asset",
+  "class": "Rogue|Survivor",
+  "traits": "Item. Charm. Blessed.",
+  "level": 4,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Precious Memento (4)|From a Future Life"] = [[{
+  "id": "08115",
+  "type": "Asset",
+  "class": "Rogue|Survivor",
+  "traits": "Item. Charm. Cursed.",
+  "level": 4,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08115"] = [[{
+  "id": "08115",
+  "type": "Asset",
+  "class": "Rogue|Survivor",
+  "traits": "Item. Charm. Cursed.",
+  "level": 4,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Precious Memento (4)|"] = [[{
+  "id": "08115",
+  "type": "Asset",
+  "class": "Rogue|Survivor",
+  "traits": "Item. Charm. Cursed.",
+  "level": 4,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Talisman of Protection|"] = [[{
+  "id": "08116",
+  "type": "Asset",
+  "class": "Mystic|Survivor",
+  "traits": "Item. Charm.",
+  "level": 0,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08116"] = [[{
+  "id": "08116",
+  "type": "Asset",
+  "class": "Mystic|Survivor",
+  "traits": "Item. Charm.",
+  "level": 0,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Earthly Serenity (1)|"] = [[{
+  "id": "08117",
+  "type": "Asset",
+  "class": "Mystic|Survivor",
+  "traits": "Spell.",
+  "level": 1,
+  "permanent": false,
+  "weakness": false,
+  "uses": {
+    "token": "resource",
+    "type": "Charge",
+    "count": 4
+  }
+}]]
+allCards["08117"] = [[{
+  "id": "08117",
+  "type": "Asset",
+  "class": "Mystic|Survivor",
+  "traits": "Spell.",
+  "level": 1,
+  "permanent": false,
+  "weakness": false,
+  "uses": {
+    "token": "resource",
+    "type": "Charge",
+    "count": 4
+  }
+}]]
+allCards["Enchanted Bow (2)|"] = [[{
+  "id": "08118",
+  "type": "Asset",
+  "class": "Mystic|Survivor",
+  "traits": "Spell. Blessed. Weapon. Ranged.",
+  "level": 2,
+  "permanent": false,
+  "weakness": false,
+  "uses": {
+    "token": "resource",
+    "type": "Charge",
+    "count": 3
+  }
+}]]
+allCards["08118"] = [[{
+  "id": "08118",
+  "type": "Asset",
+  "class": "Mystic|Survivor",
+  "traits": "Spell. Blessed. Weapon. Ranged.",
+  "level": 2,
+  "permanent": false,
+  "weakness": false,
+  "uses": {
+    "token": "resource",
+    "type": "Charge",
+    "count": 3
+  }
+}]]
+allCards["Earthly Serenity (4)|"] = [[{
+  "id": "08119",
+  "type": "Asset",
+  "class": "Mystic|Survivor",
+  "traits": "Spell.",
+  "level": 4,
+  "permanent": false,
+  "weakness": false,
+  "uses": {
+    "token": "resource",
+    "type": "Charge",
+    "count": 6
+  }
+}]]
+allCards["08119"] = [[{
+  "id": "08119",
+  "type": "Asset",
+  "class": "Mystic|Survivor",
+  "traits": "Spell.",
+  "level": 4,
+  "permanent": false,
+  "weakness": false,
+  "uses": {
+    "token": "resource",
+    "type": "Charge",
+    "count": 6
+  }
+}]]
+allCards["Prophetic (3)|"] = [[{
+  "id": "08120",
+  "type": "Asset",
+  "class": "Guardian|Mystic|Survivor",
+  "traits": "Talent.",
+  "level": 3,
+  "permanent": false,
+  "weakness": false,
+  "uses": {
+    "token": "resource",
+    "type": "Resource",
+    "count": 2
+  }
+}]]
+allCards["08120"] = [[{
+  "id": "08120",
+  "type": "Asset",
+  "class": "Guardian|Mystic|Survivor",
+  "traits": "Talent.",
+  "level": 3,
+  "permanent": false,
+  "weakness": false,
+  "uses": {
+    "token": "resource",
+    "type": "Resource",
+    "count": 2
+  }
+}]]
+allCards["Sleuth (3)|"] = [[{
+  "id": "08121",
+  "type": "Asset",
+  "class": "Guardian|Seeker|Mystic",
+  "traits": "Talent.",
+  "level": 3,
+  "permanent": false,
+  "weakness": false,
+  "uses": {
+    "token": "resource",
+    "type": "Resource",
+    "count": 2
+  }
+}]]
+allCards["08121"] = [[{
+  "id": "08121",
+  "type": "Asset",
+  "class": "Guardian|Seeker|Mystic",
+  "traits": "Talent.",
+  "level": 3,
+  "permanent": false,
+  "weakness": false,
+  "uses": {
+    "token": "resource",
+    "type": "Resource",
+    "count": 2
+  }
+}]]
+allCards["Bruiser (3)|"] = [[{
+  "id": "08122",
+  "type": "Asset",
+  "class": "Guardian|Rogue|Survivor",
+  "traits": "Talent.",
+  "level": 3,
+  "permanent": false,
+  "weakness": false,
+  "uses": {
+    "token": "resource",
+    "type": "Resource",
+    "count": 2
+  }
+}]]
+allCards["08122"] = [[{
+  "id": "08122",
+  "type": "Asset",
+  "class": "Guardian|Rogue|Survivor",
+  "traits": "Talent.",
+  "level": 3,
+  "permanent": false,
+  "weakness": false,
+  "uses": {
+    "token": "resource",
+    "type": "Resource",
+    "count": 2
+  }
+}]]
+allCards["Crafty (3)|"] = [[{
+  "id": "08123",
+  "type": "Asset",
+  "class": "Seeker|Rogue|Survivor",
+  "traits": "Talent.",
+  "level": 3,
+  "permanent": false,
+  "weakness": false,
+  "uses": {
+    "token": "resource",
+    "type": "Resource",
+    "count": 2
+  }
+}]]
+allCards["08123"] = [[{
+  "id": "08123",
+  "type": "Asset",
+  "class": "Seeker|Rogue|Survivor",
+  "traits": "Talent.",
+  "level": 3,
+  "permanent": false,
+  "weakness": false,
+  "uses": {
+    "token": "resource",
+    "type": "Resource",
+    "count": 2
+  }
+}]]
+allCards["Antiquary (3)|"] = [[{
+  "id": "08124",
+  "type": "Asset",
+  "class": "Seeker|Rogue|Mystic",
+  "traits": "Talent.",
+  "level": 3,
+  "permanent": false,
+  "weakness": false,
+  "uses": {
+    "token": "resource",
+    "type": "Resource",
+    "count": 2
+  }
+}]]
+allCards["08124"] = [[{
+  "id": "08124",
+  "type": "Asset",
+  "class": "Seeker|Rogue|Mystic",
+  "traits": "Talent.",
+  "level": 3,
+  "permanent": false,
+  "weakness": false,
+  "uses": {
+    "token": "resource",
+    "type": "Resource",
+    "count": 2
+  }
+}]]
+allCards["In the Thick of It|"] = [[{
+  "id": "08125",
+  "type": "Asset",
+  "class": "Neutral",
+  "traits": "Curse.",
+  "level": 0,
+  "permanent": true,
+  "weakness": false
+}]]
+allCards["08125"] = [[{
+  "id": "08125",
+  "type": "Asset",
+  "class": "Neutral",
+  "traits": "Curse.",
+  "level": 0,
+  "permanent": true,
+  "weakness": false
+}]]
+allCards["Heavy Furs|"] = [[{
+  "id": "08126",
+  "type": "Asset",
+  "class": "Neutral",
+  "traits": "Item. Armor.",
+  "level": 0,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08126"] = [[{
+  "id": "08126",
+  "type": "Asset",
+  "class": "Neutral",
+  "traits": "Item. Armor.",
+  "level": 0,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Sled Dog|"] = [[{
+  "id": "08127",
+  "type": "Asset",
+  "class": "Neutral",
+  "traits": "Ally. Creature.",
+  "level": 0,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08127"] = [[{
+  "id": "08127",
+  "type": "Asset",
+  "class": "Neutral",
+  "traits": "Ally. Creature.",
+  "level": 0,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Rod of Animalism (1)|"] = [[{
+  "id": "08128",
+  "type": "Asset",
+  "class": "Neutral",
+  "traits": "Item. Relic.",
+  "level": 1,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08128"] = [[{
+  "id": "08128",
+  "type": "Asset",
+  "class": "Neutral",
+  "traits": "Item. Relic.",
+  "level": 1,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Call for Backup (2)|"] = [[{
+  "id": "08129",
+  "type": "Event",
+  "class": "Neutral",
+  "traits": "Favor. Synergy.",
+  "level": 2,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["08129"] = [[{
+  "id": "08129",
+  "type": "Event",
+  "class": "Neutral",
+  "traits": "Favor. Synergy.",
+  "level": 2,
+  "permanent": false,
+  "weakness": false
+}]]
+allCards["Arm Injury|"] = [[{
+  "id": "08130",
+  "type": "Treachery",
+  "class": "Neutral",
+  "traits": "Injury.",
+  "permanent": false,
+  "weakness": true,
+  "basicWeaknessCount": 1
+}]]
+allCards["08130"] = [[{
+  "id": "08130",
+  "type": "Treachery",
+  "class": "Neutral",
+  "traits": "Injury.",
+  "permanent": false,
+  "weakness": true,
+  "basicWeaknessCount": 1
+}]]
+allCards["Leg Injury|"] = [[{
+  "id": "08131",
+  "type": "Treachery",
+  "class": "Neutral",
+  "traits": "Injury.",
+  "permanent": false,
+  "weakness": true,
+  "basicWeaknessCount": 1
+}]]
+allCards["08131"] = [[{
+  "id": "08131",
+  "type": "Treachery",
+  "class": "Neutral",
+  "traits": "Injury.",
+  "permanent": false,
+  "weakness": true,
+  "basicWeaknessCount": 1
+}]]
+allCards["Panic|"] = [[{
+  "id": "08132",
+  "type": "Treachery",
+  "class": "Neutral",
+  "traits": "Madness.",
+  "permanent": false,
+  "weakness": true,
+  "basicWeaknessCount": 1
+}]]
+allCards["08132"] = [[{
+  "id": "08132",
+  "type": "Treachery",
+  "class": "Neutral",
+  "traits": "Madness.",
+  "permanent": false,
+  "weakness": true,
+  "basicWeaknessCount": 1
+}]]
+allCards["Stupor|"] = [[{
+  "id": "08133",
+  "type": "Treachery",
+  "class": "Neutral",
+  "traits": "Madness.",
+  "permanent": false,
+  "weakness": true,
+  "basicWeaknessCount": 1
+}]]
+allCards["08133"] = [[{
+  "id": "08133",
+  "type": "Treachery",
+  "class": "Neutral",
+  "traits": "Madness.",
+  "permanent": false,
+  "weakness": true,
+  "basicWeaknessCount": 1
 }]]
