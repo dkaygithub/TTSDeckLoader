@@ -19,6 +19,6 @@ function buttonClick_draw()
   local card = allCardsBag.call("getCardById", { id = weaknessId })
   spawnObjectData({
     data = card.data,
-    position = self.positionToWorld({0, 1, 4.5}),
+    position = self.positionToWorld({0, 1, 5.5}),
     rotation = self.getRotation()})
 end

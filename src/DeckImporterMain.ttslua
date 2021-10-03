@@ -438,7 +438,7 @@ function handleAncestralKnowledge(cardList)
     for i = 1,5 do
       -- Move 5 random skills to SetAside3
       local skillListIndex = math.random(#skillList)
-      cardList[skillList[skillListIndex]].zone = "SetAside3"
+      cardList[skillList[skillListIndex]].zone = "UnderSetAside3"
       table.remove(skillList, skillListIndex)
     end
   end

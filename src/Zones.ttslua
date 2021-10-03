@@ -71,9 +71,11 @@ do
   Zones["White"]["SetAside1"] = {2.004500,0,-0.520315}
   Zones["White"]["SetAside2"] = {2.004500,0,0.042552}
   Zones["White"]["SetAside3"] = {2.004500,0,0.605419}
+  Zones["White"]["UnderSetAside3"] = {2.154500,0,0.805419}
   Zones["White"]["SetAside4"] = {2.434500,0,-0.520315}
   Zones["White"]["SetAside5"] = {2.434500,0,0.042552}
   Zones["White"]["SetAside6"] = {2.434500,0,0.605419}
+  Zones["White"]["UnderSetAside6"] = {2.584500,0,0.805419}
   Zones["Orange"] = { }
   Zones["Orange"]["Investigator"] = commonZones["Investigator"]
   Zones["Orange"]["Minicard"] = commonZones["Minicard"]
@@ -96,9 +98,11 @@ do
   Zones["Orange"]["SetAside1"] = {-2.004500,0,-0.520315}
   Zones["Orange"]["SetAside2"] = {-2.004500,0,0.042552}
   Zones["Orange"]["SetAside3"] = {-2.004500,0,0.605419}
+  Zones["Orange"]["UnderSetAside3"] = {-2.154500,0,0.80419}
   Zones["Orange"]["SetAside4"] = {-2.434500,0,-0.520315}
   Zones["Orange"]["SetAside5"] = {-2.434500,0,0.042552}
   Zones["Orange"]["SetAside6"] = {-2.434500,0,0.605419}
+  Zones["Orange"]["UnderSetAside6"] = {-2.584500,0,0.80419}
 
   -- Green positions are the same as White, and Red the same as orange, so we
   -- can just point these at the White/Orange definitions
