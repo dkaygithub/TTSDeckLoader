@@ -12,6 +12,17 @@ function onLoad()
   Wait.frames(startIndexBuild, 30)
 end
 
+-- Called by Hotfix bags when they load.  If we are still loading indexes, then
+-- the all cards and hotfix bags are being loaded together, and we can ignore
+-- this call as the hotfix will be included in the initial indexing.  If it is
+-- called once indexing is complete it means the hotfix bag has been added
+-- later, and we should rebuild the index to integrate the hotfix bag.
+function rebuildIndexForHotfix()
+  if (indexingDone) then
+    startIndexBuild()
+  end
+end
+
 -- Resets all current bag indexes
 function clearIndexes()
   indexingDone = false
