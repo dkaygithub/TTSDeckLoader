@@ -125,7 +125,27 @@
       height="150"
       color="#000000"
       fontSize="48"
-      alignment="UpperLeft"><b>GUID to move from:</b></Text>
+      alignment="UpperLeft"><b>GUID to move/replace from:</b></Text>
+    <ToggleGroup
+      offsetXY="3 -1140"
+      rectAlignment="UpperRight"
+      width="400"
+      height="50">
+      <HorizontalLayout spacing="20">
+        <ToggleButton
+          width="200"
+          height="50"
+          onValueChanged="setMoveMode"
+          textAlignment="MiddleCenter"
+          fontSize="30">Move</ToggleButton>
+        <ToggleButton
+          width="200"
+          height="50"
+          onValueChanged="setReplaceMode"
+          textAlignment="MiddleCenter"
+          fontSize="30">Replace</ToggleButton>
+      </HorizontalLayout>
+    </ToggleGroup>
     <InputField
       offsetXY="200 -1295"
       rectAlignment="UpperCenter"

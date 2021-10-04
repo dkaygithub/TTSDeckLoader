@@ -4,6 +4,7 @@ local tagTargetGuid = ""
 local verifyTargetGuid = ""
 local moveTargetGuid = ""
 local allCardsBagGuid = ""
+local mode = "move"
 
 function allCardsGuidChanged(player, value)
   allCardsBagGuid = value
@@ -148,7 +149,6 @@ end
 -- since we're doing it based on the container data rather than the card itself
 -- the implementation does not leverage verifySingleCard
 function verifyContainer()
-  local ids = { }
   local verifyTarget = getObjectFromGUID(verifyTargetGuid)
   log(verifyTarget)
   local checkCount = 0
@@ -157,19 +157,13 @@ function verifyContainer()
     local cardName = cardData.Nickname
     log("Checking "..cardName)
     if (cardData.GMNotes == nil or cardData.GMNotes == "") then
-      log("*** "..cardName.." has no metadata")
+      log(cardName.." has no metadata")
       failCount = failCount + 1
     else
       local metadata = JSON.decode(cardData.GMNotes)
       if (metadata.id == nil or metadata.id == "") then
-        log("*** "..cardName.." has no ID set, probable bad metadata")
+        log(cardName.." has no ID set, probable bad metadata")
         failCount = failCount + 1
-      end
-      if (ids[metadata.id]) then
-        log("*** "..cardName.." has a duplicate ID: "..metadata.id)
-        failCount = failCount + 1
-      else
-        ids[metadata.id] = true
       end
     end
     checkCount = checkCount + 1
@@ -181,7 +175,11 @@ end
 
 -- Starts the process to move all cards from one container to another
 function moveToAllCardsBag()
-  startLuaCoroutine(self, "moveCardsToBag")
+  if (mode == "move") then
+    startLuaCoroutine(self, "moveCardsToBag")
+  else
+    startLuaCoroutine(self, "replaceCardsInBag")
+  end
 end
 
 -- Coroutine to move all cards from one container to another.  The target will
@@ -222,4 +220,41 @@ function moveCardsToBag()
     end, 90)
   end
   return 1
+end
+
+function replaceCardsInBag()
+  local allCardsBag = getObjectFromGUID(allCardsBagGuid)
+  local moveFrom = getObjectFromGUID(moveTargetGuid)
+  -- Build list of Arkham IDs that need replacing
+  local replacingIdList = { }
+  for _, card in ipairs(moveFrom.getObjects()) do
+    local metadata = JSON.decode(card.gm_notes)
+    replacingIdList[metadata.id] = true
+  end
+
+  -- Go through the all cards bag and remove anything with an ID that matches
+  local bagObjects = allCardsBag.getObjects()
+  local removedPosition = self.positionToWorld({0, 0, 3})
+  local removeCount = 0
+  for i = #bagObjects, 1, -1 do
+    local metadata = JSON.decode(bagObjects[i].gm_notes)
+    if (replacingIdList[metadata.id]) then
+      allCardsBag.takeObject({ guid = bagObjects[i].guid, position = removedPosition})
+      removeCount = removeCount + 1
+    end
+  end
+  if (removeCount == #moveFrom.getObjects()) then
+    -- Use the standard move to put the new cards into the bag
+    moveCardsToBag()
+  else
+    log("Extracted "..removeCount.." objects, but "..#moveFrom.getObjects().." were in the source")
+  end
+end
+
+function setMoveMode()
+  mode = "move"
+end
+
+function setReplaceMode()
+  mode = "replace"
 end
