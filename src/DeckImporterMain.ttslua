@@ -188,8 +188,9 @@ function maybeAddInvestigatorCards(deck, slots)
   if (getUiState().investigators) then
     local investigatorId = deck.investigator_code
     slots[investigatorId.."-m"] = 1
-    local parallelFront = deck.meta ~= nil and deck.meta.alternate_front ~= nil and deck.meta.alternate_front ~= ""
-    local parallelBack = deck.meta ~= nil and deck.meta.alternate_back ~= nil  and deck.meta.alternate_back ~= ""
+    local deckMeta = JSON.decode(deck.meta)
+    local parallelFront = deckMeta ~= nil and deckMeta.alternate_front ~= nil and deckMeta.alternate_front ~= ""
+    local parallelBack = deckMeta ~= nil and deckMeta.alternate_back ~= nil  and deckMeta.alternate_back ~= ""
     if (parallelFront and parallelBack) then
       investigatorId = investigatorId.."-p"
     elseif (parallelFront) then
