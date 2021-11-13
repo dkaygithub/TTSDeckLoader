@@ -130,7 +130,11 @@ function buildSupplementalIndexes()
     local isSurvivor = false
     local isNeutral = false
     local upgradeKey
-    if (cardMetadata.class ~= nil and cardMetadata.level ~= nil) then
+    -- Excludes signature cards (which have no class or level) and alternate
+    -- ID entries
+    if (cardMetadata.class ~= nil
+        and cardMetadata.level ~= nil
+        and cardId == cardMetadata.id) then
       isGuardian = string.match(cardMetadata.class, "Guardian")
       isSeeker = string.match(cardMetadata.class, "Seeker")
       isMystic = string.match(cardMetadata.class, "Mystic")
