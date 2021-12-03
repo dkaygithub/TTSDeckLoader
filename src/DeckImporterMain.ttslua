@@ -11,6 +11,17 @@ local Zones = require("Zones")
 
 local RANDOM_WEAKNESS_ID = "01000"
 
+-- List of Arkham IDs for Tekeli-li treacheries.  There will likely not be any
+-- more of these so we're hardcoding instead of adding to the metadata
+local tekeliLiIds = { }
+tekeliLiIds["08723"] = true
+tekeliLiIds["08724"] = true
+tekeliLiIds["08725"] = true
+tekeliLiIds["08726"] = true
+tekeliLiIds["08727"] = true
+tekeliLiIds["08728"] = true
+tekeliLiIds["08729"] = true
+
 local tags = { configuration = "import_configuration_provider" }
 
 local Priority = {
@@ -298,6 +309,7 @@ function loadCards(slots, investigatorId, playerColor, commandManager, configura
     handleStartsInPlay(cardsToSpawn)
     handleAncestralKnowledge(cardsToSpawn)
     handleHunchDeck(investigatorId, cardsToSpawn, playerColor)
+    handleTekeliLi(cardsToSpawn, playerColor)
 
     -- Count the number of cards in each zone so we know if it's a deck or card.
     -- TTS's Card vs. Deck distinction requires this since we can't spawn a deck
@@ -569,6 +581,82 @@ function handleHunchDeck(investigatorId, cardList, playerColor)
       debugPrint("Built Joe's hunch deck", Priority.INFO, playerColor)
     end
   end
+end
+
+-- Checks the incoming deck and removes cards from the Tekeli-li deck if they
+-- are included in the incoming deck.
+-- Param cardList: Deck list being created
+-- Param playerColor: Color this deck is being loaded for
+function handleTekeliLi(cardList, playerColor)
+  local removeTekeliCards = { }
+  local foundTekeli = false
+  for i, card in ipairs(cardList) do
+    if (tekeliLiIds[card.metadata.id]) then
+      foundTekeli = true
+      table.insert(removeTekeliCards, card.metadata.id)
+    end
+  end
+
+  if (foundTekeli) then
+    local tekeliDeck = findTekeliLiDeck()
+    if (tekeliDeck == nil) then
+      debugPrint("Unable to find Tekeli-li deck, or multiple decks are present. "
+          .."Skipping Tekeli-li update. Please verify the Tekeli-li deck.",
+          Priority.INFO, playerColor)
+      return
+    end
+    local trash = findTrash()
+    if (trash == nil) then
+      debugPrint("Unable to find trash can.  Skipping Tekeli-li update. "
+          .."Please verify the Tekeli-li deck.", Priority.INFO, playerColor)
+      return
+    end
+    -- This will be O(n^2) but the Tekeli-li deck is small, and realistically
+    -- there shouldn't be more than a few in the player deck.  Practical
+    -- performance should remain bounded and fast enough.
+    local matchCount = 0
+    for _, tekeliId in ipairs(removeTekeliCards) do
+      for i, card in ipairs(tekeliDeck.getObjects()) do
+        local metadata = JSON.decode(card.gm_notes)
+        if (metadata.id == tekeliId) then
+          trash.putObject(tekeliDeck.takeObject({ guid = card.guid, smooth=false }))
+          matchCount = matchCount + 1
+          break
+        end
+      end
+    end
+    if (matchCount == #removeTekeliCards) then
+      debugPrint("Tekeli-li deck updated.", Priority.INFO, playerColor)
+    else
+      debugPrint("Tekeli-li deck update failed.  Please check investigator decks and verify "
+          .."the Tekeli-li deck.", Priority.INFO, playerColor)
+    end
+  end
+end
+
+-- Locates the Tekeli-li deck.  This is done via tag, and will only return an
+-- actual deck in order to avoid any cards which are moving because of other
+-- decks loading or being left on the table.
+function findTekeliLiDeck()
+  local possibleTekeli = getObjectsWithTag("TekeliLi")
+  for _, maybeDeck in ipairs(possibleTekeli) do
+    if (maybeDeck.name == "Deck") then
+      return maybeDeck
+    end
+  end
+  return nil
+end
+
+-- Locates and returns the main trash can at the top of the playmat.
+function findTrash()
+  local allObjects = getAllObjects()
+  for _, obj in ipairs(allObjects) do
+    if (obj.getName() == "Trash" and obj.getPosition().z > -3) then
+      return obj
+    end
+  end
+
+  return nil
 end
 
 -- Test method.  Loads all decks which were submitted to ArkhamDB on a given
