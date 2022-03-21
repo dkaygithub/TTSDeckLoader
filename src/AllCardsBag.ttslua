@@ -118,55 +118,57 @@ function buildSupplementalIndexes()
   for cardId, card in pairs(cardIdIndex) do
     local cardData = card.data
     local cardMetadata = card.metadata
-    -- Add card to the basic weakness list, if appropriate.  Some weaknesses have
-    -- multiple copies, and are added multiple times
-    if (cardMetadata.weakness and cardMetadata.basicWeaknessCount ~= nil) then
-      for i = 1, cardMetadata.basicWeaknessCount do
-        table.insert(basicWeaknessList, cardMetadata.id)
+    -- If the ID key and the metadata ID don't match this is a duplicate card created by an
+    -- alternate_id, and we should skip it
+    if (cardId == cardMetadata.id) then
+      -- Add card to the basic weakness list, if appropriate.  Some weaknesses have
+      -- multiple copies, and are added multiple times
+      if (cardMetadata.weakness and cardMetadata.basicWeaknessCount ~= nil) then
+        for i = 1, cardMetadata.basicWeaknessCount do
+          table.insert(basicWeaknessList, cardMetadata.id)
+        end
       end
-    end
 
-    -- Add the card to the appropriate class and level indexes
-    local isGuardian = false
-    local isSeeker = false
-    local isMystic = false
-    local isRogue = false
-    local isSurvivor = false
-    local isNeutral = false
-    local upgradeKey
-    -- Excludes signature cards (which have no class or level) and alternate
-    -- ID entries
-    if (cardMetadata.class ~= nil
-        and cardMetadata.level ~= nil
-        and cardId == cardMetadata.id) then
-      isGuardian = string.match(cardMetadata.class, "Guardian")
-      isSeeker = string.match(cardMetadata.class, "Seeker")
-      isMystic = string.match(cardMetadata.class, "Mystic")
-      isRogue = string.match(cardMetadata.class, "Rogue")
-      isSurvivor = string.match(cardMetadata.class, "Survivor")
-      isNeutral = string.match(cardMetadata.class, "Neutral")
-      if (cardMetadata.level > 0) then
-        upgradeKey = "-upgrade"
-      else
-        upgradeKey = "-level0"
-      end
-      if (isGuardian) then
-        table.insert(classAndLevelIndex["Guardian"..upgradeKey], cardMetadata.id)
-      end
-      if (isSeeker) then
-        table.insert(classAndLevelIndex["Seeker"..upgradeKey], cardMetadata.id)
-      end
-      if (isMystic) then
-        table.insert(classAndLevelIndex["Mystic"..upgradeKey], cardMetadata.id)
-      end
-      if (isRogue) then
-        table.insert(classAndLevelIndex["Rogue"..upgradeKey], cardMetadata.id)
-      end
-      if (isSurvivor) then
-        table.insert(classAndLevelIndex["Survivor"..upgradeKey], cardMetadata.id)
-      end
-      if (isNeutral) then
-        table.insert(classAndLevelIndex["Neutral"..upgradeKey], cardMetadata.id)
+      -- Add the card to the appropriate class and level indexes
+      local isGuardian = false
+      local isSeeker = false
+      local isMystic = false
+      local isRogue = false
+      local isSurvivor = false
+      local isNeutral = false
+      local upgradeKey
+      -- Excludes signature cards (which have no class or level) and alternate
+      -- ID entries
+      if (cardMetadata.class ~= nil and cardMetadata.level ~= nil) then
+        isGuardian = string.match(cardMetadata.class, "Guardian")
+        isSeeker = string.match(cardMetadata.class, "Seeker")
+        isMystic = string.match(cardMetadata.class, "Mystic")
+        isRogue = string.match(cardMetadata.class, "Rogue")
+        isSurvivor = string.match(cardMetadata.class, "Survivor")
+        isNeutral = string.match(cardMetadata.class, "Neutral")
+        if (cardMetadata.level > 0) then
+          upgradeKey = "-upgrade"
+        else
+          upgradeKey = "-level0"
+        end
+        if (isGuardian) then
+          table.insert(classAndLevelIndex["Guardian"..upgradeKey], cardMetadata.id)
+        end
+        if (isSeeker) then
+          table.insert(classAndLevelIndex["Seeker"..upgradeKey], cardMetadata.id)
+        end
+        if (isMystic) then
+          table.insert(classAndLevelIndex["Mystic"..upgradeKey], cardMetadata.id)
+        end
+        if (isRogue) then
+          table.insert(classAndLevelIndex["Rogue"..upgradeKey], cardMetadata.id)
+        end
+        if (isSurvivor) then
+          table.insert(classAndLevelIndex["Survivor"..upgradeKey], cardMetadata.id)
+        end
+        if (isNeutral) then
+          table.insert(classAndLevelIndex["Neutral"..upgradeKey], cardMetadata.id)
+        end
       end
     end
   end
@@ -259,7 +261,7 @@ function buildAvailableWeaknesses()
       incrementWeaknessCount(weaknessesInPlay, cardMetadata)
     end
   end
-  
+
   local availableWeaknesses = { }
   for _, weaknessId in ipairs(basicWeaknessList) do
     if (weaknessesInPlay[weaknessId] ~= nil and weaknessesInPlay[weaknessId] > 0) then
